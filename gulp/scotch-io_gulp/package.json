@@ -1,0 +1,18 @@
+{
+  "name": "learn-gulp",
+  "version": "1.0.0",
+  "description": "Sample app to play around with gulp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-util": "^3.0.6",
+    "jshint-stylish": "^2.0.1"
+  }
+}

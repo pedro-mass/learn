@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+##
+# Bootstrap
+# Copyright(c) 2014 SPARC
+##
+mkdir -p /var/tmp && cd /var/tmp
+
+# Packages
+
+PKG=command_line_tools_for_os_x_10.10_for_xcode_6.3.2
+if [ ! -f .installed-$PKG ];
+then
+echo "Install Command Line Tools"
+xcode-select --install && touch .installed-$PKG
+fi
+
+PKG=homebrew
+if [ ! -f .installed-$PKG ];
+then
+echo "Install Homebrew"
+ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/$PKG/go/install)" && touch .installed-$PKG
+echo "Brew update"
+brew update
+fi
+
+echo "Apple Software Update"
+sudo softwareupdate -i -a
+
+VER=v0.12.4
+PKG=node-$VER-darwin-x64
+if [ ! -f .installed-$PKG ];
+then
+echo "Install Node"
+mkdir -p node && curl -sL http://nodejs.org/dist/$VER/$PKG.tar.gz | tar -xz --strip 1 -C node && cd node && cp -R {bin,lib,share} /usr/local/ && cd ../ && rm -fR node && touch .installed-$PKG
+fi
+
+# echo "Update NPM"
+npm update -g npm
+
+# PKG=bower
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "NPM install Bower"
+# npm install -g $PKG && touch .installed-$PKG
+# fi
+
+# PKG=grunt-cli
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "NPM install Grunt"
+# npm install -g $PKG && touch .installed-$PKG
+# fi
+
+# PKG=gulp
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "NPM install Gulp"
+# npm install -g $PKG && touch .installed-$PKG
+# fi
+
+PKG=mongodb-osx-x86_64-3.0.3
+if [ ! -f .installed-$PKG ];
+then
+echo "Install MongoDB"
+mkdir -p mongo && curl -sL http://fastdl.mongodb.org/linux/$PKG.tgz | tar -xz --strip 1 -C mongo && cd mongo && cp -R bin /usr/local/ && sudo mkdir -p /var/lib/mongo && cd ../ && rm -fR mongo && touch .installed-$PKG
+fi

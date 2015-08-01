@@ -1,0 +1,12 @@
+{
+  "name": "12-mongo-express",
+  "version": "0.0.1",
+  "description": "12 MongoDB Express",
+  "dependencies": {
+    "express": "4.x.x",
+    "mongoose": "4.x.x"
+  },
+  "devDependencies": {
+    
+  }
+}

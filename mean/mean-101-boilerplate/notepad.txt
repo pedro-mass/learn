@@ -1,0 +1,9 @@
+cd MEAN-101-BOILERPLATE
+vagrant up
+vagrant ssh
+
+/vagrant/bin/bootstrap
+
+########	Mongo DB	########
+
+sudo mongod --var

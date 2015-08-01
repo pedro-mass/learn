@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body ng-app="example" ng-init="textToConvert = 'This text will be converted to leet speak!'; progressValue = 20; progressMax = 100">
+  <input ng-model="textToConvert">
+  <div example-bind-leet="textToConvert"></div>
+
+  <div>
+    <input ng-model="progressValue">
+    <input ng-model="progressMax">
+    <example-progress value="progressValue" max="progressMax"></example-progress>
+  </div>
+</body>
+</html>

@@ -1,0 +1,1055 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7ba6f90e-512a-4186-8b54-b888986353a2" name="Default" comment="" />
+    <ignored path="hackhands.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="hackhands" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="login.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/express-mvc/app/views/login.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="33" column="31" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/express-mvc/app/views/register.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="42" column="7" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="users.server.controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/express-mvc/app/controllers/users.server.controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="69" column="2" selection-start-line="69" selection-start-column="2" selection-end-line="69" selection-end-column="2" />
+              <folding>
+                <element signature="e#119#605#0" expanded="false" />
+                <element signature="e#161#401#0" expanded="false" />
+                <element signature="e#171#395#0" expanded="false" />
+                <element signature="e#407#582#0" expanded="false" />
+                <element signature="e#449#576#0" expanded="false" />
+                <element signature="e#496#566#0" expanded="false" />
+                <element signature="e#655#870#0" expanded="false" />
+                <element signature="e#676#821#0" expanded="false" />
+                <element signature="e#706#813#0" expanded="false" />
+                <element signature="e#827#868#0" expanded="false" />
+                <element signature="e#923#1122#0" expanded="false" />
+                <element signature="e#944#1073#0" expanded="false" />
+                <element signature="e#977#1065#0" expanded="false" />
+                <element signature="e#1079#1120#0" expanded="false" />
+                <element signature="e#1169#1743#0" expanded="false" />
+                <element signature="e#1190#1694#0" expanded="false" />
+                <element signature="e#1324#1686#0" expanded="false" />
+                <element signature="e#1347#1509#0" expanded="false" />
+                <element signature="e#1553#1674#0" expanded="false" />
+                <element signature="e#1700#1741#0" expanded="false" />
+                <element signature="e#1782#1826#0" expanded="false" />
+                <element signature="e#1871#2059#0" expanded="false" />
+                <element signature="e#1936#2055#0" expanded="false" />
+                <element signature="e#1955#1996#0" expanded="false" />
+                <element signature="e#2010#2049#0" expanded="false" />
+                <element signature="e#2102#2254#0" expanded="false" />
+                <element signature="e#2143#2250#0" expanded="false" />
+                <element signature="e#2161#2200#0" expanded="false" />
+                <element signature="e#2206#2244#0" expanded="false" />
+                <element signature="e#2291#2318#0" expanded="false" />
+                <element signature="e#2369#2569#0" expanded="false" />
+                <element signature="e#2388#2411#0" expanded="false" />
+                <element signature="e#2433#2565#0" expanded="false" />
+                <element signature="e#2452#2493#0" expanded="false" />
+                <element signature="e#2499#2559#0" expanded="false" />
+                <element signature="e#2614#2796#0" expanded="false" />
+                <element signature="e#2686#2792#0" expanded="false" />
+                <element signature="e#2704#2743#0" expanded="false" />
+                <element signature="e#2749#2786#0" expanded="false" />
+                <element signature="e#2841#2991#0" expanded="false" />
+                <element signature="e#2877#2987#0" expanded="false" />
+                <element signature="e#2895#2934#0" expanded="false" />
+                <element signature="e#2940#2981#0" expanded="false" />
+                <element signature="e#3475#3966#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tmp.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/express-mvc/app/controllers/tmp.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="315" column="12" selection-start-line="315" selection-start-column="12" selection-end-line="315" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="express.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/express-mvc/config/express.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="users.server.routes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/express-mvc/app/routes/users.server.routes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.server.routes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/express-mvc/app/routes/index.server.routes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.server.controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/express-mvc/app/controllers/index.server.controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="3" column="47" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/express-mvc/app/views/index.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/todomvc" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/server_connect.js" />
+        <option value="$PROJECT_DIR$/express/package.json" />
+        <option value="$PROJECT_DIR$/express/server.js" />
+        <option value="$PROJECT_DIR$/express-mvc/app/routes/index.server.routes.js" />
+        <option value="$PROJECT_DIR$/express-mvc/package.json" />
+        <option value="$PROJECT_DIR$/express-mvc/config/env/development.js" />
+        <option value="$PROJECT_DIR$/express-mvc/config/config.js" />
+        <option value="$PROJECT_DIR$/express-mvc/config/mongoose.js" />
+        <option value="$PROJECT_DIR$/express-mvc/server.js" />
+        <option value="$PROJECT_DIR$/express-mvc/config/strategies/local.js" />
+        <option value="$PROJECT_DIR$/express-mvc/config/passport.js" />
+        <option value="$PROJECT_DIR$/express-mvc/app/models/user.server.model.js" />
+        <option value="$PROJECT_DIR$/express-mvc/app/views/login.ejs" />
+        <option value="$PROJECT_DIR$/express-mvc/app/views/register.ejs" />
+        <option value="$PROJECT_DIR$/express-mvc/app/controllers/index.server.controller.js" />
+        <option value="$PROJECT_DIR$/express-mvc/app/views/index.ejs" />
+        <option value="$PROJECT_DIR$/express-mvc/config/express.js" />
+        <option value="$PROJECT_DIR$/express-mvc/app/routes/users.server.routes.js" />
+        <option value="$PROJECT_DIR$/express-mvc/app/controllers/users.server.controller.js" />
+        <option value="$PROJECT_DIR$/express-mvc/app/controllers/tmp.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="NamedScopeManager">
+    <order />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="873" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hackhands" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hackhands" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hackhands" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hackhands" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hackhands" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="express-mvc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hackhands" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hackhands" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="express-mvc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hackhands" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hackhands" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="express-mvc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hackhands" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hackhands" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="express-mvc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hackhands" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hackhands" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="express-mvc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../projects/anime-queue" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="HbShouldOpenHtmlAsHb" value="enabled" />
+    <property name="js.meteor.project" value="true" />
+    <property name="js.meteor.library.was.enabled" value="true" />
+    <property name="FullScreen" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/express-mvc" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <method />
+    </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="JsTestDriver-test-runner" factoryName="JsTestDriver">
+      <setting name="configLocationType" value="CONFIG_FILE" />
+      <setting name="settingsFile" value="" />
+      <setting name="serverType" value="INTERNAL" />
+      <setting name="preferredDebugBrowser" value="Chrome" />
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="cucumber.js" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" value="" />
+      <option name="executablePath" />
+      <option name="filePath" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+      <envs />
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7ba6f90e-512a-4186-8b54-b888986353a2" name="Default" comment="" />
+      <created>1433874064752</created>
+      <option name="number" value="Default" />
+      <updated>1433874064752</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1440" height="873" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24947146" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290653" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/views/login.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="31" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/views/register.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="7" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/controllers/users.server.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="69" column="2" selection-start-line="69" selection-start-column="2" selection-end-line="69" selection-end-column="2" />
+          <folding>
+            <element signature="e#119#605#0" expanded="false" />
+            <element signature="e#161#401#0" expanded="false" />
+            <element signature="e#171#395#0" expanded="false" />
+            <element signature="e#407#582#0" expanded="false" />
+            <element signature="e#449#576#0" expanded="false" />
+            <element signature="e#496#566#0" expanded="false" />
+            <element signature="e#655#870#0" expanded="false" />
+            <element signature="e#676#821#0" expanded="false" />
+            <element signature="e#706#813#0" expanded="false" />
+            <element signature="e#827#868#0" expanded="false" />
+            <element signature="e#923#1122#0" expanded="false" />
+            <element signature="e#944#1073#0" expanded="false" />
+            <element signature="e#977#1065#0" expanded="false" />
+            <element signature="e#1079#1120#0" expanded="false" />
+            <element signature="e#1169#1743#0" expanded="false" />
+            <element signature="e#1190#1694#0" expanded="false" />
+            <element signature="e#1324#1686#0" expanded="false" />
+            <element signature="e#1347#1509#0" expanded="false" />
+            <element signature="e#1553#1674#0" expanded="false" />
+            <element signature="e#1700#1741#0" expanded="false" />
+            <element signature="e#1782#1826#0" expanded="false" />
+            <element signature="e#1871#2059#0" expanded="false" />
+            <element signature="e#1936#2055#0" expanded="false" />
+            <element signature="e#1955#1996#0" expanded="false" />
+            <element signature="e#2010#2049#0" expanded="false" />
+            <element signature="e#2102#2254#0" expanded="false" />
+            <element signature="e#2143#2250#0" expanded="false" />
+            <element signature="e#2161#2200#0" expanded="false" />
+            <element signature="e#2206#2244#0" expanded="false" />
+            <element signature="e#2291#2318#0" expanded="false" />
+            <element signature="e#2369#2569#0" expanded="false" />
+            <element signature="e#2388#2411#0" expanded="false" />
+            <element signature="e#2433#2565#0" expanded="false" />
+            <element signature="e#2452#2493#0" expanded="false" />
+            <element signature="e#2499#2559#0" expanded="false" />
+            <element signature="e#2614#2796#0" expanded="false" />
+            <element signature="e#2686#2792#0" expanded="false" />
+            <element signature="e#2704#2743#0" expanded="false" />
+            <element signature="e#2749#2786#0" expanded="false" />
+            <element signature="e#2841#2991#0" expanded="false" />
+            <element signature="e#2877#2987#0" expanded="false" />
+            <element signature="e#2895#2934#0" expanded="false" />
+            <element signature="e#2940#2981#0" expanded="false" />
+            <element signature="e#3475#3966#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/controllers/tmp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/config/express.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/routes/users.server.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/routes/index.server.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/controllers/index.server.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="47" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/views/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/views/login.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="31" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/views/register.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="7" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/controllers/users.server.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="145" column="92" selection-start-line="145" selection-start-column="92" selection-end-line="145" selection-end-column="92" />
+          <folding>
+            <element signature="e#119#605#0" expanded="false" />
+            <element signature="e#161#401#0" expanded="false" />
+            <element signature="e#171#395#0" expanded="false" />
+            <element signature="e#407#582#0" expanded="false" />
+            <element signature="e#449#576#0" expanded="false" />
+            <element signature="e#496#566#0" expanded="false" />
+            <element signature="e#655#870#0" expanded="false" />
+            <element signature="e#676#821#0" expanded="false" />
+            <element signature="e#706#813#0" expanded="false" />
+            <element signature="e#827#868#0" expanded="false" />
+            <element signature="e#923#1122#0" expanded="false" />
+            <element signature="e#944#1073#0" expanded="false" />
+            <element signature="e#977#1065#0" expanded="false" />
+            <element signature="e#1079#1120#0" expanded="false" />
+            <element signature="e#1169#1743#0" expanded="false" />
+            <element signature="e#1190#1694#0" expanded="false" />
+            <element signature="e#1324#1686#0" expanded="false" />
+            <element signature="e#1347#1509#0" expanded="false" />
+            <element signature="e#1553#1674#0" expanded="false" />
+            <element signature="e#1700#1741#0" expanded="false" />
+            <element signature="e#1782#1826#0" expanded="false" />
+            <element signature="e#1871#2059#0" expanded="false" />
+            <element signature="e#1936#2055#0" expanded="false" />
+            <element signature="e#1955#1996#0" expanded="false" />
+            <element signature="e#2010#2049#0" expanded="false" />
+            <element signature="e#2102#2254#0" expanded="false" />
+            <element signature="e#2143#2250#0" expanded="false" />
+            <element signature="e#2161#2200#0" expanded="false" />
+            <element signature="e#2206#2244#0" expanded="false" />
+            <element signature="e#2291#2318#0" expanded="false" />
+            <element signature="e#2369#2569#0" expanded="false" />
+            <element signature="e#2388#2411#0" expanded="false" />
+            <element signature="e#2433#2565#0" expanded="false" />
+            <element signature="e#2452#2493#0" expanded="false" />
+            <element signature="e#2499#2559#0" expanded="false" />
+            <element signature="e#2614#2796#0" expanded="false" />
+            <element signature="e#2686#2792#0" expanded="false" />
+            <element signature="e#2704#2743#0" expanded="false" />
+            <element signature="e#2749#2786#0" expanded="false" />
+            <element signature="e#2841#2991#0" expanded="false" />
+            <element signature="e#2877#2987#0" expanded="false" />
+            <element signature="e#2895#2934#0" expanded="false" />
+            <element signature="e#2940#2981#0" expanded="false" />
+            <element signature="e#3475#3966#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/config/express.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/routes/users.server.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/routes/index.server.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/controllers/index.server.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="47" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/views/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/views/login.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="31" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/views/register.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="7" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/controllers/users.server.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="50" column="27" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
+          <folding>
+            <element signature="e#119#605#0" expanded="false" />
+            <element signature="e#161#401#0" expanded="false" />
+            <element signature="e#171#395#0" expanded="false" />
+            <element signature="e#407#582#0" expanded="false" />
+            <element signature="e#449#576#0" expanded="false" />
+            <element signature="e#496#566#0" expanded="false" />
+            <element signature="e#655#870#0" expanded="false" />
+            <element signature="e#676#821#0" expanded="false" />
+            <element signature="e#706#813#0" expanded="false" />
+            <element signature="e#827#868#0" expanded="false" />
+            <element signature="e#923#1122#0" expanded="false" />
+            <element signature="e#944#1073#0" expanded="false" />
+            <element signature="e#977#1065#0" expanded="false" />
+            <element signature="e#1079#1120#0" expanded="false" />
+            <element signature="e#1169#1743#0" expanded="false" />
+            <element signature="e#1190#1694#0" expanded="false" />
+            <element signature="e#1324#1686#0" expanded="false" />
+            <element signature="e#1347#1509#0" expanded="false" />
+            <element signature="e#1553#1674#0" expanded="false" />
+            <element signature="e#1700#1741#0" expanded="false" />
+            <element signature="e#1782#1826#0" expanded="false" />
+            <element signature="e#1871#2059#0" expanded="false" />
+            <element signature="e#1936#2055#0" expanded="false" />
+            <element signature="e#1955#1996#0" expanded="false" />
+            <element signature="e#2010#2049#0" expanded="false" />
+            <element signature="e#2102#2254#0" expanded="false" />
+            <element signature="e#2143#2250#0" expanded="false" />
+            <element signature="e#2161#2200#0" expanded="false" />
+            <element signature="e#2206#2244#0" expanded="false" />
+            <element signature="e#2291#2318#0" expanded="false" />
+            <element signature="e#2369#2569#0" expanded="false" />
+            <element signature="e#2388#2411#0" expanded="false" />
+            <element signature="e#2433#2565#0" expanded="false" />
+            <element signature="e#2452#2493#0" expanded="false" />
+            <element signature="e#2499#2559#0" expanded="false" />
+            <element signature="e#2614#2796#0" expanded="false" />
+            <element signature="e#2686#2792#0" expanded="false" />
+            <element signature="e#2704#2743#0" expanded="false" />
+            <element signature="e#2749#2786#0" expanded="false" />
+            <element signature="e#2841#2991#0" expanded="false" />
+            <element signature="e#2877#2987#0" expanded="false" />
+            <element signature="e#2895#2934#0" expanded="false" />
+            <element signature="e#2940#2981#0" expanded="false" />
+            <element signature="e#3475#3966#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/config/express.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/routes/users.server.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/routes/index.server.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/controllers/index.server.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="47" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/views/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/views/login.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="31" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/views/register.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="7" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/controllers/users.server.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#119#605#0" expanded="false" />
+            <element signature="e#161#401#0" expanded="false" />
+            <element signature="e#171#395#0" expanded="false" />
+            <element signature="e#407#582#0" expanded="false" />
+            <element signature="e#449#576#0" expanded="false" />
+            <element signature="e#496#566#0" expanded="false" />
+            <element signature="e#655#870#0" expanded="false" />
+            <element signature="e#676#821#0" expanded="false" />
+            <element signature="e#706#813#0" expanded="false" />
+            <element signature="e#827#868#0" expanded="false" />
+            <element signature="e#923#1122#0" expanded="false" />
+            <element signature="e#944#1073#0" expanded="false" />
+            <element signature="e#977#1065#0" expanded="false" />
+            <element signature="e#1079#1120#0" expanded="false" />
+            <element signature="e#1169#1743#0" expanded="false" />
+            <element signature="e#1190#1694#0" expanded="false" />
+            <element signature="e#1324#1686#0" expanded="false" />
+            <element signature="e#1347#1509#0" expanded="false" />
+            <element signature="e#1553#1674#0" expanded="false" />
+            <element signature="e#1700#1741#0" expanded="false" />
+            <element signature="e#1782#1826#0" expanded="false" />
+            <element signature="e#1871#2059#0" expanded="false" />
+            <element signature="e#1936#2055#0" expanded="false" />
+            <element signature="e#1955#1996#0" expanded="false" />
+            <element signature="e#2010#2049#0" expanded="false" />
+            <element signature="e#2102#2254#0" expanded="false" />
+            <element signature="e#2143#2250#0" expanded="false" />
+            <element signature="e#2161#2200#0" expanded="false" />
+            <element signature="e#2206#2244#0" expanded="false" />
+            <element signature="e#2291#2318#0" expanded="false" />
+            <element signature="e#2369#2569#0" expanded="false" />
+            <element signature="e#2388#2411#0" expanded="false" />
+            <element signature="e#2433#2565#0" expanded="false" />
+            <element signature="e#2452#2493#0" expanded="false" />
+            <element signature="e#2499#2559#0" expanded="false" />
+            <element signature="e#2614#2796#0" expanded="false" />
+            <element signature="e#2686#2792#0" expanded="false" />
+            <element signature="e#2704#2743#0" expanded="false" />
+            <element signature="e#2749#2786#0" expanded="false" />
+            <element signature="e#2841#2991#0" expanded="false" />
+            <element signature="e#2877#2987#0" expanded="false" />
+            <element signature="e#2895#2934#0" expanded="false" />
+            <element signature="e#2940#2981#0" expanded="false" />
+            <element signature="e#3475#3966#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server_connect.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="58" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.75">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.5555553">
+          <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/config/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="49" selection-start-line="0" selection-start-column="49" selection-end-line="0" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/config/env/development.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="2" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/config/mongoose.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="39" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.791667">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/config/strategies/local.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="40" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/config/passport.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="35" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/models/user.server.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="53" selection-start-line="33" selection-start-column="53" selection-end-line="33" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/views/login.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="31" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/views/register.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="7" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/routes/index.server.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/controllers/index.server.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="47" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/routes/users.server.routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/config/express.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/views/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/controllers/users.server.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="69" column="2" selection-start-line="69" selection-start-column="2" selection-end-line="69" selection-end-column="2" />
+          <folding>
+            <element signature="e#119#605#0" expanded="false" />
+            <element signature="e#161#401#0" expanded="false" />
+            <element signature="e#171#395#0" expanded="false" />
+            <element signature="e#407#582#0" expanded="false" />
+            <element signature="e#449#576#0" expanded="false" />
+            <element signature="e#496#566#0" expanded="false" />
+            <element signature="e#655#870#0" expanded="false" />
+            <element signature="e#676#821#0" expanded="false" />
+            <element signature="e#706#813#0" expanded="false" />
+            <element signature="e#827#868#0" expanded="false" />
+            <element signature="e#923#1122#0" expanded="false" />
+            <element signature="e#944#1073#0" expanded="false" />
+            <element signature="e#977#1065#0" expanded="false" />
+            <element signature="e#1079#1120#0" expanded="false" />
+            <element signature="e#1169#1743#0" expanded="false" />
+            <element signature="e#1190#1694#0" expanded="false" />
+            <element signature="e#1324#1686#0" expanded="false" />
+            <element signature="e#1347#1509#0" expanded="false" />
+            <element signature="e#1553#1674#0" expanded="false" />
+            <element signature="e#1700#1741#0" expanded="false" />
+            <element signature="e#1782#1826#0" expanded="false" />
+            <element signature="e#1871#2059#0" expanded="false" />
+            <element signature="e#1936#2055#0" expanded="false" />
+            <element signature="e#1955#1996#0" expanded="false" />
+            <element signature="e#2010#2049#0" expanded="false" />
+            <element signature="e#2102#2254#0" expanded="false" />
+            <element signature="e#2143#2250#0" expanded="false" />
+            <element signature="e#2161#2200#0" expanded="false" />
+            <element signature="e#2206#2244#0" expanded="false" />
+            <element signature="e#2291#2318#0" expanded="false" />
+            <element signature="e#2369#2569#0" expanded="false" />
+            <element signature="e#2388#2411#0" expanded="false" />
+            <element signature="e#2433#2565#0" expanded="false" />
+            <element signature="e#2452#2493#0" expanded="false" />
+            <element signature="e#2499#2559#0" expanded="false" />
+            <element signature="e#2614#2796#0" expanded="false" />
+            <element signature="e#2686#2792#0" expanded="false" />
+            <element signature="e#2704#2743#0" expanded="false" />
+            <element signature="e#2749#2786#0" expanded="false" />
+            <element signature="e#2841#2991#0" expanded="false" />
+            <element signature="e#2877#2987#0" expanded="false" />
+            <element signature="e#2895#2934#0" expanded="false" />
+            <element signature="e#2940#2981#0" expanded="false" />
+            <element signature="e#3475#3966#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/express-mvc/app/controllers/tmp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="315" column="12" selection-start-line="315" selection-start-column="12" selection-end-line="315" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

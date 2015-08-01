@@ -1,0 +1,11 @@
+#GIT IGNORE
+
+## OS Stuff
+.DS_Store*
+Thumbs.db
+
+## Node / Express / Stuff
+node_modules
+
+## Bower Stuff
+bower_components

@@ -1,0 +1,24 @@
+{
+  "name": "handsexpress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.12.4",
+    "connect": "^3.3.5",
+    "connect-flash": "^0.1.1",
+    "ejs": "^2.3.1",
+    "express": "^4.12.4",
+    "express-session": "^1.11.2",
+    "mongoose": "^4.0.5",
+    "passport": "^0.2.2",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

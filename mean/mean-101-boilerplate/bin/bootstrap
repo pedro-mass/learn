@@ -1,0 +1,104 @@
+#!/usr/bin/env bash
+##
+# Bootstrap
+# Copyright(c) 2014 SPARC
+##
+mkdir -p /var/tmp && cd /var/tmp/
+
+ME=$(whoami)
+PKG=profile
+if [ ! -f .installed-$PKG ];
+then
+export HOME=/vagrant
+sudo locale-gen en_US.UTF-8
+touch .installed-$PKG
+fi
+
+# Set preferences
+# PKG=preferences
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "Set preferences"
+# ~/.osx && touch .installed-$PKG
+# fi
+
+echo "Apt update"
+sudo apt-get update
+
+PKG=git
+if [ ! -f .installed-$PKG ];
+then
+echo "Apt install Git"
+sudo apt-get -y install $PKG && touch .installed-$PKG
+fi
+
+# Set permissions
+PKG=permissions
+if [ ! -f .installed-$PKG ];
+then
+echo "Set $PKG"
+sudo chmod g+rwx /usr/local/{.,bin,etc,include,lib,sbin,share,src,share/man}
+GRP=$(whoami)
+sudo chgrp $GRP /usr/local/{.,bin,etc,include,lib,sbin,share,src,share/man}
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/*
+touch .installed-$PKG
+fi
+
+# Create workspace
+PKG=workspace
+if [ ! -f .installed-$PKG ];
+then
+echo "Create $PKG"
+mkdir -p ~/.vim/{backups,bundle,swaps,undo}
+touch .installed-$PKG
+fi
+
+echo "Apt upgrade"
+sudo apt-get -y upgrade
+
+PKG=make-gcc-ssl
+if [ ! -f .installed-$PKG ];
+then
+echo "Apt install Make & GCC & SSL"
+sudo apt-get -y install build-essential libssl-dev && touch .installed-$PKG
+fi
+
+VER=v0.12.4
+PKG=node-$VER-linux-x64
+if [ ! -f .installed-$PKG ];
+then
+echo "Install Node"
+mkdir -p node && curl -sL http://nodejs.org/dist/$VER/$PKG.tar.gz | tar -xz --strip 1 -C node && cd node && cp -R {bin,lib,share} /usr/local/ && cd ../ && rm -fR node && touch .installed-$PKG
+fi
+
+# echo "Update NPM"
+npm update -g npm
+
+# PKG=bower
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "NPM install Bower"
+# npm install -g $PKG && touch .installed-$PKG
+# fi
+
+# PKG=grunt-cli
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "NPM install Grunt"
+# npm install -g $PKG && touch .installed-$PKG
+# fi
+
+# PKG=gulp
+# if [ ! -f .installed-$PKG ];
+# then
+# echo "NPM install Gulp"
+# npm install -g $PKG && touch .installed-$PKG
+# fi
+
+PKG=mongodb-linux-x86_64-3.0.3
+if [ ! -f .installed-$PKG ];
+then
+echo "Install MongoDB"
+mkdir -p mongo && curl -sL http://fastdl.mongodb.org/linux/$PKG.tgz | tar -xz --strip 1 -C mongo && cd mongo && cp -R bin /usr/local/ && sudo mkdir -p /var/lib/mongo && cd ../ && rm -fR mongo && touch .installed-$PKG
+fi

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="ear" name="team21-batch:ear">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="team21-batch-0.1.0.ear">
+      <element id="artifact" artifact-name="team21-batch:ear exploded" />
+    </root>
+  </artifact>
+</component>

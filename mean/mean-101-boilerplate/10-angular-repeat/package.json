@@ -1,0 +1,13 @@
+{
+  "name": "mean-app",
+  "version": "0.0.1",
+  "description": "Mean App",
+  "dependencies": {
+    "consolidate": "0.x.x",
+  	"ejs": "1.x.x",
+    "express": "4.x.x"
+  },
+  "devDependencies": {
+    
+  }
+}

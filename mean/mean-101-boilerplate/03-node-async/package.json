@@ -1,0 +1,11 @@
+{
+  "name": "03-node-async",
+  "version": "0.0.1",
+  "description": "03 Node Async",
+  "dependencies": {
+    "async": "1.x.x"
+  },
+  "devDependencies": {
+    
+  }
+}

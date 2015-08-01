@@ -1,0 +1,11 @@
+{
+  "name": "06-express-route",
+  "version": "0.0.1",
+  "description": "06 Express Route",
+  "dependencies": {
+    "consolidate": "^0.13.1",
+    "ejs": "^2.3.1",
+    "express": "4.x.x"
+  },
+  "devDependencies": {}
+}

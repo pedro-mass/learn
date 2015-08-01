@@ -1,0 +1,11 @@
+{
+  "name": "06-express-view",
+  "version": "0.0.1",
+  "description": "06 Express View",
+  "dependencies": {
+    "consolidate": "^0.13.1",
+    "ejs": "^1.0.0",
+    "express": "4.x.x"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,99 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.test</groupId>
+    <artifactId>spring-batch-3rs</artifactId>
+    <version>20131228</version>
+    <name>The 3 rs of Spring Batch</name>
+    <packaging>jar</packaging>
+
+    <pluginRepositories>
+        <pluginRepository> <!-- Ignore this repository. Its only used for document publication. -->
+            <id>numberformat-releases</id>
+            <url>https://raw.github.com/numberformat/20130213/master/repo</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <properties>
+        <spring.framework.version>3.2.1.RELEASE</spring.framework.version>
+        <spring.batch.version>3.0.0.M2</spring.batch.version>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>spring-s3</id>
+            <name>Spring Maven MILESTONE Repository</name>
+            <url>http://maven.springframework.org/milestone</url>
+        </repository>
+    </repositories>
+    <dependencies>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.batch</groupId>
+            <artifactId>spring-batch-core</artifactId>
+            <version>${spring.batch.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.batch</groupId>
+            <artifactId>spring-batch-infrastructure</artifactId>
+            <version>${spring.batch.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.8.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>${spring.framework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.framework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>1.8.0.7</version>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin> <!-- Ignore this plugin. Its only used for document publication. -->
+                <groupId>github.numberformat</groupId>
+                <artifactId>blog-plugin</artifactId>
+                <version>1.0-SNAPSHOT</version>
+                <configuration>
+                    <gitUrl>https://github.com/numberformat/wordpress/tree/master/${project.version}/${project.artifactId}</gitUrl>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>1</id>
+                        <phase>site</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- Run the application using:
+    mvn compile exec:java -Dexec.mainClass=org.springframework.batch.core.launch.support.CommandLineJobRunner -Dexec.args="com.test.config.ThreeRJobConfig threeRJob"
+    -->
+
+</project>
