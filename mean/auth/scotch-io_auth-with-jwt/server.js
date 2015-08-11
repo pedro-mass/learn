@@ -89,7 +89,7 @@ apiRoutes.post('/authenticate', function(req, res) {
 
 
 // route middleware to verify a token
-apiRoutes.use(function(req, res, next) {
+function verifyToken(req, res, next) {
   // check header or url parameters or post parameters for token
   var token = req.body.token || req.query.token || req.headers['x-access-token'];
 
@@ -116,15 +116,15 @@ apiRoutes.use(function(req, res, next) {
       message: 'No token provided.'
     });
   }
-});
+};
 
 // route to show a random message
-apiRoutes.get('/', function(req, res) {
+apiRoutes.get('/', verifyToken, function(req, res) {
   res.json({ message: 'Welcome to the coolest API on earth!' });
 });
 
 // route to return all users
-apiRoutes.get('/users', function(req, res) {
+apiRoutes.get('/users', verifyToken, function(req, res) {
   User.find({}, function(err, users) {
     res.json(users);
   });
