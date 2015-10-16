@@ -16,6 +16,14 @@
       <div class="channel create">
         <a ui-sref="channels.create">+ create channel</a>
       </div>
+
+      <div class="list-head">Direct Messages</div>
+      <div class="channel" ng-repeat="user in channelsCtrl.users">
+        <a ui-sref="channels.private({uid: user.$id})" ui-sref-active="selected">
+          <span class="presence" ng-class="{ online: channelsCtrl.profile.online }"></span>
+          {{ user.displayName }}
+        </a>
+      </div>
     </div>
 
     <div class="my-info">
