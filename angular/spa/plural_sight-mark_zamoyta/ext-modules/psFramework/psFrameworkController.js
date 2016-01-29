@@ -2,17 +2,17 @@ angular.module("psFramework")
   .controller("psFrameworkController", [
     '$scope', '$rootScope', '$window', '$timeout',
     function ($scope, $rootScope, $window, $timeout) {
+      $scope.isMenuVisible = true;
+
       $scope.$on('ps-menu-item-selected-event', function (evt, data) {
         $scope.routeString = data.route;
 
         checkWidth();
-        broadcastMenuState();
       });
 
       $($window).on('resize.psFramework', function () {
         $scope.$apply(function () {
           checkWidth();
-          broadcastMenuState();
         });
       });
 
@@ -25,6 +25,8 @@ angular.module("psFramework")
 
         $scope.isMenuVisible = (width > 765);
         $scope.isMenuButtonVisible = !$scope.isMenuVisible;
+
+        broadcastMenuState();
       };
 
       $scope.menuButtonClicked = function () {
