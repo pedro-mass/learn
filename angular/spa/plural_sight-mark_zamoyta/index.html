@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Whitewater Adventures</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="app/app.css" rel="stylesheet"/>
+    <link href="ext-modules/psFramework/psFramework.css" rel="stylesheet"/>
+    <link href='ext-modules/psMenu/psMenu.css' rel='stylesheet' type='text/css'>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+
+
+
+    <script src="ext-modules/psMenu/psMenuModule.js"></script>
+    <script src="ext-modules/psMenu/psMenuController.js"></script>
+    <script src="ext-modules/psMenu/psMenuDirective.js"></script>
+    <script src="ext-modules/psMenu/psMenuItemDirective.js"></script>
+
+
+
+    <script src="ext-modules/psDashboard/psDashboardModule.js"></script>
+
+
+    <script src="ext-modules/psFramework/psFrameworkModule.js"></script>
+    <script src="ext-modules/psFramework/psFrameworkDirective.js"></script>
+    <script src="ext-modules/psFramework/psFrameworkController.js"></script>
+    <script src="app/appModule.js"></script>
+  </head>
+  <body class="container-fluid">
+    <ps-framework title="Whitewater Adventures" subtitle="Administrative Application" icon-file="images/kayak-icon-flat.png">
+
+      <ps-menu>
+        <ps-menu-item label="Dashboard" icon="fa-dashboard" route="dashboard"></ps-menu-item>
+        <ps-menu-item label="Locations" icon="fa-location-arrow" route="locations"></ps-menu-item>
+        <ps-menu-item label="Raft Guides" icon="fa-user" route="guides"></ps-menu-item>
+      </ps-menu>
+
+    </ps-framework>
+  </body>
+</html>
