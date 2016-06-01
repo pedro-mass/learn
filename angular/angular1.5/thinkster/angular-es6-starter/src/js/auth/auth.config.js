@@ -14,7 +14,6 @@ function AuthConfig($stateProvider, $httpProvider) {
         }
       }
     })
-
     .state('app.register', {
       url: '/register',
       controller: 'AuthCtrl as $ctrl',
