@@ -1,0 +1,16 @@
+<div class="article-meta">
+  <a ui-sref="app.profile({ username:$ctrl.article.author.username })">
+    <img ng-src="{{$ctrl.article.author.image}}" />
+  </a>
+
+  <div class="info">
+    <a class="author"
+      ui-sref="app.profile({ username:$ctrl.article.author.username })"
+      ng-bind="$ctrl.article.author.username">
+    </a>
+    <span class="date"
+      ng-binid="$ctrl.article.createdAt | date: 'longDate' ">
+  </div>
+
+  <ng-transclude></ng-transclude>
+</div>
