@@ -6,6 +6,10 @@ class ArticleListCtrl {
 
     this.setListTo(this.listConfig);
 
+    $scope.$on('setListTo', (ev, newList) => {
+      this.setListTo(newList);
+    });
+
     $scope.$on('setPageTo', (ev, pageNumber) => {
       this.setPageTo(pageNumber)
     });
