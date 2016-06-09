@@ -75,4 +75,22 @@ export default class Articles {
       method: 'DELETE'
     });
   }
+
+  /*
+    Config object spec
+    {
+      type: String (REQUIRED) - Accpets "all", "feed"
+      filters: Object that serves as a key => value of URL params (i.e. {author:'ericsimons'})
+    }
+  */
+  query(config) {
+    // Create the $http object for this request
+    let request = {
+      url: this._AppConstants.api + '/articles' + ((config.type === 'feed') ? '/feed' : ''),
+      method: 'GET',
+      params: config.filters ? config.filters : null
+    };
+
+    return this._$http(request).then((res) => res.data);
+  }
 }
