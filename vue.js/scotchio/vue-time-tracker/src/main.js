@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import Hello from './components/Hello.vue'
+import Home from './components/Home.vue'
 
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
@@ -11,18 +12,18 @@ Vue.use(VueResource)
 Vue.use(VueRouter)
 
 // Pointing routes to the components they should use
-const routes = [
-  {path: '/', component: App},
-  {path: '/hello', component: Hello},
-
-  // catch all redirect
-  {path: '*', redirect: '/'}
-]
-
 const router = new VueRouter({
-  routes
+  routes: [
+    {path: '/', component: App},
+    {path: '/hello', component: Hello},
+    {path: '/home', component: Home},
+    {path: '/time-entries', component: Hello},
+
+    // catch all redirect
+    {path: '*', redirect: '/home'}
+  ]
 })
 
-new Vue({
+new App({
   router
 }).$mount('#app')
