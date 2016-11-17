@@ -1,0 +1,1 @@
+console.error("Error: Cannot find module '/Users/sparcfloater/dev/learn/vue.js/vuejs2-auth/src/app.js' from '/Users/sparcfloater/dev/learn/vue.js/vuejs2-auth'");
