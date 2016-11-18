@@ -159,7 +159,7 @@ apiRoutes.post('/exclamations', hasScope('add'), (req, res) => {
     user: username,
   };
 
-  exclamationData.unfshift(exclamation);
+  exclamationData.unshift(exclamation);
 
   res.status(201).json({ exclamation });
 });

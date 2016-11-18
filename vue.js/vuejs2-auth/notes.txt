@@ -1,0 +1,7 @@
+questions:
+
+- what is assignment syntax?
+  this.exclamations = [data.exclamation].concat(this.exclamations);
+  props: ['onAdd']
+  const { scopes, username } = req.user;
+  const { id } = req.params;
