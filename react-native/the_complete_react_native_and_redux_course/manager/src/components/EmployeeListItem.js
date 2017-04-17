@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text } from 'react-native';
 import { CardSection } from './common';
 
-class ListItem extends Component {
+class EmployeeListItem extends Component {
   render() {
     const { name } = this.props.employee;
 
@@ -23,4 +23,4 @@ const styles = {
   }
 };
 
-export default ListItem;
+export default EmployeeListItem;
