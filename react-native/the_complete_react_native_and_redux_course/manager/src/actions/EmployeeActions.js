@@ -43,8 +43,24 @@ export const employeesFetch = () => {
   };
 };
 
-const getEmployeesFirebaseRef = () => {
+export const employeeSave = ({ name, phone, shift, uid }) => {
+  const employeesRef = getEmployeesFirebaseRef(`/${uid}`);
+
+  return () => {
+    employeesRef
+      .set({ name, phone, shift })
+      .then(() => console.log('saved!'));
+  };
+};
+
+const getEmployeesFirebaseRef = (innerPath) => {
   const { currentUser } = firebase.auth();
 
-  return firebase.database().ref(`/users/${currentUser.uid}/employees`);
+  let ref = `/users/${currentUser.uid}/employees`;
+
+  if (innerPath) {
+    ref += `/${innerPath}`;
+  }
+
+  return firebase.database().ref(ref);
 };
