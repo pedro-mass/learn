@@ -1,11 +1,10 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Communications from 'react-native-communications';
+import { text } from 'react-native-communications';
 import { Card, CardSection, Button, Confirm } from './common';
 import EmployeeForm from './EmployeeForm';
 import { employeeUpdate, employeeSave, employeeDelete } from '../actions';
-
 
 class EmployeeEdit extends Component {
   state = { showModal: false };
@@ -27,7 +26,7 @@ class EmployeeEdit extends Component {
   onTextPress() {
     const { phone, shift } = this.props;
 
-    Communications.text(phone, `Your upcoming shift is on ${shift}`);
+    text(phone, `Your upcoming shift is on ${shift}`);
   }
 
   onFirePress() {
