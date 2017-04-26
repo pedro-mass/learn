@@ -45,10 +45,10 @@ export const employeesFetch = () => {
 };
 
 export const employeeSave = ({ name, phone, shift, uid }) => {
-  const employeesRef = getEmployeesFirebaseRef(`/${uid}`);
+  const employeeRef = getEmployeesFirebaseRef(uid);
 
   return (dispatch) => {
-    employeesRef
+    employeeRef
       .set({ name, phone, shift })
       .then(() => {
         dispatch({ type: EMPLOYEE_SAVE_SUCCESS });
@@ -58,13 +58,24 @@ export const employeeSave = ({ name, phone, shift, uid }) => {
   };
 };
 
-const getEmployeesFirebaseRef = (innerPath) => {
+export const employeeDelete = ({ uid }) => {
+  const employeeRef = getEmployeesFirebaseRef(uid);
+
+  return () => {
+    employeeRef.remove()
+      .then(() => {
+        Actions.employeeList({ type: 'reset' });
+      });
+  };
+};
+
+const getEmployeesFirebaseRef = (uid) => {
   const { currentUser } = firebase.auth();
 
   let ref = `/users/${currentUser.uid}/employees`;
 
-  if (innerPath) {
-    ref += `/${innerPath}`;
+  if (uid) {
+    ref += `/${uid}`;
   }
 
   return firebase.database().ref(ref);

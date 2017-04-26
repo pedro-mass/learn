@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Communications from 'react-native-communications';
 import { Card, CardSection, Button, Confirm } from './common';
 import EmployeeForm from './EmployeeForm';
-import { employeeUpdate, employeeSave } from '../actions';
+import { employeeUpdate, employeeSave, employeeDelete } from '../actions';
 
 
 class EmployeeEdit extends Component {
@@ -36,6 +36,18 @@ class EmployeeEdit extends Component {
     });
   }
 
+  onAccept() {
+    const { uid } = this.props.employee;
+
+    this.props.employeeDelete({ uid });
+  }
+
+  onDecline() {
+    this.setState({
+      showModal: false
+    });
+  }
+
   render() {
     return (
       <Card>
@@ -61,6 +73,8 @@ class EmployeeEdit extends Component {
 
         <Confirm
           visible={this.state.showModal}
+          onAccept={this.onAccept.bind(this)}
+          onDecline={this.onDecline.bind(this)}
         >
           Are you sure you want to delete this?
         </Confirm>
@@ -76,5 +90,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-  employeeUpdate, employeeSave
+  employeeUpdate, employeeSave, employeeDelete
 })(EmployeeEdit);
