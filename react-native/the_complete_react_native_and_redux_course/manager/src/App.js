@@ -24,7 +24,7 @@ class App extends Component {
       reducers,
       {}, // used for initializing state, but rarely used
       applyMiddleware(ReduxThunk)
-    )
+    );
 
     return (
       <Provider store={store}>
