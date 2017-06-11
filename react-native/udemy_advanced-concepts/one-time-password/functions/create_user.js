@@ -12,6 +12,8 @@ module.exports = function(req, res) {
   const phone = String(req.body.phone).replace(/[^\d]/g, '');
 
   // create new user account using the phone
-
-  // respond to the user request, saying the account was made
+  admin.auth().createUser({ uid: phone })
+    // respond to the user request, saying the account was made
+    .then(user => res.send(user))
+    .catch(err => res.status(422).send({ error: err }));
 };
