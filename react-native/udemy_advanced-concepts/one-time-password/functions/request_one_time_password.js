@@ -12,25 +12,34 @@ module.exports = function(req, res) {
   // a number instead of a string
   const phone = String(req.body.phone).replace(/[^\d]/g, '');
 
-  admin.auth().getUser(phone)
+  admin
+    .auth()
+    .getUser(phone)
     .then(userRecord => {
       const code = Math.floor(Math.random() * 8999 + 1000);
 
       // text the user
-      twilio.messages.create({
-        body: 'Your code is ' + code,
-        to: phone,
-        from: '+15853765124'
-      }, (err) => {
-        if (err) { return res.status(422).send(err); }
+      twilio.messages.create(
+        {
+          body: 'Your code is ' + code,
+          to: phone,
+          from: '+15853765124'
+        },
+        err => {
+          if (err) {
+            return res.status(422).send(err);
+          }
 
-        admin.database().ref('users/' + phone)
-          .update({ code: code, codeValid: true }, () => {
-            res.send({ success: true });
-          });
-      });
+          admin
+            .database()
+            .ref('users/' + phone)
+            .update({ code: code, codeValid: true }, () => {
+              res.send({ success: true });
+            });
+        }
+      );
     })
-    .catch((err) => {
+    .catch(err => {
       // for production
       // res.status(422).send({ error: 'User not found' });
       // for debugging

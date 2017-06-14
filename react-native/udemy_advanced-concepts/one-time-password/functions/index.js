@@ -4,6 +4,7 @@ const serviceAccount = require("./serviceAccountKey.json");
 
 const createUser = require('./create_user');
 const requestOneTimePassword = require('./request_one_time_password');
+const verifyOneTimePassword = require('./functions/verify_one_time_password');
 
 // configures the admin service account
 admin.initializeApp({
@@ -14,5 +15,6 @@ admin.initializeApp({
 
 exports.createUser = functions.https.onRequest(createUser);
 exports.requestOneTimePassword = functions.https.onRequest(requestOneTimePassword);
+exports.verifyOneTimePassword = functions.https.oneRequest(verifyOneTimePassword);
 
 // twilio phone #: +15853765124
