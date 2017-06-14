@@ -23,6 +23,8 @@ module.exports = (req, res) => {
       }
 
       return userRef.update({ codeValid: false });
+
+      admin.auth().createCustomToken(phone).then(token => res.send({ token }));
     })
     .then(() => {
       res.send('ok');
