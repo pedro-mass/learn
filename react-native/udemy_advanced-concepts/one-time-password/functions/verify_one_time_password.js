@@ -22,13 +22,11 @@ module.exports = (req, res) => {
         return res.status(422).send({ error: 'Code invalid.' });
       }
 
-      return userRef.update({ codeValid: false });
+      userRef.update({ codeValid: false });
 
-      admin.auth().createCustomToken(phone).then(token => res.send({ token }));
+      return admin.auth().createCustomToken(phone)
     })
-    .then(() => {
-      res.send('ok');
-    })
+    .then(token => res.send({ token }))
     .catch(error => {
       res.status(422).send({ error });
     });
