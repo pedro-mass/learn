@@ -3,14 +3,33 @@ import { View, Text } from 'react-native';
 import { FormLabel, FormInput, Button } from 'react-native-elements';
 
 class SignUpForm extends Component {
+  // constructor(props) {
+  //   super(props);
+  //
+  //   this.state = { phone: '' };
+  // }
+  // this replaces the above with es7 syntax;
+  state = { phone: '' };
+
+  // handleSubmit() {
+  //   console.log('submitting: ', this.state.phone);
+  // }
+  // this replaces the aboce with es7 syntax, and removes the need to bind this
+  handleSubmit = () => {
+    console.log('submitting: ', this.state.phone);
+  }
+
   render() {
     return (
       <View>
         <View style={{ marginBottom: 10 }}>
           <FormLabel>Enter Phone Number</FormLabel>
-          <FormInput />
+          <FormInput
+            value={this.state.phone}
+            onChangeText={phone => this.setState({ phone })}
+          />
         </View>
-        <Button title="Submit"/>
+        <Button onPress={this.handleSubmit} title="Submit"/>
       </View>
     );
   }
