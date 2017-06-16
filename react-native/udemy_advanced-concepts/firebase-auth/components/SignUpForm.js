@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { FormLabel, FormInput, Button } from 'react-native-elements';
+import axios from 'axios';
+
+const ROOT_URL='https://us-central1-one-time-password-15ad1.cloudfunctions.net'
 
 class SignUpForm extends Component {
   // constructor(props) {
@@ -16,7 +19,14 @@ class SignUpForm extends Component {
   // }
   // this replaces the aboce with es7 syntax, and removes the need to bind this
   handleSubmit = () => {
-    console.log('submitting: ', this.state.phone);
+    axios.post(`${ROOT_URL}/createUser`, {
+      phone: this.state.phone
+    })
+      .then(() => {
+        axios.post(`${ROOT_URL}/requestOneTimePassword`, {
+          phone: this.state.phone
+        });
+      });
   }
 
   render() {
