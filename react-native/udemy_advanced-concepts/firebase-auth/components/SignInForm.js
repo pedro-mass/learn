@@ -6,18 +6,8 @@ import axios from 'axios';
 const ROOT_URL='https://us-central1-one-time-password-15ad1.cloudfunctions.net'
 
 class SignInForm extends Component {
-  // constructor(props) {
-  //   super(props);
-  //
-  //   this.state = { phone: '' };
-  // }
-  // this replaces the above with es7 syntax;
   state = { phone: '', code: '' };
 
-  // handleSubmit() {
-  //   console.log('submitting: ', this.state.phone);
-  // }
-  // this replaces the aboce with es7 syntax, and removes the need to bind this
   handleSubmit = async () => {
     const { phone, code } = this.state;
 
