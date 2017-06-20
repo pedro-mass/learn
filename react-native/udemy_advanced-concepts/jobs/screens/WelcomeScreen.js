@@ -12,7 +12,7 @@ class WelcomeScreen extends Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <Slides data={SLIDE_DATA}/>
+        <Slides data={SLIDE_DATA} />
       </View>
     );
   }
