@@ -11,6 +11,8 @@ class Slides extends Component {
         <Button
           title="Onwards!"
           raised
+          buttonStyle={styles.button}
+          onPress={this.props.onComplete}
         />
       );
     }
@@ -53,6 +55,10 @@ const styles = {
   slideText: {
     fontSize: 30,
     color: 'white'
+  },
+  button: {
+    backgroundColor: '#0288D1',
+    marginTop: 15
   }
 };
 
