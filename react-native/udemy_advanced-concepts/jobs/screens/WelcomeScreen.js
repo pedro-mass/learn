@@ -11,7 +11,7 @@ const SLIDE_DATA = [
 class WelcomeScreen extends Component {
   render() {
     return (
-      <View>
+      <View style={{ flex: 1 }}>
         <Slides data={SLIDE_DATA}/>
       </View>
     );
