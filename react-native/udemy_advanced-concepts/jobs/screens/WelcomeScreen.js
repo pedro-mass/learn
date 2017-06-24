@@ -20,8 +20,8 @@ class WelcomeScreen extends Component {
     let token = await AsyncStorage.getItem('fb_token');
 
     if (token) {
-      this.props.navigation.navigate('main');
       this.setState({ token });
+      this.props.navigation.navigate('main');
     } else {
       this.setState({ token: false });
     }
