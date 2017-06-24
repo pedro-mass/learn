@@ -33,13 +33,13 @@ class DeckScreen extends Component {
         </View>
 
         <Text>
-          {this.cleanSnippet(job.snippet)}
+          {job.snippet.replace(/<b>/g, '').replace(/<\/b>/g, '')}
         </Text>
       </Card>
     );
   }
 
-  cleanSnippet(snippet) {
+  cleanSnippet = (snippet) => {
     return snippet.replace(/<b>/g, '').replace(/<\/b>/g, '');
   }
 
