@@ -23,6 +23,7 @@ class DeckScreen extends Component {
             scrollEnabled={false}
             style={{ flex: 1 }}
             cacheEnabled={cacheEnabled}
+            initialRegion={initialRegion}
           >
           </MapView>
         </View>
@@ -52,9 +53,10 @@ class DeckScreen extends Component {
 
   render() {
     return (
-      <View>
+      <View style={{ marginTop: 10 }}>
         <Swipe
           data={this.props.jobs}
+          keyProp="jobkey"
           renderCard={this.renderCard}
           renderNoMoreCards={this.renderNoMoreCards}
         />
