@@ -32,6 +32,6 @@ export const fetchJobs = (region, callback) => async (dispatch) => {
     dispatch({ type: FETCH_JOBS, payload: data });
     callback();
   } catch(e) {
-    console.log(e);
+    console.log('error fetching jobs', e);
   }
 };
