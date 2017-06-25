@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, Platform } from 'react-native';
-import { Button } from 'react-native-elements'
+import { View, Text, Platform, ScrollView } from 'react-native';
+import { Button, Card } from 'react-native-elements'
+import { connect } from 'react-redux';
 
 class ReviewScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -9,23 +10,49 @@ class ReviewScreen extends Component {
                     title="Settings"
                     onPress={() => navigation.navigate('settings')}
                     backgroundColor="rgba(0,0,0,0)"
-                    color="rgba(0, 122, 255, 1)"
-                  />),
+                    color="rgba(0, 122, 255, 1)" />),
     headerStyle: {
       marginTop: Platform.OS === 'android' ? Expo.Constants.statusBarHeight : undefined
     }
   });
 
+  renderLikedJobs = () => {
+    return this.props.likedJobs.map(job => {
+      return (
+        <Card>
+          <View style={{ height: 200 }}>
+            <View style={styles.detailWrapper}>
+              <Text style={styles.italics}>{job.company}</Text>
+              <Text style={styles.italics}>{job.formattedRelativeTime}</Text>
+            </View>
+          </View>
+        </Card>
+      );
+    });
+  }
+
   render() {
     return (
-      <View>
-        <Text>ReviewScreen</Text>
-        <Text>ReviewScreen</Text>
-        <Text>ReviewScreen</Text>
-        <Text>ReviewScreen</Text>
-      </View>
+      <ScrollView>
+        {this.renderLikedJobs()}
+      </ScrollView>
     );
   }
 }
 
-export default ReviewScreen;
+const styles = {
+  italics: {
+    fontStyle: 'italic'
+  },
+  detailWrapper: {
+    marginBottom: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-around'
+  }
+};
+
+const mapStateToProps = ({ likedJobs }) => {
+  return { likedJobs };
+}
+
+export default connect(mapStateToProps)(ReviewScreen);
