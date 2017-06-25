@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Platform, ScrollView } from 'react-native';
+import { View, Text, Platform, ScrollView, Linking } from 'react-native';
 import { Button, Card } from 'react-native-elements'
 import { connect } from 'react-redux';
 
@@ -25,6 +25,12 @@ class ReviewScreen extends Component {
               <Text style={styles.italics}>{job.company}</Text>
               <Text style={styles.italics}>{job.formattedRelativeTime}</Text>
             </View>
+
+            <Button
+              title="Apply Now!"
+              backgroundColor="#03A9F4"
+              onPress={() => Linking.openURL(job.url)}
+            />
           </View>
         </Card>
       );
