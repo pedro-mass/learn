@@ -4,7 +4,7 @@ import secret from '../secret';
 import qs from 'qs';
 
 import {
-  FETCH_JOBS, LIKE_JOB
+  FETCH_JOBS, LIKE_JOB, CLEAR_LIKED_JOB
 } from './types';
 
 const JOB_ROOT_URL = 'http://api.indeed.com/ads/apisearch?';
@@ -45,4 +45,8 @@ export const likeJob = (job) => {
     type: LIKE_JOB,
     payload: job
   }
+};
+
+export const clearLikedJobs = () => {
+  return { type: CLEAR_LIKED_JOB };
 };
