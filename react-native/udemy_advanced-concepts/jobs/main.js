@@ -28,6 +28,7 @@ class App extends React.Component {
             })
           }
         }, {
+          tabBarPosition: 'bottom', // used to make android place this bar in the bottom
           tabBarOptions: {
             labelStyle: { fontSize: 12 }
           }
