@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, Platform, ScrollView, Linking } from 'react-native';
-import { Button, Card } from 'react-native-elements'
+import { Button, Card, Icon } from 'react-native-elements'
 import { connect } from 'react-redux';
 import { MapView } from 'expo';
 
@@ -14,6 +14,9 @@ class ReviewScreen extends Component {
                     color="rgba(0, 122, 255, 1)" />),
     headerStyle: {
       marginTop: Platform.OS === 'android' ? Expo.Constants.statusBarHeight : undefined
+    },
+    tabBarIcon: ({ tintColor }) => {
+      return <Icon name="favorite" size={30} color={tintColor}/>
     }
   });
 
