@@ -45,12 +45,19 @@ class DeckScreen extends Component {
     return snippet.replace(/<b>/g, '').replace(/<\/b>/g, '');
   }
 
-  renderNoMoreCards() {
+  renderNoMoreCards = () => {
     return (
       <Card title="No More Jobs">
+        <Button
+          title="Back To Map"
+          large
+          icon={{ name: 'my-location'}}
+          backgroundColor="#03A9F4"
+          onPress={() => this.props.navigation.navigate('map')}
+        />
       </Card>
     );
-  }
+  };
 
   render() {
     return (
