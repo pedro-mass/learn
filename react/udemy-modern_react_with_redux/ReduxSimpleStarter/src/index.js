@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import secret from './secret';
 import YTSearch from 'youtube-api-search';
-import SearchBar from './components/search_bar';
-import VideoList from './components/video_list';
-import VideoDetail from './components/video_detail';
+import SearchBar from './components/SearchBar';
+import VideoList from './components/VideoList';
+import VideoDetail from './components/VideoDetail';
 
 const API_KEY = secret.youtubeApiKey;
 
