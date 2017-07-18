@@ -20,6 +20,7 @@ Following Tutorial: https://hackernoon.com/redux-step-by-step-a-simple-and-robus
 - lack of guidance between steps.
   - there's some, but at the end of each scenario we get linked to the github repo and told to fetch all the code.
   - this makes it hard to find the updates, and end up just fixing mistakes as they come up
+  - solution: look at the commits
 
 
 ----------

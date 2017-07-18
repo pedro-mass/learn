@@ -13,10 +13,17 @@ export function fetchPosts() {
         redditService.getPostsFromSubreddit(topicUrl)
       );
       const topicPosts = await Promise.all(fetchPromises);
-      const postsById = _.keyBy(_.flatten(topicPosts), post => post.id);
+      const postsById = _.keyBy(
+        _.shuffle(_.flatten(topicPosts)),
+        post => post.id
+      );
       dispatch({ type: types.POSTS_FETCHED, postsById });
     } catch (error) {
       console.error(error);
     }
   };
+}
+
+export function changeFilter(newFilter) {
+  return { type: types.FILTER_CHANGED, filter: newFilter };
 }

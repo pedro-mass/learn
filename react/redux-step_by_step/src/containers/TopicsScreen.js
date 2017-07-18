@@ -33,7 +33,7 @@ class TopicsScreen extends Component {
   }
 
   renderRow = (rowId, row) => {
-    const selected = this.props.selectedIdsMap[rowId];
+    const selected = this.props.selectedRowsById[rowId];
     return (
       <ListRow rowId={rowId} onClick={this.onRowClick} selected={selected}>
         <h3>
@@ -60,7 +60,7 @@ function mapStateToProps(state) {
   return {
     rowsById: topicsSelectors.getTopicsByUrl(state),
     rowsIdArray: topicsSelectors.getTopicsUrlArray(state),
-    selectedIdsMap: topicsSelectors.getSelectedTopicUrlsMap(state),
+    selectedRowsById: topicsSelectors.getSelectedTopicsByUrl(state),
     canFinalizeSelection: topicsSelectors.isTopicSelectionValid(state)
   };
 }
