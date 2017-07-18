@@ -24,6 +24,10 @@ export default function reduce(state = initialState, action = {}) {
       return state.merge({
         currentFilter: action.filter
       });
+    case types.POST_SELECTED:
+      return state.merge({
+        currentPostId: action.postId
+      });
     default:
       return state;
   }
@@ -46,4 +50,8 @@ export function getPosts(state) {
 
 export function getCurrentFilter(state) {
   return state.posts.currentFilter;
+}
+
+export function getCurrentPost(state) {
+  return _.get(state.posts.postsById, state.posts.currentPostId);
 }
