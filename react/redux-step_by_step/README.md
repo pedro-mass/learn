@@ -1,9 +1,21 @@
+# My notes
 Following Tutorial: https://hackernoon.com/redux-step-by-step-a-simple-and-robust-workflow-for-real-life-apps-1fdf7df46092
+
+**Take Aways**
+- thunks have access to state through a method paramater
+`return (dispatch, getState) => {...}`
+- everything related to the store is stored in the store, underneath appropriate folders
+- mapStateToProps should make use of selectors
+  - this provides a further abstraction from state, and allows updates to the state to be localized to the reducers
+
+----------
+# create-react-app ReadMe
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+
 
 ## Table of Contents
 
