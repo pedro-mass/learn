@@ -7,11 +7,20 @@ Following Tutorial: https://hackernoon.com/redux-step-by-step-a-simple-and-robus
 - everything related to the store is stored in the store, underneath appropriate folders
 - mapStateToProps should make use of selectors
   - this provides a further abstraction from state, and allows updates to the state to be localized to the reducers
+- liked the approach of defining user scenario and implementing them top down.
+  - scenarios in tutorial:
+    - Topics:
+      - display Topics screen and display topics as soon as it shows up
+      - multiple topic selection
+    - Navigate to the next screen
+    - Posts:
+      - showing list w/o filter
 
 ## Disliked
 - lack of guidance between steps.
   - there's some, but at the end of each scenario we get linked to the github repo and told to fetch all the code.
   - this makes it hard to find the updates, and end up just fixing mistakes as they come up
+
 
 ----------
 # create-react-app ReadMe
