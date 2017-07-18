@@ -2,7 +2,8 @@
 Following Tutorial: https://hackernoon.com/redux-step-by-step-a-simple-and-robust-workflow-for-real-life-apps-1fdf7df46092
 
 ## Take Aways
-- thunks have access to state through a method paramater
+- Place all business logic inside action handlers (thunks), selectors and reducers.
+- thunks have access to state through a method parameter
 `return (dispatch, getState) => {...}`
 - everything related to the store is stored in the store, underneath appropriate folders
 - mapStateToProps should make use of selectors
