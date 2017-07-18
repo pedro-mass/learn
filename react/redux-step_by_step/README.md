@@ -1,12 +1,17 @@
 # My notes
 Following Tutorial: https://hackernoon.com/redux-step-by-step-a-simple-and-robust-workflow-for-real-life-apps-1fdf7df46092
 
-**Take Aways**
+## Take Aways
 - thunks have access to state through a method paramater
 `return (dispatch, getState) => {...}`
 - everything related to the store is stored in the store, underneath appropriate folders
 - mapStateToProps should make use of selectors
   - this provides a further abstraction from state, and allows updates to the state to be localized to the reducers
+
+## Disliked
+- lack of guidance between steps.
+  - there's some, but at the end of each scenario we get linked to the github repo and told to fetch all the code.
+  - this makes it hard to find the updates, and end up just fixing mistakes as they come up
 
 ----------
 # create-react-app ReadMe

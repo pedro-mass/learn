@@ -19,6 +19,7 @@ export function selectTopic(topicUrl) {
   return (dispatch, getState) => {
     const selectedTopics = topicsSelectors.getSelectedTopicUrls(getState());
 
+    // do nothing if it's already within the selectedTopics
     if (_.indexOf(selectedTopics, topicUrl) !== -1) return;
 
     const newSelectedTopics =
@@ -31,4 +32,8 @@ export function selectTopic(topicUrl) {
       selectedTopicUrls: newSelectedTopics
     });
   };
+}
+
+export function finalizeTopicSelection() {
+  return { type: types.TOPIC_SELECTION_FINALIZED };
 }
