@@ -1,3 +1,13 @@
+# My Notes
+
+## Take-aways
+- use a form to provide the default behavior for submit
+- uses redux-promise
+  - I think I prefer redux-thunk
+- seems like an earlier tutorial, so his techniques aren't as clean as his future tutorials
+
+------
+
 # ReduxSimpleStarter
 
 Interested in learning [Redux](https://www.udemy.com/react-redux/)?
