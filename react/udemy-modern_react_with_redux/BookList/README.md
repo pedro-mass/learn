@@ -1,3 +1,9 @@
+# My Notes
+
+## Take-aways
+- bindActionCreators from 'redux'
+  - allow us to bind actions to props (i.e. look at BookList.js)
+
 # ReduxSimpleStarter
 
 Interested in learning [Redux](https://www.udemy.com/react-redux/)?
