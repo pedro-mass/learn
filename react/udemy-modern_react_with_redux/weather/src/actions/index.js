@@ -2,7 +2,9 @@ import secret from '../secret';
 import axios from 'axios';
 
 const API_KEY = secret.openWeatherAPIKey;
-const ROOT_URL = `http://samples.openweathermap.org/data/2.5/forecast?appid=${API_KEY}`;
+
+// http://openweathermap.org/forecast5
+const ROOT_URL = `http://api.openweathermap.org/data/2.5/forecast?appid=${API_KEY}&units=imperial`;
 
 export const FETCH_WEATHER = 'FETCH_WEATHER';
 

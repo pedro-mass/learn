@@ -5,6 +5,7 @@
 - uses redux-promise
   - I think I prefer redux-thunk
 - seems like an earlier tutorial, so his techniques aren't as clean as his future tutorials
+  - like giving each component a top-level class name (i.e. the same as the component name)
 
 ------
 
