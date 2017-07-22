@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { createPost } from '../actions';
 
 class PostsNew extends Component {
   render() {
@@ -7,7 +10,7 @@ class PostsNew extends Component {
     const { handleSubmit } = this.props;
 
     return (
-      <form onSubmit={handleSubmit(this.onSubmit)}>
+      <form onSubmit={handleSubmit(this.onSubmit)} className="PostsNew">
         {/* label field is something we added so that we can toggle the field label
           this is an actual prop for Field, but it passes it along for us */}
         <Field label="Title" name="title" component={this.renderField} />
@@ -24,22 +27,33 @@ class PostsNew extends Component {
         <button type="submit" className="btn btn-primary">
           Submit
         </button>
+
+        <Link to="/" className="btn btn-danger">
+          Cancel
+        </Link>
       </form>
     );
   }
 
   onSubmit = values => {
-    console.log(values);
+    this.props.createPost(values, () => {
+      this.props.history.push('/');
+    });
   };
 
   renderField(field) {
+    const { meta: { touched, error } } = field;
+    const className = `form-group ${touched && error ? 'text-danger' : ''}`;
+
     return (
-      <div className="form-group">
+      <div className={className}>
         <label>
           {field.label}
         </label>
         <input className="form-control" type="text" {...field.input} />
-        {field.meta.touched ? field.meta.error : ''}
+        <span className="text-help">
+          {field.meta.touched ? field.meta.error : ''}
+        </span>
       </div>
     );
   }
@@ -73,4 +87,4 @@ export default reduxForm({
   // the name of the form (must be unique)
   form: 'PostsNewForm',
   validate
-})(PostsNew);
+})(connect(null, { createPost })(PostsNew));

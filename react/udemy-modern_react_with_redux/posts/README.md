@@ -2,6 +2,8 @@
 
 ## Take-aways
 - use redux-form
+- mapStateToProps has two parameters: state, ownProps
+  - ownProps: the component props 
 
 ----
 
