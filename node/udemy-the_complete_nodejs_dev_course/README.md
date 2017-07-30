@@ -18,3 +18,8 @@ Following course: https://www.udemy.com/the-complete-nodejs-developer-course-2/l
   - pretty print JSON: use `JSON.stringify` with property for spacing set
     - example: `console.log(JSON.stringify(obj, null, 2));`
   - encode strings: `encodeURIComponent(string)`
+- node-web-server
+  - nodemon can watch any file extension
+    - example: `nodemon server.js -e js,hbs`
+  - hbs: the handlebars wrapper within Express
+  - register middleware: `app.use(<middleware>)`
