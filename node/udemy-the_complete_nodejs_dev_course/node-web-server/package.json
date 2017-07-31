@@ -1,0 +1,17 @@
+{
+  "name": "web-server",
+  "version": "1.0.0",
+  "description": "Following course: https://www.udemy.com/the-complete-nodejs-developer-course-2/learn/v4/content",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.14.0",
+    "hbs": "^4.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
