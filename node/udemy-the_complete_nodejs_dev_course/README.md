@@ -23,3 +23,9 @@ Following course: https://www.udemy.com/the-complete-nodejs-developer-course-2/l
     - example: `nodemon server.js -e js,hbs`
   - hbs: the handlebars wrapper within Express
   - register middleware: `app.use(<middleware>)`
+- node-tests
+  - test runner: Mocha
+  - assertions: mjackson/expect
+  - continuously run tests with: `nodemon --exec 'npm test'`
+  - to run custom npm script: `npm run <script_name>`
+  - async tests: pass `done` to the mocha function, then call `done` when you're done with assertions
