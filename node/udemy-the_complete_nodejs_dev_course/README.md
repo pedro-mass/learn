@@ -30,3 +30,5 @@ Following course: https://www.udemy.com/the-complete-nodejs-developer-course-2/l
     - this can be mapped to a custom node script
   - to run custom npm script: `npm run <script_name>`
   - async tests: pass `done` to the mocha function, then call `done` when you're done with assertions
+- express-tests
+  - can use `supertest` to test express endpoints
