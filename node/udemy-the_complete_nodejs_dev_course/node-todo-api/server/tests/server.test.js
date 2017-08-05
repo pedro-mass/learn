@@ -1,14 +1,17 @@
 const expect = require('expect');
 const request = require('supertest');
+const { ObjectID } = require('mongodb');
 
 const app = require('./../server');
 const Todo = require('./../models/Todo');
 
 const todos = [
   {
+    _id: new ObjectID(),
     text: 'first test todo'
   },
   {
+    _id: new ObjectID(),
     text: 'second test todo'
   }
 ];
@@ -74,5 +77,26 @@ describe('GET /todos', () => {
         expect(res.body.todos.length).toBe(todos.length);
       })
       .end(done);
+  });
+});
+
+describe('GET /todos/:id', () => {
+  it('should return a todo doc', done => {
+    request(app)
+      .get(`/todos/${todos[0]._id}`)
+      .expect(200)
+      .expect(res => {
+        expect(res.body.todo).toExist();
+        expect(res.body.todo.text).toBe(todos[0].text);
+      })
+      .end(done);
+  });
+
+  it('should fail on an invalid ID', done => {
+    request(app).get('/todos/123').expect(404).end(done);
+  });
+
+  it('should fail on a valid ID to a doc that does not exist', done => {
+    request(app).get(`/todos/${new ObjectID()}`).expect(404).end(done);
   });
 });
