@@ -1,5 +1,5 @@
 const expect = require('expect');
-const request = require('supertest');
+const supertest = require('supertest');
 
 const app = require('./../server');
 const Todo = require('./../models/Todo');
@@ -12,7 +12,7 @@ describe('POST /todos', () => {
   it('should create a new todo', done => {
     const text = 'Test todo text';
 
-    request(app)
+    supertest(app)
       .post('/todos')
       .send({ text })
       .expect(200)
@@ -35,7 +35,7 @@ describe('POST /todos', () => {
   });
 
   it('should not create a new todo with invalid body data', done => {
-    request(app).post('/todos').expect(400).end((err, res) => {
+    supertest(app).post('/todos').expect(400).end((err, res) => {
       if (err) {
         return done(err);
       }
@@ -46,6 +46,24 @@ describe('POST /todos', () => {
           done();
         })
         .catch(e => done(e));
+    });
+  });
+});
+
+describe('GET /todos', () => {
+  it('should retrieve all todos', done => {
+    const text = 'test todo';
+    new Todo({ text }).save();
+
+    supertest(app).get('/todos').expect(200).end((err, res) => {
+      if (err) {
+        return done(err);
+      }
+
+      expect(res.body.todos.length).toBe(1);
+      expect(res.body.todos[0].text).toBe(text);
+
+      done();
     });
   });
 });
