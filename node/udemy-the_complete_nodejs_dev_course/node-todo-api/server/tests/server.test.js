@@ -12,7 +12,9 @@ const todos = [
   },
   {
     _id: new ObjectID(),
-    text: 'second test todo'
+    text: 'second test todo',
+    completed: true,
+    completedAt: 33
   }
 ];
 
@@ -98,5 +100,99 @@ describe('GET /todos/:id', () => {
 
   it('should fail on a valid ID to a doc that does not exist', done => {
     request(app).get(`/todos/${new ObjectID()}`).expect(404).end(done);
+  });
+});
+
+describe('DELETE /todos/:id', () => {
+  it('should delete and return a todo doc', done => {
+    const id = todos[0]._id.toHexString();
+
+    request(app)
+      .delete(`/todos/${id}`)
+      .expect(200)
+      .expect(res => {
+        expect(res.body.todo).toExist();
+        expect(res.body.todo.text).toBe(todos[0].text);
+        expect(res.body.todo._id).toBe(id);
+      })
+      .end((err, res) => {
+        if (err) {
+          return done(err);
+        }
+
+        // check the database, looking for the id
+        Todo.findById(id)
+          .then(todo => {
+            expect(todo).toNotExist();
+            done();
+          })
+          .catch(e => done(e));
+      });
+  });
+
+  it('should fail on an invalid ID', done => {
+    request(app).delete('/todos/123').expect(404).end(done);
+  });
+
+  it('should fail on a valid ID to a doc that does not exist', done => {
+    request(app).delete(`/todos/${new ObjectID()}`).expect(404).end(done);
+  });
+});
+
+describe('PATCH /todos/:id', () => {
+  it('should update a todo', done => {
+    const id = todos[0]._id.toHexString();
+    const text = 'update from text';
+
+    request(app)
+      .patch(`/todos/${id}`)
+      .send({ text })
+      .expect(200)
+      .expect(res => {
+        expect(res.body.todo._id).toBe(id);
+        expect(res.body.todo.text).toBe(text);
+      })
+      .end(done);
+  });
+
+  it('should complete a todo', done => {
+    const id = todos[0]._id.toHexString();
+    const completed = true;
+
+    request(app)
+      .patch(`/todos/${id}`)
+      .send({ completed })
+      .expect(200)
+      .expect(res => {
+        expect(res.body.todo._id).toBe(id);
+        expect(res.body.todo.completed).toBe(completed);
+        expect(res.body.todo.completedAt).toBeA('number');
+      })
+      .end(done);
+  });
+
+  it('should un-complete a todo and clear completedAt', done => {
+    const id = todos[0]._id.toHexString();
+    const completed = false;
+
+    request(app)
+      .patch(`/todos/${id}`)
+      .send({ completed })
+      .expect(200)
+      .expect(res => {
+        expect(res.body.todo).toExist();
+        expect(res.body.todo._id).toBe(id);
+        expect(res.body.todo.completed).toBe(completed);
+        expect(res.body.todo.completedAt).toNotExist();
+      })
+      .end(done);
+  });
+
+  it('should fail on an invalid ID', done => {
+    request(app).patch('/todos/123').expect(404).end(done);
+  });
+
+  it('should fail on a valid ID to a doc that does not exist', done => {
+    request(app).patch(`/todos/${new ObjectID()}`).expect(404).end(done);
   });
 });
