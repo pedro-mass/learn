@@ -1,18 +1,33 @@
 const expect = require('expect');
-const supertest = require('supertest');
+const request = require('supertest');
 
 const app = require('./../server');
 const Todo = require('./../models/Todo');
 
+const todos = [
+  {
+    text: 'first test todo'
+  },
+  {
+    text: 'second test todo'
+  }
+];
+
+// Doing this creates a common environment for all tests to
+// base their assumptions with
 beforeEach(done => {
-  Todo.remove({}).then(() => done());
+  Todo.remove({})
+    .then(() => {
+      return Todo.insertMany(todos);
+    })
+    .then(() => done());
 });
 
 describe('POST /todos', () => {
   it('should create a new todo', done => {
     const text = 'Test todo text';
 
-    supertest(app)
+    request(app)
       .post('/todos')
       .send({ text })
       .expect(200)
@@ -24,7 +39,7 @@ describe('POST /todos', () => {
           return done(err);
         }
 
-        Todo.find()
+        Todo.find({ text })
           .then(todos => {
             expect(todos.length).toBe(1);
             expect(todos[0].text).toBe(text);
@@ -35,14 +50,14 @@ describe('POST /todos', () => {
   });
 
   it('should not create a new todo with invalid body data', done => {
-    supertest(app).post('/todos').expect(400).end((err, res) => {
+    request(app).post('/todos').expect(400).end((err, res) => {
       if (err) {
         return done(err);
       }
 
       Todo.find()
         .then(todos => {
-          expect(todos.length).toBe(0);
+          expect(todos.length).toBe(todos.length);
           done();
         })
         .catch(e => done(e));
@@ -52,18 +67,12 @@ describe('POST /todos', () => {
 
 describe('GET /todos', () => {
   it('should retrieve all todos', done => {
-    const text = 'test todo';
-    new Todo({ text }).save();
-
-    supertest(app).get('/todos').expect(200).end((err, res) => {
-      if (err) {
-        return done(err);
-      }
-
-      expect(res.body.todos.length).toBe(1);
-      expect(res.body.todos[0].text).toBe(text);
-
-      done();
-    });
+    request(app)
+      .get('/todos')
+      .expect(200)
+      .expect(res => {
+        expect(res.body.todos.length).toBe(todos.length);
+      })
+      .end(done);
   });
 });
