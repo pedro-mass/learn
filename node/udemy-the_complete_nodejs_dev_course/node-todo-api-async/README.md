@@ -1,0 +1,32 @@
+Following course: https://www.udemy.com/the-complete-nodejs-developer-course-2/learn/v4/content
+
+## take aways
+- uses the native mongodb client, instead of mongoose
+  - only for the first half as an introduction, but then uses mongoose to actually build up the API
+- id fields are objects that contain the time stamp
+  - example: `_.id.getTimestamp() -> 2017-08-01T12:53:23.000Z`
+- HTTP statuses: https://httpstatuses.com/
+- heroku setup:
+  - get port from process.env
+  - specify node version in package.json
+  - create app: `heroku create`
+  - to add mongolab: `heroku addons:create mongolab:sandbox`
+    - adds MONGODB_URI to process.env - use this for the mongodb connection
+- Postman
+  - can save a collection of requests
+  - can create environment variables. This allows easy switching of URL between local and heroku
+    - example: `{{url}}/todos`
+- validation: npm validator
+- authentication
+  - JWT library: jsonwebtoken
+  - hashing password: bcryptjs
+  - puts JWT on custom header: 'x-auth'
+- set up a separate test environment using process.env variables
+- moved app config into a json file, then pulled those in config/config.js
+  - heroku config
+    - commands:
+      - `heroku config` - shows env variables
+      - `heroku config:set NAME=Andrew`
+      - `heroku config:get NAME`
+      - `heroku config:unset NAME`
+    - be sure to set a JWT_SECRET
