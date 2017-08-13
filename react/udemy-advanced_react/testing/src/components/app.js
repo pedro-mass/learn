@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 
+import CommentBox from './CommentBox';
+import CommentList from './CommentList';
+
 export default class App extends Component {
   render() {
     return (
-      <div>React simple starter</div>
+      <div>
+        <CommentBox />
+        <CommentList />
+      </div>
     );
   }
 }

@@ -1,3 +1,13 @@
+# Personal Notes
+
+## take-aways
+- uses chai-jquery to run the selectors
+  - i'd prefer if it used Jest
+- tests the end result, in this case: the html that ultimately renders
+  - doesn't quite feel like a unit test
+
+-------------
+
 # ReduxSimpleStarter
 
 Interested in learning [Redux](https://www.udemy.com/react-redux/)?
