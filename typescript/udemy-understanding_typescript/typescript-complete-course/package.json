@@ -1,0 +1,16 @@
+{
+  "name": "typescript-complete-course",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "lite-server": "^2.2.2"
+  },
+  "scripts": {
+    "test": "tsc && node app.js",
+    "start": "lite-server"
+  },
+  "author": "",
+  "license": "ISC"
+}
