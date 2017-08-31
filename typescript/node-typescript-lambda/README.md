@@ -1,0 +1,1 @@
+Followed tutorial: https://blog.shovonhasan.com/deploying-a-typescript-node-aws-lambda-function-with-serverless/

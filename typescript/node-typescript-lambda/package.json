@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "start": "serverless offline start",
+    "deploy": "serverless deploy"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^0.0.16",
+    "serverless-offline": "^3.15.3",
+    "serverless-plugin-typescript": "^1.1.1"
+  }
+}
