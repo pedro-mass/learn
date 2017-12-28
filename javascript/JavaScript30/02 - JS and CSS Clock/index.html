@@ -76,6 +76,24 @@
     const minuteHand = document.querySelector('.min-hand');
     const hourHand = document.querySelector('.hour-hand');
 
+    const timeConfig = {
+      second: {
+        element: document.querySelector('.second-hand'),
+        conversion: 60,
+        dateFn: "getSeconds"
+      },
+      minute: {
+        element: document.querySelector('.min-hand'),
+        conversion: 60,
+        dateFn: "getMinutes"
+      },
+      hour: {
+        element: document.querySelector('.hour-hand'),
+        conversion: 12,
+        dateFn: "getHours"
+      }
+    }
+
     function getDegrees(amount, conversion) {
       return ((amount / conversion) * 360) + 90;
     }
@@ -84,22 +102,18 @@
       element.style.transform = `rotate(${degrees}deg)`;
     }
 
+    function setTime(date, { dateFn, conversion, element }) {
+      const time = date[dateFn]();
+      const degrees = getDegrees(time, conversion);
+      rotateDegrees(element, degrees);
+    }
+
     function setDate() {
       const now = new Date();
 
-      const seconds = now.getSeconds();
-      const secondsDegrees = getDegrees(seconds, 60);
-
-      const minutes = now.getMinutes();
-      const minuteDegrees = getDegrees(minutes, 60);
-
-      const hours = now.getHours();
-      const hourDegrees = getDegrees(hours, 12);
-
-      rotateDegrees(secondHand, secondsDegrees);
-      rotateDegrees(minuteHand, minuteDegrees);
-      rotateDegrees(hourHand, hourDegrees);
-      console.log(`${hours}:${minutes}:${seconds}`);
+      setTime(now, timeConfig.second);
+      setTime(now, timeConfig.minute);
+      setTime(now, timeConfig.hour);
     }
 
     setDate();
