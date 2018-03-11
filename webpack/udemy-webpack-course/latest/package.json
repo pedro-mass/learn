@@ -1,12 +1,14 @@
 {
   "name": "udemy-webpack-course",
   "version": "1.0.0",
-  "description": "Following udemy course: https://www.udemy.com/webpack-beyond-the-basics",
+  "description":
+    "Following udemy course: https://www.udemy.com/webpack-beyond-the-basics",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config=config/webpack.dev.js",
     "build": "webpack --config=config/webpack.dev.js",
-    "dev": "nodemon --watch config --watch src/server src/server/main.js"
+    "dev":
+      "nodemon --inspect --watch config --watch src/server src/server/main.js"
   },
   "keywords": [],
   "author": "Pedro Mass <pedrom@ifit.com> (https://github.com/pedro-mass)",
