@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config=config/webpack.dev.js",
-    "build": "webpack --config=config/webpack.dev.js"
+    "build": "webpack --config=config/webpack.dev.js",
+    "dev": "node src/server/main.js"
   },
   "keywords": [],
   "author": "Pedro Mass <pedrom@ifit.com> (https://github.com/pedro-mass)",
@@ -20,12 +21,15 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "css-loader": "^0.28.10",
+    "express": "^4.16.2",
     "extract-loader": "^1.0.2",
     "file-loader": "^1.1.11",
     "html-loader": "^0.5.5",
     "style-loader": "^0.20.3",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.11",
-    "webpack-dev-server": "^3.1.1"
+    "webpack-dev-middleware": "^3.0.1",
+    "webpack-dev-server": "^3.1.1",
+    "webpack-hot-middleware": "^2.21.2"
   }
 }
