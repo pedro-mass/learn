@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const HTMLWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -45,20 +46,6 @@ module.exports = {
         test: /\.html$/,
         use: [
           {
-            // tells webpack the name of the file to create
-            loader: "file-loader",
-            options: {
-              name: "[name].[ext]"
-            }
-          },
-          {
-            // tells webpack to be a separate file
-            loader: "extract-loader",
-            options: {
-              publicPath: "../"
-            }
-          },
-          {
             // does the linting
             loader: "html-loader",
             options: {
@@ -80,5 +67,12 @@ module.exports = {
       }
     ]
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()]
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
+    // does the same thing as extractLoader and fileLoader
+    new HTMLWebpackPlugin({
+      template: "./src/index.html"
+    })
+  ]
 };
