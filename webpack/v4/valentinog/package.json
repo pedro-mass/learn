@@ -1,0 +1,20 @@
+{
+  "name": "valentinog",
+  "version": "1.0.0",
+  "description": "following: https://www.valentinog.com/blog/webpack-4-tutorial/#webpack_4_resources",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production"
+  },
+  "keywords": [],
+  "author": "Pedro Mass <pedrom@ifit.com> (https://github.com/pedro-mass)",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.12"
+  }
+}
