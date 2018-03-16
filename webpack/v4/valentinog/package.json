@@ -1,10 +1,11 @@
 {
   "name": "valentinog",
   "version": "1.0.0",
-  "description": "following: https://www.valentinog.com/blog/webpack-4-tutorial/#webpack_4_resources",
+  "description":
+    "following: https://www.valentinog.com/blog/webpack-4-tutorial/#webpack_4_resources",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode development",
+    "build:dev": "webpack --mode development",
     "build": "webpack --mode production"
   },
   "keywords": [],
@@ -14,6 +15,9 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.12"
   }
