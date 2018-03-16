@@ -5,6 +5,7 @@
     "following: https://www.valentinog.com/blog/webpack-4-tutorial/#webpack_4_resources",
   "main": "index.js",
   "scripts": {
+    "start": "webpack-dev-server --mode development --open",
     "build:dev": "webpack --mode development",
     "build": "webpack --mode production"
   },
@@ -21,6 +22,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "webpack": "^4.1.1",
-    "webpack-cli": "^2.0.12"
+    "webpack-cli": "^2.0.12",
+    "webpack-dev-server": "^3.1.1"
   }
 }
