@@ -22,6 +22,8 @@ function train(data) {
 
 function execute(input) {
   let results = trainedNet(encode(input));
+
+  console.log("results:", results);
   let output;
   // results.trump > results.kardashian
   //   ? (output = "Trump")
@@ -31,3 +33,7 @@ function execute(input) {
 }
 
 train(trainingData);
+
+console.log(
+  execute("These aren't real. Kanye would never write Yeezy on the side")
+);
