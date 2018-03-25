@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
+const isProd = process.env.NODE_ENV === "production";
 
 module.exports = {
   entry: {
@@ -14,49 +15,35 @@ module.exports = {
   },
   devServer: {
     contentBase: "dist",
-    port: "3000",
     overlay: true,
-    hot: true
+    stats: {
+      colors: true
+    }
   },
-  devtool: "source-map",
   module: {
     rules: [
       {
         test: /\.js$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: "babel-loader"
           }
-        ],
-        exclude: /node_modules/
+        ]
       },
       {
         test: /\.css$/,
         use: [
           {
-            // injects css into html
             loader: "style-loader"
           },
           {
-            // runs linting?
             loader: "css-loader"
           }
         ]
       },
       {
-        test: /\.html$/,
-        use: [
-          {
-            // does the linting
-            loader: "html-loader",
-            options: {
-              attrs: ["img:src"]
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(jpg|gif|png)$/,
+        test: /\.jpg$/,
         use: [
           {
             loader: "file-loader",
@@ -65,15 +52,23 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: "html-loader"
+          }
+        ]
       }
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
-    // does the same thing as extractLoader and fileLoader
+    // new webpack.HotModuleReplacementPlugin(),
     new HTMLWebpackPlugin({
-      template: "./src/index.html"
+      template: "./src/index.ejs",
+      inject: true,
+      title: "Link's Journal"
     })
   ]
 };
