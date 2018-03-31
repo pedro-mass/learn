@@ -16,3 +16,5 @@
 
 * code: https://jsbin.com/yumoqinica/edit?js,output
 * similar to fp10, but functional approach
+* left to do:
+  * implement the remaining sections
