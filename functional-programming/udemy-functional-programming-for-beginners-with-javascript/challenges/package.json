@@ -1,5 +1,5 @@
 {
-  "name": "udemy-functional-programming-for-beginners-with-javascript",
+  "name": "challenges",
   "version": "1.0.0",
   "description": "following: https://www.udemy.com/functional-programming-for-beginners-with-javascript/learn/v4",
   "main": "fp5-updating-array-in-immutable-way.js",
