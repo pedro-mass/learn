@@ -17,7 +17,7 @@ const friendNameLengths = updatedFriends.map(friend => friend.length);
 // 4. Create a new constant named shorterNamedFriends, 
 // which will be a list of the friends except the friend with the longest name.
 const longestLength = friendNameLengths.reduce((max, length) => length > max ? length : max, 0)
-const shorterNamedFriends = updatedFriends.filter(friend => friend.length >= longestLength);
+const shorterNamedFriends = updatedFriends.filter(friend => friend.length < longestLength);
 
 // 5. Print each variable to the console.
 console.log(friends, updatedFriends, friendNameLengths, shorterNamedFriends);

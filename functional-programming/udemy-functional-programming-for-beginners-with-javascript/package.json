@@ -1,0 +1,18 @@
+{
+  "name": "udemy-functional-programming-for-beginners-with-javascript",
+  "version": "1.0.0",
+  "description": "following: https://www.udemy.com/functional-programming-for-beginners-with-javascript/learn/v4",
+  "main": "fp5-updating-array-in-immutable-way.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ramda": "^0.25.0"
+  },
+  "devDependencies": {
+    "expect": "^22.4.3"
+  }
+}
