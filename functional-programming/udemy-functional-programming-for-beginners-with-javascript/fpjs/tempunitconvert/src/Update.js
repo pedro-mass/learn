@@ -42,23 +42,19 @@ const KtoC = k => k - 273.15;
 const CtoK = c => c + 273.15;
 const KtoF = k => R.pipe(KtoC, CtoF)(k);
 const FtoK = f => R.pipe(FtoC, CtoK)(f);
-const identity = x => x;
 
-const CONVERSIONS = {
+const UnitConversions = {
   Fahrenheit: {
     Celsius: FtoC,
-    Kelvin: FtoK,
-    Fahrenheit: identity
+    Kelvin: FtoK
   },
   Celsius: {
     Fahrenheit: CtoF,
-    Kelvin: CtoK,
-    Celsius: identity
+    Kelvin: CtoK
   },
   Kelvin: {
     Fahrenheit: KtoF,
-    Celsius: KtoC,
-    Kelvin: identity
+    Celsius: KtoC
   }
 };
 
@@ -80,46 +76,52 @@ function updateLeftValue(msg, model) {
   if (msg.leftValue === "")
     return { ...model, sourceLeft: true, leftValue: "", rightValue: "" };
   const leftValue = toInt(msg.leftValue);
-  return updateModel({ ...model, sourceLeft: true, leftValue });
+  return convert({ ...model, sourceLeft: true, leftValue });
 }
 
 function updateRightValue(msg, model) {
   if (msg.rightValue === "")
     return { ...model, sourceLeft: true, leftValue: "", rightValue: "" };
   const rightValue = toInt(msg.rightValue);
-  return updateModel({ ...model, sourceLeft: false, rightValue });
+  return convert({ ...model, sourceLeft: false, rightValue });
 }
 
 function updateLeftUnit(msg, model) {
   const { leftUnit } = msg;
-  return updateModel({ ...model, leftUnit });
+  return convert({ ...model, leftUnit });
 }
 
 function updateRightUnit(msg, model) {
   const { rightUnit } = msg;
-  return updateModel({ ...model, rightUnit });
+  return convert({ ...model, rightUnit });
 }
 
-function updateModel(model) {
-  if (model.sourceLeft) {
-    const baseUnit = model.leftUnit;
-    const baseValue = model.leftValue;
-    const toUnit = model.rightUnit;
+function convert(model) {
+  const { leftValue, leftUnit, rightValue, rightUnit } = model;
 
-    const rightValue = CONVERSIONS[baseUnit][toUnit](baseValue);
+  const [fromUnit, fromTemp, toUnit] = model.sourceLeft
+    ? [leftUnit, leftValue, rightUnit]
+    : [rightUnit, rightValue, leftValue];
 
-    return { ...model, rightValue };
-  } else {
-    const baseUnit = model.rightUnit;
-    const baseValue = model.rightValue;
-    const toUnit = model.leftUnit;
+  const otherValue = R.pipe(convertFromToTemp, round)(
+    fromUnit,
+    toUnit,
+    fromTemp
+  );
 
-    const leftValue = CONVERSIONS[baseUnit][toUnit](baseValue);
+  return model.sourceLeft
+    ? { ...model, rightValue: otherValue }
+    : { ...model, leftValue: otherValue };
+}
 
-    return { ...model, leftValue };
-  }
+function round(temp) {
+  return temp;
+}
 
-  return model;
+function convertFromToTemp(fromUnit, toUnit, temp) {
+  const convertFn = R.pathOr(R.identity, [fromUnit, toUnit], UnitConversions);
+
+  return convertFn(temp);
 }
 
 export default update;
