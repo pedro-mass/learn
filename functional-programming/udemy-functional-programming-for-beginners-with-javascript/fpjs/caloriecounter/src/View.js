@@ -5,7 +5,8 @@ import {
   showFormMsg,
   caloriesInputMessage,
   mealInputMessage,
-  saveMealMsg
+  saveMealMsg,
+  deleteMealMsg
 } from "./Update";
 
 const {
@@ -41,7 +42,12 @@ function mealRow(dispatch, className, meal) {
   return tr({ className }, [
     cell(td, "pa2", meal.description),
     cell(td, "pa2 tr", meal.calories),
-    cell(td, "pa2 tr", "")
+    cell(td, "pa2 tr", [
+      i({
+        className: "ph1 fa fa-trash-o pointer",
+        onclick: () => dispatch(deleteMealMsg(meal.id))
+      })
+    ])
   ]);
 }
 
@@ -143,8 +149,8 @@ function view(dispatch, model) {
   return div({ className: "mw6 center" }, [
     h1({ className: "f2 pv2 bb" }, "Calorie Counter"),
     formView(dispatch, model),
-    tableView(dispatch, model.meals)
-    // pre(JSON.stringify(model, null, 2))
+    tableView(dispatch, model.meals),
+    pre(JSON.stringify(model, null, 2))
   ]);
 }
 
