@@ -9,36 +9,37 @@ const comparisonView = div(
   p({ className: "pa0" }, "=")
 );
 
-function unitSection(dispatch, className, thing) {
-  const { value, unit } = thing;
-  const unitOptions = ["Celsius", "Fahrenheit"];
-  const options = unitOptions.map(unitOption =>
-    option({ selected: unitOption === unit }, unitOption)
-  );
+const UNITS = ["Fahrenheit", "Celsius", "Kelvin"];
 
-  return div({ className }, [
+function unitOptions(selectedUnit) {
+  return R.map(
+    unit => option({ value: unit, selected: selectedUnit === unit }, unit),
+    UNITS
+  );
+}
+
+function unitSection(dispatch, unit, value) {
+  return div({ className: "w-50 ma1" }, [
     input({
-      className: "pa2 input-reset ba w-100 mb2",
-      type: "number",
+      className: "db w-100 pa2 ba input-reset mv2",
+      type: "text",
       value
     }),
-    select({ className: "w-100" }, [options])
+    select(
+      { className: "db w-100 pa2 ba input-reset br1 bg-white ba b--black" },
+      unitOptions(unit)
+    )
   ]);
 }
 
 function view(dispatch, model) {
   return div({ className: "mw6 center" }, [
     h1({ className: "f2 pv2 bb" }, "Temperature Unit Converter"),
-    unitSection(dispatch, "fl w-third", {
-      value: model.leftValue,
-      unit: model.leftUnit
-    }),
-    comparisonView,
-    unitSection(dispatch, "fl w-third", {
-      value: model.rightValue,
-      unit: model.rightUnit
-    }),
-    pre({ className: "fl w-100" }, JSON.stringify(model, null, 2))
+    div({ className: "flex" }, [
+      unitSection(dispatch, model.leftUnit, model.leftValue),
+      unitSection(dispatch, model.rightUnit, model.rightValue)
+    ]),
+    pre(JSON.stringify(model, null, 2))
   ]);
 }
 
