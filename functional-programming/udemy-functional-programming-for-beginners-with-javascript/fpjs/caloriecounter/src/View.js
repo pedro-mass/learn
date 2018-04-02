@@ -1,3 +1,4 @@
+import * as R from "ramda";
 import hh from "hyperscript-helpers";
 import { h } from "virtual-dom";
 import {
@@ -17,11 +18,62 @@ const {
   input,
   table,
   thead,
+  tbody,
   tr,
   th,
-  tbody,
-  td
+  td,
+  i
 } = hh(h);
+
+function cell(tag, className, value) {
+  return tag({ className }, value);
+}
+
+const tableHeader = thead(
+  tr([
+    cell(th, "pa2 tl", "Meal"),
+    cell(th, "pa2 tr", "Calories"),
+    cell(th, "", "")
+  ])
+);
+
+function mealRow(dispatch, className, meal) {
+  return tr({ className }, [
+    cell(td, "pa2", meal.description),
+    cell(td, "pa2 tr", meal.calories),
+    cell(td, "pa2 tr", "")
+  ]);
+}
+
+function totalRow(meals) {
+  // const total = model.meals.reduce((acc, meal) => acc + meal.calories || 0, 0);
+  const total = R.pipe(R.map(meal => meal.calories), R.sum)(meals);
+  return tr({ className: "bt b" }, [
+    cell(td, "pa2 tr", "Total:"),
+    cell(td, "pa2 tr", total),
+    cell(td, "", "")
+  ]);
+}
+
+function mealsBody(dispatch, className, meals) {
+  // const rows = model.meals.map(meal => mealRow(dispatch, meal));
+  const rows = R.map(R.partial(mealRow, [dispatch, "stripe-dark"]), meals);
+
+  const rowsWithTotal = [...rows, totalRow(meals)];
+
+  return tbody({ className }, rowsWithTotal);
+}
+
+function tableView(dispatch, meals) {
+  if (meals.length === 0) {
+    return div({ className: "mv2 i black-50" }, "No meals to display...");
+  }
+
+  return table({ className: "mv2 w-100 collapse" }, [
+    tableHeader,
+    mealsBody(dispatch, "", meals)
+  ]);
+}
 
 function fieldSet(labelText, inputValue, oninput) {
   return div([
@@ -87,38 +139,12 @@ function formView(dispatch, model) {
   );
 }
 
-function tableView(dispatch, model) {
-  return table([tableHeader(), mealsBody(dispatch, model)]);
-}
-
-function tableHeader() {
-  return thead(tr([th("Meal"), th("Calories")]));
-}
-
-function mealsBody(dispatch, model) {
-  const rows = model.meals.map(meal => mealRow(dispatch, meal));
-  return tbody([...rows, totalRow(dispatch, model)]);
-}
-
-function mealRow(dispatch, meal) {
-  return tr([cell(meal.description), cell(meal.calories)]);
-}
-
-function cell(value) {
-  return td([value]);
-}
-
-function totalRow(dispatch, model) {
-  const total = model.meals.reduce((acc, meal) => acc + meal.calories || 0, 0);
-  return tr([cell("total"), cell(total)]);
-}
-
 function view(dispatch, model) {
   return div({ className: "mw6 center" }, [
     h1({ className: "f2 pv2 bb" }, "Calorie Counter"),
     formView(dispatch, model),
-    tableView(dispatch, model),
-    pre(JSON.stringify(model, null, 2))
+    tableView(dispatch, model.meals)
+    // pre(JSON.stringify(model, null, 2))
   ]);
 }
 

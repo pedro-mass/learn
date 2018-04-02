@@ -5,16 +5,16 @@ const initModel = {
   editId: null,
   nextId: 2,
   meals: [
-    {
-      id: 0,
-      description: "pedro",
-      calories: 215
-    },
-    {
-      id: 1,
-      description: "dario",
-      calories: 425
-    }
+    // {
+    //   id: 0,
+    //   description: "pedro",
+    //   calories: 215
+    // },
+    // {
+    //   id: 1,
+    //   description: "dario",
+    //   calories: 425
+    // }
   ]
 };
 
