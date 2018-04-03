@@ -6,6 +6,22 @@ import { billAmountMsg, tipPercentMsg } from "./Update";
 
 const { div, h1, pre, label, input, p } = hh(h);
 
+const round = places =>
+  R.pipe(
+    num => num * Math.pow(10, places),
+    Math.round,
+    num => num * Math.pow(10, -1 * places)
+  );
+
+const formatMoney = R.curry((symbol, places, number) =>
+  R.pipe(
+    R.defaultTo(0),
+    round(places),
+    num => num.toFixed(places),
+    R.concat(symbol)
+  )(number)
+);
+
 function fieldSet(labelText, inputValue, oninput) {
   return div([
     label({ className: "db mb1" }, labelText),
@@ -29,35 +45,37 @@ function formView(dispatch, model) {
   ]);
 }
 
-function labelSet(labelText, value) {
-  return div({ className: "flex justify-between" }, [
-    p({ className: "ma1" }, labelText),
-    p({ className: "ma1" }, R.pipe(addDecimalPlaces, convertToCurrency)(value))
+function calcTipAndTotal(billAmount, tipPercent) {
+  const bill = parseFloat(billAmount);
+  const tip = bill * parseFloat(tipPercent) / 100 || 0;
+  return [tip, bill + tip];
+}
+
+function calculatedAmounts(tip, total) {
+  return div({ className: "w-40 b bt mt2 pt2" }, [
+    calculatedAmount("Tip:", tip),
+    calculatedAmount("Total:", total)
   ]);
 }
 
-function addDecimalPlaces(number) {
-  // pedro: implement this to change to 2 decimal places
-  return number;
-}
-
-function convertToCurrency(number) {
-  return `$${number}`;
-}
-
-function calculationView(model) {
-  return div({ className: "mt3" }, [
-    labelSet("Tip:", model.tip),
-    labelSet("Total:", model.total)
+function calculatedAmount(description, amount) {
+  return div({ className: "flex w-100" }, [
+    div({ className: "w-50 pv1 pr2" }, description),
+    div({ className: "w-50 tr pv1 pr2" }, amount)
   ]);
 }
 
 function view(dispatch, model) {
+  const { billAmount, tipPercent } = model;
+
+  const [tip, total] = calcTipAndTotal(billAmount, tipPercent);
+
+  const toMoney = formatMoney("$", 2);
+
   return div({ className: "mw6 center" }, [
     h1({ className: "f2 pv2 bb" }, "Tip Calculator"),
     formView(dispatch, model),
-    calculationView(model)
-    // pre(JSON.stringify(model, null, 2))
+    calculatedAmounts(toMoney(tip), toMoney(total))
   ]);
 }
 
