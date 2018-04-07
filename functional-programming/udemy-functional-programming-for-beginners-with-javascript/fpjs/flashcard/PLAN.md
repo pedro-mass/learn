@@ -32,23 +32,6 @@
     * showEdit
     * showAnswer
 
-## Update Functions
-
-* add flash card
-* edit flash card
-  * done by clicking the question or shown answer
-* save flash card
-* delete flash card
-
-* show answer
-* rate flash card
-
-  * hides answer
-  * updates rank
-
-* sort cards by rank
-  * done on updates? Potentially just a view thing since it's not a real update
-
 ## View Functions
 
 * cardList
@@ -61,7 +44,8 @@
     * questionMode
       * editText
       * showHidden
-      * rankings
+        * editText
+        * rankings
 
 * card list
   * card
@@ -84,3 +68,20 @@
           * rating
             * updates the cards rank
             * closes expanded view
+
+## Update Functions
+
+* add flash card
+* edit flash card
+  * done by clicking the question or shown answer
+* save flash card
+* delete flash card
+
+* show answer
+* rate flash card
+
+  * hides answer
+  * updates rank
+
+* sort cards by rank
+  * done on updates? Potentially just a view thing since it's not a real update
