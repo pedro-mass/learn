@@ -2,10 +2,21 @@ import * as R from "ramda";
 import hh from "hyperscript-helpers";
 import { h } from "virtual-dom";
 
-const { div, h1, pre, p, button, i } = hh(h);
+const { div, h1, pre, p, button, i, textarea } = hh(h);
+
+function renderEditText(label, value) {
+  return div({ className: "" }, [
+    p({ className: "b f6 mv1" }, label),
+    textarea({ className: "w-100 pa1 bg-washed-yellow outline-0", value })
+  ]);
+}
 
 function renderEditCard(dispatch, card) {
-  return div({ className: "" }, p(`editing card: ${card.question}`));
+  return div({ className: "" }, [
+    renderEditText("Question", card.question),
+    renderEditText("Answer", card.answer),
+    button({ className: "f4 ph3 pv2 br1 bg-gray bn white mv2" }, "Save")
+  ]);
 }
 
 function renderViewCard(dispatch, card) {
@@ -64,9 +75,17 @@ function renderCardList(dispatch, cards) {
   );
 }
 
+function renderAddCardButton(dispatch) {
+  return button({ className: "pa2 br1 mv2 bg-green bn white" }, [
+    i({ className: "fa fa-plus ph1" }),
+    "Add Flashcard"
+  ]);
+}
+
 function view(dispatch, model) {
   return div({ className: "mw8 center" }, [
     h1({ className: "f2 pv2 bb" }, "Flashcard Study"),
+    renderAddCardButton(dispatch),
     renderCardList(dispatch, model.cards),
     pre(JSON.stringify(model, null, 2))
   ]);
