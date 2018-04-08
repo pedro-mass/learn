@@ -1,6 +1,7 @@
 # amazeballs
 
 following: https://www.smashingmagazine.com/2018/04/vuejs-firebase-firestore/
+completed repo by auther: https://github.com/Q42/amazeballs
 
 > A Vue.js project
 

@@ -1,36 +1,43 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+    <div class="logo">Amazeballs</div>
+    <Login v-if="!store.currentUser" />
+    <div v-else>
+      <button @click="logout">Log out</button>
+      <InputForm />
+      <BallsFeed />
+    </div>
   </div>
 </template>
 
 <script>
+import firebase from "firebase/app";
+import "firebase/auth";
+
+import { store } from "./store";
+import Login from "./Login";
+import InputForm from "./InputForm";
+import BallsFeed from "./BallsFeed";
+
 export default {
-  name: "app",
+  components: { Login, InputForm, BallsFeed },
   data() {
     return {
-      msg: "Welcome to Your Vue.js App"
+      store
     };
+  },
+  methods: {
+    logout() {
+      firebase
+        .auth()
+        .signOut()
+        .catch(err => alert(err.message || err));
+    }
   }
 };
 </script>
 
-<style lang="scss">
+<style>
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -57,5 +64,27 @@ li {
 
 a {
   color: #42b983;
+}
+.logo {
+  font-size: 300%;
+  font-weight: bold;
+  font-variant: small-caps;
+  text-shadow: 2px 2px #ff0000;
+}
+
+input,
+button {
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 3px #ddd;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 </style>

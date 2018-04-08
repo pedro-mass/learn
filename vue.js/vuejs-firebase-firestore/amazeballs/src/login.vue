@@ -12,7 +12,10 @@ export default {
   methods: {
     signInWithGoogle() {
       var provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithPopup(provider);
+      firebase
+        .auth()
+        .signInWithPopup(provider)
+        .catch(err => alert(err.message || err));
     }
   }
 };
