@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>First React App</title>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script type="text/babel">
+    const name = 'Tyler';
+    const handle = '@tylermcginnis'
+    const props = { name, handle };
+
+    function NameComponent({ name }) {
+      return <h1>{name}</h1>;
+    }
+
+    function HandleComponent({ handle }) {
+      return <h3>{handle}</h3>;
+    }
+
+    function App(props) {
+      return (
+        <div id="container">
+          <NameComponent {...props} />
+          <HandleComponent {...props} />
+        </div>
+      );
+    }
+
+    ReactDOM.render(
+      <App {...props} />,
+      document.getElementById("app")
+    );
+  </script>
+</body>
+
+</html>
