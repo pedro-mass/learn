@@ -22,8 +22,22 @@ require(["jquery", "ramda"], ($, { compose, curry, map, prop, pipe }) => {
 
   const img = src => $("<img />", { src });
   const mediaUrl = compose(prop("m"), prop("media"));
-  const mediaUrls = compose(map(mediaUrl), prop("items"));
-  const images = compose(map(img), mediaUrls);
+  // const mediaUrls = compose(map(mediaUrl), prop("items"));
+  // const images = compose(map(img), mediaUrls);
+
+  // inline call to mediaUrls
+  // const images = compose(map(img), map(mediaUrl), prop("items"));
+
+  // apply composition law
+  /*
+    compose(map(f), map(g)) === map(compose(f, g));
+    compose(map(img), map(mediaUrl)) === map(compose(img, mediaUrl));
+  */
+  // const images = compose(map(compose(img, mediaUrl)), prop("items"));
+
+  // extract compose out to function
+  const mediaToImg = compose(img, mediaUrl);
+  const images = compose(map(mediaToImg), prop("items"));
 
   // -- Impure ---------------------------------------------------------
   const render = compose(Impure.setHTML("#js-main"), images);
