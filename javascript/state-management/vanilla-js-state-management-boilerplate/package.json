@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "start": "http-server ./src"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.6",
+    "http-server": "^0.11.1"
+  }
+}
