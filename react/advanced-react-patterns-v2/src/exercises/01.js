@@ -1,12 +1,20 @@
 // Building the toggle component
 
 import React from 'react'
+import PropTypes from 'prop-types'
 // 🐨 uncomment this import to get the switch component.
 // It takes an `onClick` and an `on` prop
-// import {Switch} from '../switch'
+import {Switch} from '../switch'
 
 class Toggle extends React.Component {
+  static props = {
+    onToggle: PropTypes.func,
+  }
+  static defaultProps = {
+    onToggle: () => {},
+  }
   // 🐨 this toggle component is going to need to have state for `on`
+  state = {on: false}
   //
   // You'll also want a method to handle when the switch is clicked
   // which will update the `on` state and call the `onToggle` prop
@@ -17,9 +25,15 @@ class Toggle extends React.Component {
   // The `callback` should be where you call `this.props.onToggle(this.state.on)`
   //
   // 💯 Use a state updater function for `newState` to avoid issues with batching
+  toggle = () =>
+    this.setState(
+      ({on}) => ({on: !on}),
+      () => this.props.onToggle(this.state.on),
+    )
+
   render() {
     // 🐨 here you'll want to return the switch with the `on` and `onClick` props
-    return null
+    return <Switch on={this.state.on} onClick={this.toggle} />
   }
 }
 
