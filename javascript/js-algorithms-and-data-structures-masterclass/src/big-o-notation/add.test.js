@@ -8,9 +8,10 @@ it('should equal the same', () => {
 })
 
 it('add2 should be faster than add1', () => {
+  const input = 10e7
   const times = {
-    add1: timeCallInMs(() => add1.addUpTo(10e5)),
-    add2: timeCallInMs(() => add2.addUpTo(10e5))
+    add1: timeCallInMs(() => add1.addUpTo(input)),
+    add2: timeCallInMs(() => add2.addUpTo(input))
   }
   expect(times.add2).toBeLessThan(times.add1)
 })
