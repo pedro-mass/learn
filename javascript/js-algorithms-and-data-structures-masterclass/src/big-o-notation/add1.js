@@ -1,3 +1,4 @@
+// O(n)
 export function addUpTo (n) {
   let total = 0
 
