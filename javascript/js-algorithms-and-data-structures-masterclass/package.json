@@ -1,0 +1,19 @@
+{
+  "name": "js-algorithms-and-data-structures-masterclass",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx babel src --out-dir lib",
+    "test": "jest --watch"
+  },
+  "keywords": [],
+  "author": "Pedro Mass <pedro.j.mass@gmail.com> (https://github.com/pedro-mass/test-semantic-release)",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "jest": "^23.5.0"
+  }
+}
