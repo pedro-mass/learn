@@ -1,0 +1,15 @@
+{
+  "name": "functional-lite-javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watch"
+  },
+  "keywords": [],
+  "author": "Pedro Mass <pedro.j.mass@gmail.com> (https://github.com/pedro-mass/test-semantic-release)",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^23.5.0"
+  }
+}
