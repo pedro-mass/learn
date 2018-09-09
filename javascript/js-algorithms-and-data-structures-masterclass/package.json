@@ -6,7 +6,8 @@
   "scripts": {
     "build": "npx babel src --out-dir lib",
     "lint": "eslint 'src/**/*.js' --fix",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand"
   },
   "keywords": [],
   "author": "Pedro Mass <pedro.j.mass@gmail.com> (https://github.com/pedro-mass/test-semantic-release)",
@@ -18,7 +19,7 @@
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^7.0.1",
-    "eslint-plugin-promise": "^4.0.0",
+    "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "husky": "^1.0.0-rc.13",
     "jest": "^23.5.0",
