@@ -4,7 +4,7 @@ const cases = [
   {
     name: 'should handle multiples of the same character',
     input: 'aaa',
-    output: { a: 3 }
+    output: { a: 3 },
   },
   {
     name: 'should handle mixed case',
@@ -24,39 +24,39 @@ const cases = [
       r: 2,
       s: 1,
       u: 2,
-      y: 1
-    }
+      y: 1,
+    },
   },
   {
     name: 'should ignore non-alphanumeric characters',
     input: '_. // -+`!@#$%^&*()-_=+/?.>,<',
-    output: {}
+    output: {},
   },
   {
     name: 'should handle undefined',
     input: undefined,
-    output: {}
+    output: {},
   },
   {
     name: 'should handle null',
     input: null,
-    output: {}
+    output: {},
   },
   {
     name: 'should handle a number',
     input: 1232,
-    output: {}
+    output: {},
   },
   {
     name: 'should handle a boolean',
     input: true,
-    output: {}
+    output: {},
   },
   {
     name: 'should handle an object',
     input: { test: true },
-    output: {}
-  }
+    output: {},
+  },
 ]
 describe.each(cases)('charCount()', ({ name, input, output }) => {
   it(name, () => {
