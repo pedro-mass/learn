@@ -10,3 +10,14 @@ export function getTestCases (cases) {
 
   return filteredCases && filteredCases.length > 0 ? filteredCases : cases
 }
+
+export function loopTestCases ({ testCases, fnUnderTest }) {
+  describe.each(getTestCases(testCases))(
+    `${fnUnderTest.name}()`,
+    ({ input, output }) => {
+      it(`input: ${input} \t| output: ${output}`, () => {
+        expect(fnUnderTest(...input)).toEqual(output)
+      })
+    }
+  )
+}
