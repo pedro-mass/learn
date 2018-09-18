@@ -18,7 +18,9 @@ export function loopTestCases ({ testCases, fnUnderTest }) {
   describe.each(getTestCases(testCases))(
     `${fnUnderTest.name}()`,
     ({ input, output }) => {
-      it(`input: ${input} \t| output: ${output}`, () => {
+      it(`input: ${JSON.stringify(input)} \t| output: ${JSON.stringify(
+        output
+      )}`, () => {
         expect(fnUnderTest(...input)).toEqual(output)
       })
     }
