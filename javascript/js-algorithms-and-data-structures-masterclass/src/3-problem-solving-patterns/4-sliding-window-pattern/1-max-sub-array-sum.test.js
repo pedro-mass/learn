@@ -10,6 +10,8 @@ const testCases = [
   { input: [[], 4], output: null },
 ]
 
-Object.values(testFns).forEach(fnUnderTest =>
-  loopTestCases({ fnUnderTest, testCases })
-)
+describe('maxSubarraySum', () => {
+  Object.values(testFns).forEach(fnUnderTest =>
+    loopTestCases({ fnUnderTest, testCases })
+  )
+})
