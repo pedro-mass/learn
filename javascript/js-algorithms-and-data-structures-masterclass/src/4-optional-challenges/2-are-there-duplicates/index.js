@@ -1,5 +1,6 @@
 // Implement a function called, areThereDuplicates which accepts a variable number of arguments, and checks whether there are any duplicates among the arguments passed in.  You can solve this using the frequency counter pattern OR the multiple pointers pattern.
 
+// O(n)
 export function frequencyCounterPattern (...args) {
   const getFrequencies = array =>
     array.reduce(
@@ -15,6 +16,7 @@ function getNextCount (map, key) {
   return ++map[key] || 1
 }
 
+// O(log n)? - not sure about the complexity of the sort but average case says it's O(log n)
 export function multiplePointersPattern (...args) {
   args = args.sort()
 
