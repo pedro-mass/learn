@@ -30,3 +30,6 @@ export function multiplePointersPattern (...args) {
   }
   return false
 }
+
+// O(1)?
+export const usingASet = (...args) => new Set(args).size !== args.length
