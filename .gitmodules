@@ -1,0 +1,3 @@
+[submodule "ai-learning"]
+	path = ai-learning
+	url = https://github.com/pedro-mass/ai-learning
