@@ -1,6 +1,6 @@
 Following: https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/
 
-Left off at: Sign Up with React and Firebase
+Left off at: Sign In with React and Firebase
 
 ---
 
