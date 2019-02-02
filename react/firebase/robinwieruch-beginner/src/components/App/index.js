@@ -11,42 +11,28 @@ import AccountPage from "../Account";
 import AdminPage from "../Admin";
 
 import * as ROUTES from "../../constants/routes";
-import { withFirebase } from "../Firebase";
+import { withAuthentication } from "../Session";
 
-class App extends React.Component {
-  state = {
-    authUser: null
-  };
+const App = () => (
+  <Router>
+    <div>
+      <Navigation />
 
-  render() {
-    return (
-      <Router>
-        <div>
-          <Navigation authUser={this.state.authUser} />
+      <hr />
 
-          <hr />
+      <Route exact path={ROUTES.LANDING} component={LandingPage} />
+      <Route exact path={ROUTES.SIGN_UP} component={SignUpPage} />
+      <Route exact path={ROUTES.SIGN_IN} component={SignInPage} />
+      <Route
+        exact
+        path={ROUTES.PASSWORD_FORGET}
+        component={PasswordForgetPage}
+      />
+      <Route exact path={ROUTES.HOME} component={HomePage} />
+      <Route exact path={ROUTES.ACCOUNT} component={AccountPage} />
+      <Route exact path={ROUTES.ADMIN} component={AdminPage} />
+    </div>
+  </Router>
+);
 
-          <Route exact path={ROUTES.LANDING} component={LandingPage} />
-          <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
-          <Route path={ROUTES.SIGN_IN} component={SignInPage} />
-          <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
-          <Route path={ROUTES.HOME} component={HomePage} />
-          <Route path={ROUTES.ACCOUNT} component={AccountPage} />
-          <Route path={ROUTES.ADMIN} component={AdminPage} />
-        </div>
-      </Router>
-    );
-  }
-
-  componentDidMount() {
-    this.removeListener = this.props.firebase.auth.onAuthStateChanged(
-      authUser => this.setState({ authUser: authUser || null })
-    );
-  }
-
-  componentWillUnmount() {
-    this.removeListener();
-  }
-}
-
-export default withFirebase(App);
+export default withAuthentication(App);
