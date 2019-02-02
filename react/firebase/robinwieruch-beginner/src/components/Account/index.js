@@ -1,2 +1,14 @@
 import React from "react";
-export default () => <div>Account</div>;
+
+import { PasswordForgetForm } from "../PasswordForget";
+import PasswordChangeForm from "../PasswordChange";
+
+const AccountPage = () => (
+  <div>
+    <h1>Account Page</h1>
+    <PasswordForgetForm />
+    <PasswordChangeForm />
+  </div>
+);
+
+export default AccountPage;
