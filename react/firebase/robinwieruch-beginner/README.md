@@ -1,6 +1,6 @@
 Following: https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/
 
-Left off at: Sign Out with React and Firebase
+Left off at: Session Handling with Higher-Order Components
 
 ---
 
