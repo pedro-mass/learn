@@ -1,0 +1,43 @@
+{
+  "name": "js-algorithms-and-data-structures-masterclass",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx babel src --out-dir lib",
+    "lint": "eslint 'src/**/*.js' --fix",
+    "reset": "rm -rf ./node_modules && yarn install",
+    "test": "jest --watch",
+    "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand"
+  },
+  "keywords": [],
+  "author": "Pedro Mass <pedro.j.mass@gmail.com> (https://github.com/pedro-mass/test-semantic-release)",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-jest": "^23.6.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^5.6.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "husky": "^1.0.0-rc.13",
+    "jest": "^23.6.0",
+    "lint-staged": "^7.2.2"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "pre-commit": "lint-staged"
+  }
+}
