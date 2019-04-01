@@ -13,6 +13,9 @@
   "keywords": [],
   "author": "Pedro Mass <pedro.j.mass@gmail.com> (https://github.com/pedro-mass/test-semantic-release)",
   "license": "ISC",
+  "dependencies": {
+    "uuid": "^3.3.2"
+  },
   "devDependencies": {
     "babel-jest": "^23.6.0",
     "babel-preset-env": "^1.7.0",
