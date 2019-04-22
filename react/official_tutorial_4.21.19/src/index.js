@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useReducer } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 
@@ -37,33 +37,44 @@ function Board(props) {
 }
 
 function Game() {
-  const [history, setHistory] = useState([{ squares: Array(9).fill(null) }]);
-  const [xIsNext, setXIsNext] = useState(true);
-  const [stepNumber, setStepNumber] = useState(0);
+  const [state, setState] = useReducer(
+    (state, nextState) => Object.assign({}, state, nextState),
+    {
+      history: [{ squares: Array(9).fill(null) }],
+      xIsNext: true,
+      stepNumber: 0
+    }
+  );
 
   const handleClick = i => {
-    const nextHistory = history.slice(0, stepNumber + 1);
+    const nextHistory = state.history.slice(0, state.stepNumber + 1);
     const current = nextHistory[nextHistory.length - 1];
     const squares = current.squares.slice();
 
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
-    squares[i] = xIsNext ? "X" : "O";
-    setHistory(nextHistory.concat([{ squares }]));
-    setStepNumber(nextHistory.length);
-    setXIsNext(!xIsNext);
+    squares[i] = state.xIsNext ? "X" : "O";
+
+    console.log({ nextHistory });
+    setState({
+      history: nextHistory.concat([{ squares }]),
+      stepNumber: nextHistory.length,
+      xIsNext: !state.xIsNext
+    });
   };
 
   function jumpTo(step) {
-    setStepNumber(step);
-    setXIsNext(step % 2 === 0);
+    setState({
+      stepNumber: step,
+      xIsNext: step % 2 === 0
+    });
   }
 
-  const current = history[stepNumber];
+  const current = state.history[state.stepNumber];
   const winner = calculateWinner(current.squares);
 
-  const moves = history.map((step, move) => {
+  const moves = state.history.map((step, move) => {
     const desc = move ? "Go to move #" + move : "Go to game start";
     return (
       <li key={move}>
@@ -76,7 +87,7 @@ function Game() {
   if (winner) {
     status = "Winner: " + winner;
   } else {
-    status = "Next player: " + (xIsNext ? "X" : "O");
+    status = "Next player: " + (state.xIsNext ? "X" : "O");
   }
 
   return (
