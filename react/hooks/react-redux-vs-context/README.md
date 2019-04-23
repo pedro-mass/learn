@@ -1,0 +1,3 @@
+followed: https://www.youtube.com/watch?time_continue=2&v=OvM4hIxrqAw
+written article: https://academind.com/learn/react/redux-vs-context-api/
+original repo: https://github.com/academind/react-re...
