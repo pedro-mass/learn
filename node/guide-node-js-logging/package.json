@@ -1,0 +1,24 @@
+{
+  "name": "guide-node-js-logging",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "debug": "^4.1.1",
+    "express": "^4.16.4",
+    "express-pino-logger": "^4.0.0",
+    "pino": "^5.12.3",
+    "pino-debug": "^1.2.0"
+  },
+  "devDependencies": {
+    "pino-colada": "^1.4.4",
+    "pino-pretty": "^3.0.0"
+  }
+}
