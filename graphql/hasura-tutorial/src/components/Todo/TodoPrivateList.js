@@ -1,7 +1,23 @@
 import React, { Component, Fragment } from "react";
+import gql from "graphql-tag";
+import { Query } from "react-apollo";
 
 import TodoItem from "./TodoItem";
 import TodoFilters from "./TodoFilters";
+
+const GET_MY_TODOS = gql`
+  query getMyTodos {
+    todos(
+      where: { is_public: { _eq: false } }
+      order_by: { created_at: desc }
+    ) {
+      id
+      title
+      created_at
+      is_completed
+    }
+  }
+`;
 
 class TodoPrivateList extends Component {
   constructor(props) {
@@ -9,21 +25,7 @@ class TodoPrivateList extends Component {
 
     this.state = {
       filter: "all",
-      clearInProgress: false,
-      todos: [
-        {
-          id: "1",
-          title: "This is private todo 1",
-          is_completed: true,
-          is_public: false
-        },
-        {
-          id: "2",
-          title: "This is private todo 2",
-          is_completed: false,
-          is_public: false
-        }
-      ]
+      clearInProgress: false
     };
 
     this.filterResults = this.filterResults.bind(this);
@@ -40,30 +42,23 @@ class TodoPrivateList extends Component {
   clearCompleted() {}
 
   render() {
-    let filteredTodos = this.state.todos;
+    const todos = this.props.todos || [];
+    let filteredTodos = todos;
     if (this.state.filter === "active") {
-      filteredTodos = this.state.todos.filter(todo => todo.is_completed !== true);
+      filteredTodos = todos.filter(todo => todo.is_completed !== true);
     } else if (this.state.filter === "completed") {
-      filteredTodos = this.state.todos.filter(todo => todo.is_completed === true);
+      filteredTodos = todos.filter(todo => todo.is_completed === true);
     }
 
     const todoList = [];
     filteredTodos.forEach((todo, index) => {
-      todoList.push(
-        <TodoItem
-          key={index}
-          index={index}
-          todo={todo}
-        />
-      );
+      todoList.push(<TodoItem key={index} index={index} todo={todo} />);
     });
 
     return (
       <Fragment>
         <div className="todoListWrapper">
-          <ul>
-            { todoList }
-          </ul>
+          <ul>{todoList}</ul>
         </div>
 
         <TodoFilters
@@ -78,4 +73,22 @@ class TodoPrivateList extends Component {
   }
 }
 
-export default TodoPrivateList;
+const TodoPrivateListQuery = () => {
+  return (
+    <Query query={GET_MY_TODOS}>
+      {({ loading, error, data, client }) => {
+        if (loading) {
+          return <div>Loading...</div>;
+        }
+        if (error) {
+          console.error(error);
+          return <div>Error!</div>;
+        }
+        return <TodoPrivateList client={client} todos={data.todos} />;
+      }}
+    </Query>
+  );
+};
+
+export default TodoPrivateListQuery;
+export { GET_MY_TODOS };
