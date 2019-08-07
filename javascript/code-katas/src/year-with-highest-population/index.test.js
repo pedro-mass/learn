@@ -17,7 +17,7 @@ const testCases = [
   },
 ]
 
-describe.only('findMostPopulatedYear()', () => {
+describe('findMostPopulatedYear()', () => {
   Object.values(testFns).forEach(fnUnderTest =>
     loopTestCases({ fnUnderTest, testCases })
   )

@@ -2,7 +2,7 @@ import { loopTestCases } from '../../../../test-helpers'
 
 import { sockMerchant } from './index'
 
-describe.only('sockMerchant()', () => {
+describe('sockMerchant()', () => {
   const testCases = [
     {
       input: [5, [1, 1, 2, 2, 3]],

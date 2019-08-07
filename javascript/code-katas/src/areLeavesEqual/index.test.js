@@ -63,7 +63,7 @@ const testCases = [
   },
 ]
 
-describe.only('areLeavesEqual()', () => {
+describe('areLeavesEqual()', () => {
   Object.values(testFns).forEach(fnUnderTest =>
     loopTestCases({ fnUnderTest, testCases })
   )
