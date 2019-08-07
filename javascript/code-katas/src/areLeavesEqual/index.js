@@ -37,7 +37,7 @@ export function breadthFirstSearch (tree) {
       continue
     }
 
-    if (refValue == undefined) {
+    if (refValue === undefined) {
       refValue = node
       continue
     }
@@ -62,7 +62,7 @@ export function dfsWithoutRecursion (tree) {
       continue
     }
 
-    if (refValue == undefined) {
+    if (refValue === undefined) {
       refValue = node
       continue
     }
