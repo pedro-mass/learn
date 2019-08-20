@@ -4,8 +4,11 @@
   "description": "the Complete Intro to React, v5",
   "main": "src/App.js",
   "dependencies": {
+    "@babel/node": "^7.5.5",
     "@frontendmasters/pet": "^1.0.3",
     "@reach/router": "^1.2.1",
+    "babel-cli": "^6.26.0",
+    "express": "^4.17.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
   },
@@ -26,11 +29,13 @@
     "prettier": "^1.16.1"
   },
   "scripts": {
+    "build": "parcel build --public-url ./dist/ src/index.html",
     "clear-build-cache": "rm -rf .cache/ dist/",
     "dev": "parcel src/index.html",
     "dev:mock": "cross-env PET_MOCK=mock parcel src/index.html",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "start": "npm run build && babel-node server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Brian Holt <btholt+complete-intro-to-react@gmail.com>",
