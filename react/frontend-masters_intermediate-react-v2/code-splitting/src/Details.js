@@ -1,13 +1,15 @@
-import React from "react";
-import pet from "@frontendmasters/pet";
-import { navigate } from "@reach/router";
-import Carousel from "./Carousel";
-import Modal from "./Modal";
-import ErrorBoundary from "./ErrorBoundary";
-import ThemeContext from "./ThemeContext";
+import React, { lazy } from "react"
+import pet from "@frontendmasters/pet"
+import { navigate } from "@reach/router"
+import Carousel from "./Carousel"
+// import Modal from "./Modal";
+import ErrorBoundary from "./ErrorBoundary"
+import ThemeContext from "./ThemeContext"
+
+const Modal = lazy(() => import("./Modal"))
 
 class Details extends React.Component {
-  state = { loading: true, showModal: false };
+  state = { loading: true, showModal: false }
   componentDidMount() {
     pet
       .animal(this.props.id)
@@ -22,16 +24,16 @@ class Details extends React.Component {
           media: animal.photos,
           breed: animal.breeds.primary,
           url: animal.url,
-          loading: false
-        });
+          loading: false,
+        })
       })
-      .catch(err => this.setState({ error: err }));
+      .catch(err => this.setState({ error: err }))
   }
-  toggleModal = () => this.setState({ showModal: !this.state.showModal });
-  adopt = () => navigate(this.state.url);
+  toggleModal = () => this.setState({ showModal: !this.state.showModal })
+  adopt = () => navigate(this.state.url)
   render() {
     if (this.state.loading) {
-      return <h1>loading … </h1>;
+      return <h1>loading … </h1>
     }
 
     const {
@@ -41,8 +43,8 @@ class Details extends React.Component {
       description,
       media,
       name,
-      showModal
-    } = this.state;
+      showModal,
+    } = this.state
 
     return (
       <div className="details">
@@ -72,7 +74,7 @@ class Details extends React.Component {
           ) : null}
         </div>
       </div>
-    );
+    )
   }
 }
 
@@ -81,5 +83,5 @@ export default function DetailsErrorBoundary(props) {
     <ErrorBoundary>
       <Details {...props} />
     </ErrorBoundary>
-  );
+  )
 }
