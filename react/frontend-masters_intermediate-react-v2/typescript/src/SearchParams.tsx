@@ -1,45 +1,51 @@
-import React, { useState, useEffect, useContext } from "react";
-import pet, { ANIMALS } from "@frontendmasters/pet";
-import useDropdown from "./useDropdown";
-import Results from "./Results";
-import ThemeContext from "./ThemeContext";
+import React, {
+  useState,
+  useEffect,
+  useContext,
+  FunctionComponent,
+} from "react"
+import pet, { ANIMALS, Animal } from "@frontendmasters/pet"
+import { RouteComponentProps } from "@reach/router"
+import useDropdown from "./useDropdown"
+import Results from "./Results"
+import ThemeContext from "./ThemeContext"
 
-const SearchParams = () => {
-  const [theme, setTheme] = useContext(ThemeContext);
-  const [location, updateLocation] = useState("Seattle, WA");
-  const [breeds, updateBreeds] = useState([]);
-  const [pets, setPets] = useState([]);
-  const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
-  const [breed, BreedDropdown, updateBreed] = useDropdown("Breed", "", breeds);
+const SearchParams: FunctionComponent<RouteComponentProps> = () => {
+  const [theme, setTheme] = useContext(ThemeContext)
+  const [location, updateLocation] = useState("Seattle, WA")
+  const [breeds, updateBreeds] = useState<string[]>([])
+  const [pets, setPets] = useState<Animal[]>([])
+  const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS)
+  const [breed, BreedDropdown, updateBreed] = useDropdown("Breed", "", breeds)
 
   async function requestPets() {
     const { animals } = await pet.animals({
       location,
       breed,
-      type: animal
-    });
+      type: animal,
+    })
 
-    console.log("animals", animals);
+    console.log("animals", animals)
 
-    setPets(animals || []);
+    setPets(animals || [])
   }
 
   useEffect(() => {
-    updateBreeds([]);
-    updateBreed("");
+    updateBreeds([])
+    updateBreed("")
 
     pet.breeds(animal).then(({ breeds }) => {
-      const breedStrings = breeds.map(({ name }) => name);
-      updateBreeds(breedStrings);
-    }, console.error);
-  }, [animal]);
+      const breedStrings = breeds.map(({ name }) => name)
+      updateBreeds(breedStrings)
+    }, console.error)
+  }, [animal])
 
   return (
     <div className="search-params">
       <form
         onSubmit={e => {
-          e.preventDefault();
-          requestPets();
+          e.preventDefault()
+          requestPets()
         }}
       >
         <label htmlFor="location">
@@ -70,7 +76,7 @@ const SearchParams = () => {
       </form>
       <Results pets={pets} />
     </div>
-  );
-};
+  )
+}
 
-export default SearchParams;
+export default SearchParams
