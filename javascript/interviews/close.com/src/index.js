@@ -1,4 +1,4 @@
-import React, { Fragment, useReducer } from "react";
+import React, { Fragment, useReducer, memo } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 
@@ -27,28 +27,26 @@ const SelectedItems = ({ names = [], onClick = name => name }) => {
   );
 };
 
-const ItemList = ({
-  items = [],
-  isSelected = () => false,
-  onClick = name => name
-}) => {
-  const handleClick = name => () => onClick(name);
-  return (
-    <ul className="List">
-      {items.map(({ name, color }) => (
-        <li
-          key={name}
-          className={`List__item List__item--${color} ${
-            isSelected(name) ? "highlight" : ""
-          }`}
-          onClick={handleClick(name)}
-        >
-          {name}
-        </li>
-      ))}
-    </ul>
-  );
-};
+const ItemList = memo(
+  ({ items = [], isSelected = () => false, onClick = name => name }) => {
+    const handleClick = name => () => onClick(name);
+    return (
+      <ul className="List">
+        {items.map(({ name, color }) => (
+          <li
+            key={name}
+            className={`List__item List__item--${color} ${
+              isSelected(name) ? "highlight" : ""
+            }`}
+            onClick={handleClick(name)}
+          >
+            {name}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+);
 
 const removeFromArray = (array = [], value) => {
   const sliceIndex = array.indexOf(value);
