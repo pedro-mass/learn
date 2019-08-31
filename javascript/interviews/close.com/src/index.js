@@ -5,7 +5,7 @@ import "./index.css";
 // Implement a feature to allow item selection with the following requirements:
 // [x] Clicking an item selects/unselects it.
 // [x] Multiple items can be selected at a time.
-// [ ] Make sure to AVOID UNNECESSARY RE-RENDERS (performance).
+// [?] Make sure to AVOID UNNECESSARY RE-RENDERS (performance).
 // [?] Currently selected items should be visually highlighted.
 // [x] Currently selected items' names should be shown at the top of the page.
 
