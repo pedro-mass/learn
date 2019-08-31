@@ -56,7 +56,7 @@ const List = ({ items }) => {
   const isSelected = itemName => selectedNames.includes(itemName);
   const addItem = itemName =>
     !isSelected(itemName) &&
-    setSelectedNames(prevSelected => prevSelected.concat([itemName]));
+    setSelectedNames(prevSelected => [...prevSelected, itemName]);
   const removeItem = itemName =>
     setSelectedNames(prevSelected => removeFromArray(prevSelected, itemName));
 
