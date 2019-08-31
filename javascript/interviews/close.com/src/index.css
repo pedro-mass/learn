@@ -1,0 +1,91 @@
+.List {
+  margin: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-auto-rows: 60px;
+  grid-gap: 16px;
+}
+
+.List__item {
+  line-height: 60px;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.05);
+}
+
+.highlight {
+  /* pedro: fix this b/c would collide with other colors. Look at a different visual identifier? Maybe adding a dot somewhere? */
+  box-shadow: inset 0 0 2px 5px yellow;
+}
+
+.clickable:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Taken from https://clrs.cc/ */
+
+.List__item--navy {
+  background-color: #001f3f;
+}
+
+.List__item--blue {
+  background-color: #0074d9;
+}
+
+.List__item--aqua {
+  background-color: #7fdbff;
+}
+
+.List__item--teal {
+  background-color: #39cccc;
+}
+
+.List__item--olive {
+  background-color: #3d9970;
+}
+
+.List__item--green {
+  background-color: #2ecc40;
+}
+
+.List__item--lime {
+  background-color: #01ff70;
+}
+
+.List__item--yellow {
+  background-color: #ffdc00;
+}
+
+.List__item--orange {
+  background-color: #ff851b;
+}
+
+.List__item--red {
+  background-color: #ff4136;
+}
+
+.List__item--maroon {
+  background-color: #85144b;
+}
+
+.List__item--fuchsia {
+  background-color: #f012be;
+}
+
+.List__item--purple {
+  background-color: #b10dc9;
+}
+
+.List__item--black {
+  background-color: #111111;
+}
+
+.List__item--gray {
+  background-color: #aaaaaa;
+}
+
+.List__item--silver {
+  background-color: #dddddd;
+}
