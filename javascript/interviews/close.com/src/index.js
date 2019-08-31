@@ -1,4 +1,4 @@
-import React, { Fragment, useState, memo } from "react";
+import React, { Fragment, useState } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 
@@ -9,40 +9,46 @@ import "./index.css";
 // [?] Currently selected items should be visually highlighted.
 // [x] Currently selected items' names should be shown at the top of the page.
 
-const SelectedItems = memo(({ names = [], onClick }) => {
-  const getSeparator = index => (index > 0 ? ", " : "");
-
-  return (
-    <Fragment>
-      <h1>Selected:</h1>
-      <div>
-        {names.map((name, i) => (
-          <span key={name} className="clickable" onClick={onClick(name)}>
-            {getSeparator(i) + name}
-          </span>
-        ))}
-      </div>
-    </Fragment>
-  );
-});
-
-const Items = memo(({ items, isSelected, onClick }) => {
-  return (
-    <ul className="List">
-      {items.map(({ name, color }) => (
-        <li
-          key={name}
-          className={`List__item List__item--${color} ${
-            isSelected(name) ? "highlight" : ""
-          }`}
-          onClick={onClick(name)}
-        >
-          {name}
-        </li>
+const getSeparator = index => (index > 0 ? ", " : "");
+const SelectedItems = ({ names = [], onClick = name => () => name }) => (
+  <Fragment>
+    <h1>Selected:</h1>
+    {/* pedro: switch to ul/li since that's semantically the correct way. Would I still be able to get CSV value? */}
+    <div>
+      {names.map((name, i) => (
+        <span key={name} className="clickable" onClick={onClick(name)}>
+          {getSeparator(i) + name}
+        </span>
       ))}
-    </ul>
-  );
-});
+    </div>
+  </Fragment>
+);
+
+const ItemList = ({
+  items = [],
+  isSelected = () => false,
+  onClick = name => () => name
+}) => (
+  <ul className="List">
+    {items.map(({ name, color }) => (
+      <li
+        key={name}
+        className={`List__item List__item--${color} ${
+          isSelected(name) ? "highlight" : ""
+        }`}
+        onClick={onClick(name)}
+      >
+        {name}
+      </li>
+    ))}
+  </ul>
+);
+
+const removeFromArray = (array = [], value) => {
+  const sliceIndex = array.indexOf(value);
+  if (sliceIndex < 0) return array;
+  return array.slice(0, sliceIndex).concat(array.slice(sliceIndex + 1));
+};
 
 const List = ({ items }) => {
   const [selectedNames, setSelectedNames] = useState([]);
@@ -52,12 +58,7 @@ const List = ({ items }) => {
     !isSelected(itemName) &&
     setSelectedNames(prevSelected => prevSelected.concat([itemName]));
   const removeItem = itemName =>
-    setSelectedNames(prevSelected => {
-      const sliceIndex = prevSelected.indexOf(itemName);
-      return prevSelected
-        .slice(0, sliceIndex)
-        .concat(prevSelected.slice(sliceIndex + 1));
-    });
+    setSelectedNames(prevSelected => removeFromArray(prevSelected, itemName));
 
   const handleClick = itemName => () =>
     isSelected(itemName) ? removeItem(itemName) : addItem(itemName);
@@ -65,8 +66,10 @@ const List = ({ items }) => {
 
   return (
     <Fragment>
-      <SelectedItems names={selectedNames} onClick={removeItemOnClick} />
-      <Items items={items} onClick={handleClick} isSelected={isSelected} />
+      {selectedNames.length > 0 && (
+        <SelectedItems names={selectedNames} onClick={removeItemOnClick} />
+      )}
+      <ItemList items={items} onClick={handleClick} isSelected={isSelected} />
     </Fragment>
   );
 };

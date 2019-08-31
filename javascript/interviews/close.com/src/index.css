@@ -15,7 +15,7 @@
 }
 
 .highlight {
-  /* pedro: fix this b/c would collide with other colors. Look at a different visual identifier? Maybe adding a dot somewhere? */
+  /* pedro: would collide with other colors. Look at a different visual identifier? Maybe adding a dot somewhere? */
   box-shadow: inset 0 0 2px 5px yellow;
 }
 
