@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useReducer } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 
@@ -10,39 +10,45 @@ import "./index.css";
 // [x] Currently selected items' names should be shown at the top of the page.
 
 const getSeparator = index => (index > 0 ? ", " : "");
-const SelectedItems = ({ names = [], onClick = name => () => name }) => (
-  <Fragment>
-    <h1>Selected:</h1>
-    {/* pedro: switch to ul/li since that's semantically the correct way. Would I still be able to get CSV value? */}
-    <p>
-      {names.map((name, i) => (
-        <span key={name} className="clickable" onClick={onClick(name)}>
-          {getSeparator(i) + name}
-        </span>
-      ))}
-    </p>
-  </Fragment>
-);
+const SelectedItems = ({ names = [], onClick = name => name }) => {
+  const handleClick = name => () => onClick(name);
+  return (
+    <Fragment>
+      <h1>Selected:</h1>
+      {/* pedro: switch to ul/li since that's semantically the correct way. Would I still be able to get CSV value? */}
+      <p>
+        {names.map((name, i) => (
+          <span key={name} className="clickable" onClick={handleClick(name)}>
+            {getSeparator(i) + name}
+          </span>
+        ))}
+      </p>
+    </Fragment>
+  );
+};
 
 const ItemList = ({
   items = [],
   isSelected = () => false,
-  onClick = name => () => name
-}) => (
-  <ul className="List">
-    {items.map(({ name, color }) => (
-      <li
-        key={name}
-        className={`List__item List__item--${color} ${
-          isSelected(name) ? "highlight" : ""
-        }`}
-        onClick={onClick(name)}
-      >
-        {name}
-      </li>
-    ))}
-  </ul>
-);
+  onClick = name => name
+}) => {
+  const handleClick = name => () => onClick(name);
+  return (
+    <ul className="List">
+      {items.map(({ name, color }) => (
+        <li
+          key={name}
+          className={`List__item List__item--${color} ${
+            isSelected(name) ? "highlight" : ""
+          }`}
+          onClick={handleClick(name)}
+        >
+          {name}
+        </li>
+      ))}
+    </ul>
+  );
+};
 
 const removeFromArray = (array = [], value) => {
   const sliceIndex = array.indexOf(value);
@@ -50,26 +56,56 @@ const removeFromArray = (array = [], value) => {
   return array.slice(0, sliceIndex).concat(array.slice(sliceIndex + 1));
 };
 
+const types = {
+  add: "add",
+  remove: "remove",
+  process: "process"
+};
+const selectedReducer = (state = [], action = {}) => {
+  const isIncluded = () => state.includes(action.payload);
+  const add = () => {
+    if (isIncluded()) return state;
+    return [...state, action.payload];
+  };
+  const remove = () => removeFromArray(state, action.payload);
+
+  switch (action.type) {
+    case types.add:
+      return add();
+    case types.remove:
+      return remove();
+    case types.process:
+      return isIncluded() ? remove() : add();
+    default:
+      return state;
+  }
+};
+
 const List = ({ items }) => {
-  const [selectedNames, setSelectedNames] = useState([]);
+  const [selectedNames, dispatch] = useReducer(selectedReducer, []);
 
+  const removeItem = name =>
+    dispatch({
+      type: types.remove,
+      payload: name
+    });
+  const addOrRemoveItem = name =>
+    dispatch({
+      type: types.process,
+      payload: name
+    });
   const isSelected = itemName => selectedNames.includes(itemName);
-  const addItem = itemName =>
-    !isSelected(itemName) &&
-    setSelectedNames(prevSelected => [...prevSelected, itemName]);
-  const removeItem = itemName =>
-    setSelectedNames(prevSelected => removeFromArray(prevSelected, itemName));
-
-  const handleClick = itemName => () =>
-    isSelected(itemName) ? removeItem(itemName) : addItem(itemName);
-  const removeItemOnClick = itemName => () => removeItem(itemName);
 
   return (
     <Fragment>
       {selectedNames.length > 0 && (
-        <SelectedItems names={selectedNames} onClick={removeItemOnClick} />
+        <SelectedItems names={selectedNames} onClick={removeItem} />
       )}
-      <ItemList items={items} onClick={handleClick} isSelected={isSelected} />
+      <ItemList
+        items={items}
+        onClick={addOrRemoveItem}
+        isSelected={isSelected}
+      />
     </Fragment>
   );
 };
