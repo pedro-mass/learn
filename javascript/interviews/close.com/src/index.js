@@ -14,13 +14,13 @@ const SelectedItems = ({ names = [], onClick = name => () => name }) => (
   <Fragment>
     <h1>Selected:</h1>
     {/* pedro: switch to ul/li since that's semantically the correct way. Would I still be able to get CSV value? */}
-    <div>
+    <p>
       {names.map((name, i) => (
         <span key={name} className="clickable" onClick={onClick(name)}>
           {getSeparator(i) + name}
         </span>
       ))}
-    </div>
+    </p>
   </Fragment>
 );
 
