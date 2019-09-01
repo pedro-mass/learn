@@ -3,9 +3,9 @@
 function isPalindrome(str) {
   if (!str || str.length < 2) return true;
 
-  return (
-    str[0] === str[str.length - 1] && isPalindrome(str.slice(1, str.length - 1))
-  );
+  const first = str[0];
+  const last = str[str.length - 1];
+  return first === last && isPalindrome(str.slice(1, str.length - 1));
 }
 
 console.log(isPalindrome("") === true);
