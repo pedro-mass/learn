@@ -188,6 +188,14 @@ crypto-random-string@^2.0.0:
   resolved "https://registry.yarnpkg.com/crypto-random-string/-/crypto-random-string-2.0.0.tgz#ef2a7a966ec11083388369baa02ebead229b30d5"
   integrity sha512-v1plID3y9r/lPhviJ1wrXpLeyUIGAZ2SHNYTEapm7/8A9nLPoyvVp3RK/EPFqn5kEznyWgYZNsRtYYIWbuG8KA==
 
+daggy@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/daggy/-/daggy-1.4.0.tgz#178b4722866e1c8fac7b91d4bbf171d3767c1573"
+  integrity sha512-6g8sOIPMzriYtyoCfpM2bUobu2yj0UPdaPy+Yzdqow8RqJy/Dv2PrqiNOzCvbxUuT6B1eSbr2EmFPlLNfKFDzQ==
+  dependencies:
+    sanctuary-type-classes "3.0.0"
+    sanctuary-type-identifiers "1.0.0"
+
 debug@^2.2.0:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
@@ -458,6 +466,11 @@ latest-version@^5.0.0:
   dependencies:
     package-json "^6.3.0"
 
+lodash@^4.17.15:
+  version "4.17.20"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
+  integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
+
 lowercase-keys@^1.0.0, lowercase-keys@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/lowercase-keys/-/lowercase-keys-1.0.1.tgz#6f9e30b47084d971a7c820ff15a6c5167b74c26f"
@@ -587,6 +600,11 @@ pupa@^2.0.1:
   dependencies:
     escape-goat "^2.0.0"
 
+ramda@^0.26.1:
+  version "0.26.1"
+  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.26.1.tgz#8d41351eb8111c55353617fc3bbffad8e4d35d06"
+  integrity sha512-hLWjpy7EnsDBb0p+Z3B7rPi3GDeRG5ZtiI33kJhTt+ORCd38AbAIjB/9zRIUoeTbE/AVX5ZkU7m6bznsvrf8eQ==
+
 rc@^1.2.8:
   version "1.2.8"
   resolved "https://registry.yarnpkg.com/rc/-/rc-1.2.8.tgz#cd924bf5200a075b83c188cd6b9e211b7fc0d3ed"
@@ -624,6 +642,18 @@ responselike@^1.0.2:
   integrity sha1-kYcg7ztjHFZCvgaPFa3lpG9Loec=
   dependencies:
     lowercase-keys "^1.0.0"
+
+sanctuary-type-classes@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/sanctuary-type-classes/-/sanctuary-type-classes-3.0.0.tgz#e4cf422abceb8c78b6f625d84d61fdb5c6d44116"
+  integrity sha1-5M9CKrzrjHi29iXYTWH9tcbUQRY=
+  dependencies:
+    sanctuary-type-identifiers "1.0.x"
+
+sanctuary-type-identifiers@1.0.0, sanctuary-type-identifiers@1.0.x:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/sanctuary-type-identifiers/-/sanctuary-type-identifiers-1.0.0.tgz#e8f359f006cb5e624cfb8464603fc114608bde9f"
+  integrity sha1-6PNZ8AbLXmJM+4RkYD/BFGCL3p8=
 
 semver-diff@^3.1.1:
   version "3.1.1"

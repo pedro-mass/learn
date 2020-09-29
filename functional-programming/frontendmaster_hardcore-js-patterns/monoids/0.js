@@ -38,6 +38,17 @@ All.empty = () => All(true)
 // const res = [1, 2, 3, 4, 5].map(Sum).reduce((acc, n) => acc.concat(n))
 // const res = [].map(Sum).reduce((acc, n) => acc.concat(n), Sum.empty())
 
+const Intersection = (x) => ({
+  x,
+  concat: (other) => Intersection(x && other.x),
+})
+// what would be the identity/empty?
+// Intersection([1,2,3]).concat(Intersection(?)) = [1,2,3]
+// there isn't one, so intersection is NOT a Monoid, but it is a semigroup
+
+// Union.empty() = []
+// so Union would be a Monoid
+
 const res = List([true, true]).foldMap(All, All.empty())
 
 console.log(res)
