@@ -1,5 +1,5 @@
-const { List } = require('immutable-ext')
 const { Either } = require('../lib/types')
+const { List } = require('immutable-ext')
 
 const toUpper = x => x.toUpperCase()
 const exclaim = x => x.concat('!')
@@ -11,38 +11,23 @@ const Fn = run => ({
   concat: other => Fn(x => run(x).concat(other.run(x))),
 })
 
-Fn.ask = x => Fn(x => x)
+Fn.ask = Fn(x => x)
 Fn.of = x => Fn(() => x)
-
-// Monads do this: flatten functions into 1 function
-// Fn((x) => Fn((y) => x, y))
-
-// const res = Fn(toUpper)
-//   .concat(Fn(exclaim))
-//   .map(x => x.slice(3))
-//   .run('fp sux')
-
-// const res = Fn(toUpper)
-//   .chain(upper => Fn(_ => exclaim(upper)))
-//   .run('hi')
-// console.log(res)
-
-// Endo: Endomorphisms
-// only works on types a -> a
-// ex: String -> String
-// Same type of input, as output
 
 const Endo = run => ({
   run,
-  concat: other => Endo(x => run(other.run(x))),
+  concat: other => Endo(x => other.run(run(x))),
 })
 Endo.empty = () => Endo(x => x)
 
-const res = List([toUpper, exclaim]).foldMap(Endo, Endo.empty()).run('hello') // HELLO!
-
-console.log(res)
+const res = List([toUpper, exclaim]).foldMap(Endo, Endo.empty()).run('hello')
 
 // (acc, a) -> acc
+// (a, acc) -> acc
+// a -> (acc -> acc)
+// a -> Endo(acc -> acc)
+
+// Fn(a -> Endo(acc -> acc))
 const Reducer = run => ({
   run,
   contramap: f => Reducer((acc, x) => run(acc, f(x))),
@@ -61,12 +46,8 @@ const login = payload => state =>
 const setPrefs = payload => state =>
   payload.prefs ? Object.assign({}, state, { prefs: payload.prefs }) : state
 
-// const reducer = Reducer(login).concat(Reducer(setPrefs))
 const reducer = Fn(login).map(Endo).concat(Fn(setPrefs).map(Endo))
 
 const state = { loggedIn: false, prefs: {} }
-const payload = { email: 'admin', pass: 123, prefs: { bgColor: '#000' } }
-
+const payload = { email: 'dmin', pass: 123, prefs: { bgColor: '#000' } }
 console.log(reducer.run(payload).run(state))
-
-// exercises: https://codepen.io/drboolean/pen/qeqpgB

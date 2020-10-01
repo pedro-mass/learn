@@ -1,4 +1,5 @@
 const { Task, Either } = require('../lib/types')
+const { Task, Either } = require('../lib/types')
 
 const Compose = (F, G) => {
   const M = fg => ({
