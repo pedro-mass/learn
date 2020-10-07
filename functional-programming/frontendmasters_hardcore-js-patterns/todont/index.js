@@ -1,40 +1,36 @@
-import {renderApp} from './ui'
-import {Fn, FnT} from '../lib/types'
-import {over, lensProp, remove, append} from 'ramda'
-const App = FnT(Fn)
+import { renderApp } from './ui'
+import { Fn } from '../lib/types'
+import { over, lensProp, remove, append } from 'ramda'
+const { ask } = Fn
 
 const L = { habits: lensProp('habits') }
 
-const Merge = x =>
-({
+// lib
+const Merge = x => ({
   x,
-  concat: other =>
-    Merge(Object.assign({}, x, other.x))
+  concat: other => Merge(Object.assign({}, x, other.x)),
 })
 
-const create = App(habit =>
-  Fn.ask.map(over(L.habits, append(habit)))
-).map(Merge)
+// controller
+const create = habit => ask.map(over(L.habits, append(habit)))
+// const create = (state, habit) =>
+// over(L.habits, append(habit), state)
+// Object.assign({}, state, { habits: [habit] })
 
-const destroy = App(({idx}) =>
-  Fn.ask.map(over(L.habits, remove(idx, 1)))
-).map(Merge)
+const destroy = ({ idx }) => ask.map(over(L.habits, remove(idx, 1)))
+// const destroy = (state, { idx }) =>
+//   over(L.habits, remove(idx, 1), state)
+// Object.assign({}, state, { habits: [] })
 
-const setShowPage = App.of({page: 'show'}).map(Merge)
+const view = ({ idx }) => Fn.of({ page: 'show', index: idx })
+// Object.assign({}, state, { page: 'show', index: idx })
 
-const setIndex = App(({idx}) => Fn.of({index: idx})).map(Merge)
+const route = { create, destroy, view }
 
-const view = setIndex.concat(setShowPage)
-
-const route = {create, destroy, view}
-
-const appLoop = (state) =>
+// view
+const appLoop = state =>
   renderApp(state, (action, payload) =>
-    appLoop(
-      Merge(state)
-      .concat(route[action].run(payload).run(state))
-      .x
-    )
+    appLoop(Merge(state).concat(Merge(route[action](payload).run(state))).x)
   )
 
-appLoop({page: 'list', habits: []})
+appLoop({ page: 'list', habits: [] })
