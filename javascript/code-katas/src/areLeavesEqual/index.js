@@ -26,9 +26,12 @@ export function depthFirstSearch (tree) {
 }
 
 export function breadthFirstSearch (tree) {
+  let alreadyAssigned = false
   let refValue
+
   const queue = []
   queue.push(tree)
+
   while (queue.length > 0) {
     const node = queue.shift()
 
@@ -37,7 +40,8 @@ export function breadthFirstSearch (tree) {
       continue
     }
 
-    if (refValue === undefined) {
+    if (!alreadyAssigned) {
+      alreadyAssigned = true
       refValue = node
       continue
     }
@@ -75,6 +79,6 @@ export function dfsWithoutRecursion (tree) {
   return true
 }
 
-function isObject (obj) {
-  return typeof x === "object" && !Array.isArray(x) && x !== null
+function isObject (x) {
+  return typeof x === 'object' && !Array.isArray(x) && x !== null
 }
