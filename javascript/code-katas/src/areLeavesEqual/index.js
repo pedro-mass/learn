@@ -76,5 +76,5 @@ export function dfsWithoutRecursion (tree) {
 }
 
 function isObject (obj) {
-  return typeof obj === 'object'
+  return typeof x === "object" && !Array.isArray(x) && x !== null
 }
