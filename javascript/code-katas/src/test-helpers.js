@@ -17,12 +17,24 @@ export function getTestCases (cases = []) {
 export function loopTestCases ({ testCases, fnUnderTest }) {
   describe.each(getTestCases(testCases))(
     `${fnUnderTest.name}()`,
-    ({ input, output }) => {
-      it(`input: ${JSON.stringify(input)} \t| output: ${JSON.stringify(
-        output
-      )}`, () => {
+    ({ input, output, name, ...config }) => {
+      name = getTestName(name, input, output)
+      const test = getTestFn(config)
+
+      test(name, () => {
         expect(fnUnderTest(...input)).toEqual(output)
       })
     }
   )
+}
+
+function getTestName (name, input, expected) {
+  name = name || JSON.stringify({ input, expected }).slice(0, 150)
+  return name
+}
+
+function getTestFn (config) {
+  const command = config.only ? 'only' : config.skip ? 'skip' : undefined
+  const test = command ? it[command] : it
+  return test
 }
