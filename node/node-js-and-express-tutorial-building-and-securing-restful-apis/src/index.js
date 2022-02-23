@@ -3,6 +3,8 @@ const express = require('express')
 const cors = require('cors')
 const helmet = require('helmet')
 const morgan = require('morgan')
+const jwt = require('express-jwt')
+const jwksRsa = require('jwks-rsa')
 const { startDatabase } = require('./database/mongo')
 const { insertAd, getAds, deleteAd, updateAd } = require('./database/ads')
 
@@ -30,20 +32,38 @@ app.get('/', async (req, res) => {
   res.send(await getAds())
 })
 
-app.post('/', async (req, res) => {
+const checkJwt = jwt({
+  secret: jwksRsa.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: 'https://pedro-mass.auth0.com/.well-known/jwks.json',
+  }),
+
+  // Validate the audience and the issuer.
+  audience: 'https://ads-api',
+  issuer: 'https://pedro-mass.auth0.com/',
+  algorithms: ['RS256'],
+})
+
+// this isn't great b/c it makes all FUTURE app requests require JWT
+// would be nicer if it was a one-by-one route config
+// app.use(checkJwt)
+
+app.post('/', checkJwt, async (req, res) => {
   const newAd = req.body
   const id = await insertAd(newAd)
   res.send({ message: 'New ad inserted.', id })
 })
 
 // endpoint to delete an ad
-app.delete('/:id', async (req, res) => {
+app.delete('/:id', checkJwt, async (req, res) => {
   const deletedAd = await deleteAd(req.params.id)
   res.send({ message: 'Ad removed.', deletedAd })
 })
 
 // endpoint to update an ad
-app.put('/:id', async (req, res) => {
+app.put('/:id', checkJwt, async (req, res) => {
   const updatedAd = req.body
   const update = await updateAd(req.params.id, updatedAd)
   res.send({ message: 'Ad updated.', update })
