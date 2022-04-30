@@ -1,6 +1,7 @@
 # NextFire App
 
 - db console: https://console.firebase.google.com/u/0/project/react-next-firebase-5c3fd/overview
+- completed code: https://github.com/fireship-io/next-firebase-course
 
 ---
 
