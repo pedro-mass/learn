@@ -47,4 +47,6 @@ export function postToJSON(doc) {
   }
 }
 
+export const fromMillis = firebase.firestore.Timestamp.fromMillis
+
 export const storage = firebase.storage()
