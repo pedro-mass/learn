@@ -8,6 +8,7 @@ specifiers:
   eslint-config-next: 12.1.5
   firebase: ^9.7.0
   lodash.debounce: ^4.0.8
+  lodash.kebabcase: ^4.1.1
   next: 12.1.5
   react: 18.1.0
   react-dom: 18.1.0
@@ -20,6 +21,7 @@ dependencies:
   csstype: 3.0.11
   firebase: 9.7.0
   lodash.debounce: 4.0.8
+  lodash.kebabcase: 4.1.1
   next: 12.1.5_ef5jwxihqo6n7gxfmzogljlgcm
   react: 18.1.0
   react-dom: 18.1.0_react@18.1.0
@@ -1958,6 +1960,10 @@ packages:
 
   /lodash.debounce/4.0.8:
     resolution: {integrity: sha1-gteb/zCmfEAF/9XiUVMArZyk168=}
+    dev: false
+
+  /lodash.kebabcase/4.1.1:
+    resolution: {integrity: sha1-hImxyw0p/4gZXM7KRI/21swpXDY=}
     dev: false
 
   /lodash.merge/4.6.2:
