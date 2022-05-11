@@ -46,7 +46,6 @@ function SignInButton() {
 
 // Sign out button
 function SignOutButton() {
-  console.log({ msg: 'rendering the signout button' })
   return <button onClick={() => auth.signOut()}>Sign Out</button>
 }
 
@@ -110,7 +109,6 @@ function UsernameForm() {
       if (username.length >= 3) {
         const ref = firestore.doc(`usernames/${username}`)
         const { exists } = await ref.get()
-        console.log('Firestore read executed!')
         setIsValid(!exists)
         setLoading(false)
       }
