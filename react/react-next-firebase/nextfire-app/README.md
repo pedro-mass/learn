@@ -2,6 +2,8 @@
 
 - db console: https://console.firebase.google.com/u/0/project/react-next-firebase-5c3fd/overview
 - completed code: https://github.com/fireship-io/next-firebase-course
+- vercel console: https://vercel.com/pedro-mass/learn
+- vercel deployment: https://learn-kohl-seven.vercel.app/
 
 ---
 
