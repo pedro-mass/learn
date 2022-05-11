@@ -50,4 +50,6 @@ export function postToJSON(doc) {
 export const fromMillis = firebase.firestore.Timestamp.fromMillis
 export const serverTimestamp = firebase.firestore.FieldValue.serverTimestamp
 
+// Storage exports
 export const storage = firebase.storage()
+export const STATE_CHANGED = firebase.storage.TaskEvent.STATE_CHANGED
