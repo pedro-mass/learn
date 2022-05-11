@@ -100,10 +100,11 @@ function UsernameForm() {
 
   useEffect(() => {
     checkUsername(formValue)
-  }, [formValue])
+  }, [checkUsername, formValue])
 
   // Hit the database for username match after each debounced change
   // useCallback is required for debounce to work
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const checkUsername = useCallback(
     debounce(async username => {
       if (username.length >= 3) {
