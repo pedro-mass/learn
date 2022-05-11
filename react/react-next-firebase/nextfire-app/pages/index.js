@@ -33,6 +33,7 @@ export default function Home(props) {
 
     if (!last) {
       setPostsEnd(true)
+      setLoading(false)
       return
     }
 
