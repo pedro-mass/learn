@@ -17,10 +17,21 @@ if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig)
 }
 
+// Auth exports
 export const auth = firebase.auth()
 export const googleAuthProvider = new firebase.auth.GoogleAuthProvider()
 
+// Firestore exports
 export const firestore = firebase.firestore()
+export const serverTimestamp = firebase.firestore.FieldValue.serverTimestamp
+export const fromMillis = firebase.firestore.Timestamp.fromMillis
+export const increment = firebase.firestore.FieldValue.increment
+
+// Storage exports
+export const storage = firebase.storage()
+export const STATE_CHANGED = firebase.storage.TaskEvent.STATE_CHANGED
+
+/// Helper functions
 
 /**`
  * Gets a users/{uid} document with username
@@ -42,14 +53,7 @@ export function postToJSON(doc) {
   return {
     ...data,
     // Gotcha! firestore timestamp NOT serializable to JSON. Must convert to milliseconds
-    createdAt: data.createdAt.toMillis(),
-    updatedAt: data.updatedAt.toMillis(),
+    createdAt: data?.createdAt.toMillis() || 0,
+    updatedAt: data?.updatedAt.toMillis() || 0,
   }
 }
-
-export const fromMillis = firebase.firestore.Timestamp.fromMillis
-export const serverTimestamp = firebase.firestore.FieldValue.serverTimestamp
-
-// Storage exports
-export const storage = firebase.storage()
-export const STATE_CHANGED = firebase.storage.TaskEvent.STATE_CHANGED
