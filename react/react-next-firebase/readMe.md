@@ -1,0 +1,1 @@
+following: https://fireship.io/courses/react-next-firebase
