@@ -6,3 +6,26 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+/* global reset */
+* {
+  margin: 0;
+  padding: 0;
+  /* border-box takes into the margin & padding when setting the width/height */
+  box-sizing: border-box;
+}
+
+/* best-practice handles the font settings */
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777
+}
+
+header {
+  height: 95vh;
+  background-image: url('../img/hero.jpg');
+  background-size: cover;
+}
