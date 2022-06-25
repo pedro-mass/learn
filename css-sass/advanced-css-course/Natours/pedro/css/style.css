@@ -21,11 +21,34 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.7;
-  color: #777
+  color: #777;
+
+  padding: 30px;
+  /* padding: 3vh; */
 }
 
 header {
   height: 95vh;
-  background-image: url('../img/hero.jpg');
+  /* sets background image */
+  /* background-image: url('../img/hero.jpg'); */
+
+  /* sets gradient, than image */
+  /* background-image: linear-gradient(to right bottom, #7ed56f, #28b485),url('../img/hero.jpg'); */
+
+  /* changes opacity on gradient */
+  background-image:
+    linear-gradient(
+      to right bottom,
+      rgba(126, 213, 111, 0.8),
+      rgba(40,180,131,0.8)
+    ),
+    url('../img/hero.jpg');
+
   background-size: cover;
+
+  /* regardless of input, ensures that the image top stays at the top */
+  background-position: top;
+
+  /* clip the image: top-left, top-right, bottom-right, bottom-left*/
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0% 100%);
 }
