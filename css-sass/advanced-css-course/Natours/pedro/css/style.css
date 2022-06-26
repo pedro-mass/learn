@@ -51,4 +51,49 @@ header {
 
   /* clip the image: top-left, top-right, bottom-right, bottom-left*/
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0% 100%);
+
+  /* used to absolutely position the logo */
+  position: relative;
+}
+
+.logo-box {
+  /* one way: absolute positioning */
+  position: absolute;
+  /* reference is parent element set to relative */
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  height: 35px;
+}
+
+.text-box {
+  position: absolute;
+  /* top&left:50% starts from the top-left corner of the element */
+  top: 40%; /* changed to 40% b/c the clip-path makes it look lower than it really is when at 50%*/
+  left: 50%;
+  /* this shifts the beginning of the box to be at the center of the box */
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.heading-primary-main {
+  /* creates new line elements before&after */
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
 }
