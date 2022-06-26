@@ -81,6 +81,9 @@ header {
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
+
+  /* stops the bounce up on animation */
+  backface-visibility: hidden; /* technically makes the backside of the element invisible, which seems to smooth out the animation */
 }
 
 .heading-primary-main {
@@ -89,6 +92,18 @@ header {
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px;
+
+  /* animations */
+  /* fade in, and slide in from left */
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+
+  /* animation-delay: 3s; */
+
+  /* controls how many times to run the animation */
+  /* animation-iteration-count: 3; */
+
+  animation-timing-function: ease-out;
 }
 
 .heading-primary-sub {
@@ -96,4 +111,37 @@ header {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 17.4px;
+
+  /* animations */
+  animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+  0% {
+    /* browsers are optimized for these 2 props, but we can do a lot more if we're cool with the performance cost */
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  80% {
+    transform: translateX(10px)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  80% {
+    transform: translateX(-10px)
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
