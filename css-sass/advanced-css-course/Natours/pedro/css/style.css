@@ -84,6 +84,8 @@ header {
 
   /* stops the bounce up on animation */
   backface-visibility: hidden; /* technically makes the backside of the element invisible, which seems to smooth out the animation */
+
+  margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -144,4 +146,38 @@ header {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+/* special state of a selector when it's an anchor */
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+
+  /* needed when giving padding, height/width, margin */
+  display: inline-block;
+
+  /* any high number, it'll wrap around the text */
+  border-radius: 100px;
+
+  /* all captures any animation. Needs to be on the initial state to capture future changes */
+  transition: all .2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  /* box-shadow: x y blur color */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+  border: 1px solid #000;
 }
