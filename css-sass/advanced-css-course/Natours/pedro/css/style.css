@@ -148,6 +148,17 @@ header {
   }
 }
 
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* special state of a selector when it's an anchor */
 .btn:link,
 .btn:visited {
@@ -163,6 +174,9 @@ header {
 
   /* all captures any animation. Needs to be on the initial state to capture future changes */
   transition: all .2s;
+
+  /* allows us to absolute position the button's children, in particular ::after pseudo element */
+  position: relative;
 }
 
 .btn:hover {
@@ -180,4 +194,40 @@ header {
   background-color: #fff;
   color: #777;
   border: 1px solid #000;
+}
+
+/* pseudo elements to add cool effects to the button */
+.btn::after {
+  content: "";
+  display: inline-block;
+
+  /* pseudo element is treated like a child of the element, so that's why we can 100% it and it only fills the current element */
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+
+  /* put this after-pseudo element exactly where the current element is positioned */
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  /* this hides it by putting it behind the button */
+  z-index: -1;
+
+  transition: all .4s;
+}
+
+.btn-white::after {
+  background-color: #fff;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn-animated {
+  animation: moveInBottom .5s ease-out .75s;
+  /* automatically apply 0% styles before the animation starts */
+  animation-fill-mode: backwards;
 }
