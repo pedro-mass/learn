@@ -5,12 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "live-server"
+    "dev": "live-server --browser=firefox",
+    "open:course": "npx open-cli https://www.udemy.com/course/advanced-css-and-sass -- firefox",
+    "open:github": "npx open-cli https://github.com/jonasschmedtmann/advanced-css-course -- firefox"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "live-server": "^1.2.2"
+    "live-server": "^1.2.2",
+    "open-cli": "^7.0.1"
   }
 }
