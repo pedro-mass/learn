@@ -8,6 +8,7 @@ const testCases = [
   { input: ['anagram', 'nagaram'], output: true },
   { input: ['rat', 'car'], output: false },
   { input: ['awesome', 'awesom'], output: false },
+  { input: ['awesome', 'awesomd'], output: false },
   { input: ['qwerty', 'qeywrt'], output: true },
   { input: ['texttwisttime', 'timetwisttext'], output: true },
 ]
