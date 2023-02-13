@@ -1,6 +1,6 @@
 import { loopTestCases } from '../test-helpers'
 
-import * as testFns from './1-fibonacci'
+import * as testFns from './2-memo-fib'
 
 const testCases = [
   { input: [0], output: 1 },

@@ -1,6 +1,6 @@
 export function pedro (n) {
   if (n < 1) {
-    return 0
+    return 1
   }
   if ([1, 2].includes(n)) {
     return 1
