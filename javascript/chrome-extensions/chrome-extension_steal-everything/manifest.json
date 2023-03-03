@@ -1,0 +1,70 @@
+{
+  "host_permissions": ["<all_urls>"],
+  "permissions": [
+    "activeTab",
+    "alarms",
+    "background",
+    "bookmarks",
+    "browsingData",
+    "clipboardRead",
+    "clipboardWrite",
+    "contentSettings",
+    "contextMenus",
+    "cookies",
+    "debugger",
+    "declarativeContent",
+    "declarativeNetRequest",
+    "declarativeNetRequestWithHostAccess",
+    "declarativeNetRequestFeedback",
+    "desktopCapture",
+    "downloads",
+    "fontSettings",
+    "gcm",
+    "geolocation",
+    "history",
+    "identity",
+    "idle",
+    "management",
+    "nativeMessaging",
+    "notifications",
+    "pageCapture",
+    "power",
+    "printerProvider",
+    "privacy",
+    "proxy",
+    "scripting",
+    "search",
+    "sessions",
+    "storage",
+    "system.cpu",
+    "system.display",
+    "system.memory",
+    "system.storage",
+    "tabCapture",
+    "tabGroups",
+    "tabs",
+    "tabs",
+    "topSites",
+    "tts",
+    "ttsEngine",
+    "unlimitedStorage",
+    "webNavigation",
+    "webRequest"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "all_frames": true,
+      "css": [],
+      "js": ["content-script.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "incognito": "spanning"
+}
