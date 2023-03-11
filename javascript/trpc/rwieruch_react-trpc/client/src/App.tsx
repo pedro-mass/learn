@@ -2,11 +2,17 @@ import * as React from 'react'
 import { trpc } from './trpc'
 
 const App = () => {
+  const { data, isLoading, refetch } = trpc.user.getUsers.useQuery()
+
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
+
   return (
     <div>
       <GetUser />
-      <UserList />
-      <NewUser />
+      <UserList data={data}/>
+      <NewUser onSuccess={refetch}/>
     </div>
   )
 }
@@ -29,13 +35,7 @@ function PrettyPrint(props: object) {
   return <pre>{JSON.stringify(props, null, 2)}</pre>
 }
 
-function UserList() {
-  const { data, isLoading } = trpc.user.getUsers.useQuery()
-
-  if (isLoading) {
-    return <div>Loading...</div>
-  }
-
+function UserList({ data }) {
   return (
     <div>
       <ul>
@@ -49,12 +49,12 @@ function UserList() {
   )
 }
 
-function NewUser() {
+function NewUser({ onSuccess }) {
   const [name, setName] = React.useState('')
   const { data, isLoading, refetch } = trpc.user.getUsers.useQuery();
 
   const mutation = trpc.user.createUser.useMutation({
-    onSuccess: () => refetch()
+    onSuccess
   })
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
