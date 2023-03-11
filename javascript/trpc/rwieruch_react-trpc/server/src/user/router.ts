@@ -29,7 +29,7 @@ export const userRouter = router({
       const { input } = req
 
       const user: User = {
-        id: `${Math.random()}`,
+        id: _.uniqueId('trpc-'),
         name: input.name,
       }
 
