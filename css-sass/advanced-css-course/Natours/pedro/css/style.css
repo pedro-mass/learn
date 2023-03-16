@@ -1,0 +1,233 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+/* global reset */
+* {
+  margin: 0;
+  padding: 0;
+  /* border-box takes into the margin & padding when setting the width/height */
+  box-sizing: border-box;
+}
+
+/* best-practice handles the font settings */
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+
+  padding: 30px;
+  /* padding: 3vh; */
+}
+
+header {
+  height: 95vh;
+  /* sets background image */
+  /* background-image: url('../img/hero.jpg'); */
+
+  /* sets gradient, than image */
+  /* background-image: linear-gradient(to right bottom, #7ed56f, #28b485),url('../img/hero.jpg'); */
+
+  /* changes opacity on gradient */
+  background-image:
+    linear-gradient(
+      to right bottom,
+      rgba(126, 213, 111, 0.8),
+      rgba(40,180,131,0.8)
+    ),
+    url('../img/hero.jpg');
+
+  background-size: cover;
+
+  /* regardless of input, ensures that the image top stays at the top */
+  background-position: top;
+
+  /* clip the image: top-left, top-right, bottom-right, bottom-left*/
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0% 100%);
+
+  /* used to absolutely position the logo */
+  position: relative;
+}
+
+.logo-box {
+  /* one way: absolute positioning */
+  position: absolute;
+  /* reference is parent element set to relative */
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  height: 35px;
+}
+
+.text-box {
+  position: absolute;
+  /* top&left:50% starts from the top-left corner of the element */
+  top: 40%; /* changed to 40% b/c the clip-path makes it look lower than it really is when at 50%*/
+  left: 50%;
+  /* this shifts the beginning of the box to be at the center of the box */
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+
+  /* stops the bounce up on animation */
+  backface-visibility: hidden; /* technically makes the backside of the element invisible, which seems to smooth out the animation */
+
+  margin-bottom: 60px;
+}
+
+.heading-primary-main {
+  /* creates new line elements before&after */
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+
+  /* animations */
+  /* fade in, and slide in from left */
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+
+  /* animation-delay: 3s; */
+
+  /* controls how many times to run the animation */
+  /* animation-iteration-count: 3; */
+
+  animation-timing-function: ease-out;
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+
+  /* animations */
+  animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+  0% {
+    /* browsers are optimized for these 2 props, but we can do a lot more if we're cool with the performance cost */
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  80% {
+    transform: translateX(10px)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  80% {
+    transform: translateX(-10px)
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* special state of a selector when it's an anchor */
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+
+  /* needed when giving padding, height/width, margin */
+  display: inline-block;
+
+  /* any high number, it'll wrap around the text */
+  border-radius: 100px;
+
+  /* all captures any animation. Needs to be on the initial state to capture future changes */
+  transition: all .2s;
+
+  /* allows us to absolute position the button's children, in particular ::after pseudo element */
+  position: relative;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  /* box-shadow: x y blur color */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+  border: 1px solid #000;
+}
+
+/* pseudo elements to add cool effects to the button */
+.btn::after {
+  content: "";
+  display: inline-block;
+
+  /* pseudo element is treated like a child of the element, so that's why we can 100% it and it only fills the current element */
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+
+  /* put this after-pseudo element exactly where the current element is positioned */
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  /* this hides it by putting it behind the button */
+  z-index: -1;
+
+  transition: all .4s;
+}
+
+.btn-white::after {
+  background-color: #fff;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn-animated {
+  animation: moveInBottom .5s ease-out .75s;
+  /* automatically apply 0% styles before the animation starts */
+  animation-fill-mode: backwards;
+}

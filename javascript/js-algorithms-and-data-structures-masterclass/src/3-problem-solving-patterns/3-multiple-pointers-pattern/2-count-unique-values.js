@@ -10,10 +10,8 @@ export function countUniqueValuesPedro (arr) {
     if (arr[left] !== arr[right]) {
       uniqueValues++
       left = right
-      right = left + 1
-    } else {
-      right++
     }
+    right++
   }
 
   return uniqueValues
