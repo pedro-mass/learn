@@ -10,21 +10,15 @@ class BNode {
 
 /**
  * BFS vs DFS
- * - same time complexity
- * - mostly balanced tree: DFS is better b/c it has less to keep in memory
- */
-
-/**
- * BFS - Breadth First Search
+ * - time complexity
+ *  - same, b/c we're visiting all the same nodes
+ * - space:
+ *  - deep trees: BFS, less space on heap
+ *  - wide trees: DFS, less space on queue (visited queue)
  *
- */
-
-/**
- * DFS - Depth First Search
- *
- * TYPES
- * - in-order: gives us an ordered list
- * - pre-order: useful when flattening a tree, allows us to recreate later
+ * DFS:
+ * - in-order: gives an ordered list
+ * - pre-order: snapshot of the tree, allows to rebuild the tree
  * - post-order:
  */
 
@@ -242,7 +236,7 @@ tree.insert(3)
 tree.insert(8)
 tree.insert(20)
 console.log({
-  tree: JSON.stringify(tree, null, 2),
+  // tree: JSON.stringify(tree, null, 2),
   bfs: tree.breadFirst(),
   'dfs-Pre-1': tree.depthFirstPreOrder(),
   'dfs-pre-2': tree.depthFirst(tree.DFS_TYPES.preOrder),
