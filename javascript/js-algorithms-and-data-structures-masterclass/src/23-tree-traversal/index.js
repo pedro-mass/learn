@@ -185,11 +185,6 @@ class BinarySearchTree {
     })
   }
 
-  // DFS_TYPES {
-  //   'in-order':'in-order',
-  //     'pre-order':'pre-order',
-  //     'post-order':'post-order',
-  // }
   depthFirst (type = this.DFS_TYPES.inOrder) {
     const TYPES = {
       [this.DFS_TYPES.inOrder]: [left, add, right],
