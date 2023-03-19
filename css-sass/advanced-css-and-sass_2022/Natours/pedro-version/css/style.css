@@ -1,0 +1,24 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+/* resets with normalize-css not really needed b/c modern browsers do it well */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* takes into account the margin & padding when setting sizes. Screws up relative positioning to the content though  (src: https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing)*/
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+}
