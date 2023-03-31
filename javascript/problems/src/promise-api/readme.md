@@ -1,0 +1,14 @@
+resources:
+- [x] https://skilled.dev/course/build-a-javascript-promise
+- cleancodestudio
+  - [x] https://dev.to/cleancodestudio/this-is-how-javascript-promises-really-work-a-promising-guide-dlg
+  - [x] https://dev.to/cleancodestudio/this-is-how-to-implement-javascript-promises-from-scratch-357k
+- zhi sun
+  - [x] https://medium.com/swlh/implement-a-simple-promise-in-javascript-20c9705f197a
+  - [x] https://zhisun.medium.com/implementing-promise-all-promise-race-promise-resolve-and-promise-reject-in-javascript-ddc624065554
+- [ ] https://www.promisejs.org/implementing/
+- [ ] https://codefrontend.com/promises
+- [ ] https://javascript.info/promise-api
+- [ ] https://truongtx.me/2022/01/21/implement-javascript-promise-from-scratch
+- [ ] https://exploringjs.com/deep-js/ch_implementing-promises.html
+- [ ] https://levelup.gitconnected.com/learn-javascript-promises-by-building-a-fully-working-promise-from-scratch-c9eabe73fa3
