@@ -5,6 +5,11 @@
  * - adding async support (like setTimeout)
  * - add chaining
  * - support inner-promises
+ *
+ * missing:
+ * - the instance methods (Promise.all, Promise.race, etc)
+ * - does NOT implement .catch()
+ * - does not stop going down the chain when first error is hit
  */
 
 /**
@@ -334,7 +339,7 @@ class Promise4 {
           if (isPromise(rejected)) {
             rejected.then(resolve, reject)
           } else {
-            reject()
+            reject(rejected)
           }
         } catch (err) {
           reject(err)
@@ -356,19 +361,19 @@ class Promise4 {
   }
 }
 
-// new Promise4((resolve, reject)=> {
-//   setTimeout(() => {
-//     console.log('timeout - completed');
-//     resolve('Promise4')
-//   }, 1_000)
-// })
-//   .then(console.log, console.error)
-//   .then(() => {
-//     return new Promise(resolve => {
-//       setTimeout(() => resolve('resolved second one'), 1000);
-//     })
-//   })
-//   .then(console.log, console.error)
+new Promise4((resolve, reject)=> {
+  setTimeout(() => {
+    console.log('timeout - completed');
+    resolve('Promise4')
+  }, 1_000)
+})
+  .then(console.log, console.error)
+  .then(() => {
+    return new Promise(resolve => {
+      setTimeout(() => resolve('resolved second one'), 1000);
+    })
+  })
+  .then(console.log, console.error)
 
 function isPromise(maybePromise) {
   return maybePromise instanceof Promise
