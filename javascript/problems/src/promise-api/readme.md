@@ -6,7 +6,10 @@ resources:
 - zhi sun
   - [x] https://medium.com/swlh/implement-a-simple-promise-in-javascript-20c9705f197a
   - [x] https://zhisun.medium.com/implementing-promise-all-promise-race-promise-resolve-and-promise-reject-in-javascript-ddc624065554
-- [ ] https://www.promisejs.org/implementing/
+- [x] https://www.promisejs.org/implementing/
+  - not as good as I hoped
+  - only implemented: done(), then()
+  - did it in a functional way, though a tad indirect so I don't believe I would've arrived at this implementation
 - [ ] https://codefrontend.com/promises
 - [ ] https://javascript.info/promise-api
 - [ ] https://truongtx.me/2022/01/21/implement-javascript-promise-from-scratch
