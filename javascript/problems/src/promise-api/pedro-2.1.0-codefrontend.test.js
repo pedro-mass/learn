@@ -79,6 +79,23 @@ class Thenable {
     })
   }
 
+  catch(onRejected) {
+    return this.then(undefined, onRejected)
+  }
+
+  finally(onFinally) {
+    return this.then(
+      value => {
+        onFinally()
+        return value
+      },
+      reason => {
+        onFinally()
+        throw reason
+      }
+    )
+  }
+
   runHandlers = () => {
     if (this.state === STATES.pending) {
       return
@@ -143,11 +160,38 @@ describe('Thenable', () => {
         .then(res => expect(res).toEqual('new-promise-success')))
   })
   describe('.catch', () => {
-    it.todo('handles errors')
-    it.todo('is skipped if NO ERRORS are found')
+    it('handles errors', () =>
+      new Thenable((resolve, reject) => reject('fail')).catch(err =>
+        expect(err).toEqual('fail')
+      ))
+    it('is skipped if NO ERRORS are found', () => {
+      let skipped = true
+      return new Thenable((resolve, _reject) => resolve('skip'))
+        .catch(err => {
+          expect(err).toBeUndefined()
+          skipped = false
+        })
+        .then(res => {
+          expect(skipped).toEqual(true)
+          expect(res).toEqual('skip')
+        })
+    })
   })
   describe('.finally', () => {
-    it.todo('runs after all promises are settled (success)')
-    it.todo('runs after all promises are settled (fail)')
+    it('runs after all promises are settled (success)', () =>
+      new Thenable(resolve => resolve('success'))
+        .then(res => expect(res).toEqual('success'))
+        .finally(() => expect(true).toEqual(true)))
+    it.only('runs after all promises are settled (fail)', async () => {
+      let ranFinally = false
+
+      await new Thenable((_resolve, reject) => reject('fail'))
+        .catch(err => expect(err).toEqual('fail'))
+        .finally(() => {
+          ranFinally = true
+          expect(true).toBe(true)
+        })
+      expect(ranFinally).toEqual(true)
+    })
   })
 })

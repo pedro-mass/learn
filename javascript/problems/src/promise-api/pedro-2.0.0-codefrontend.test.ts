@@ -329,7 +329,7 @@ describe('Futurable chaining', () => {
       })
   })
 
-  it.only('handles promises', () =>
+  it('handles promises', () =>
     new Futurable(resolve => resolve('success'))
       .then(res => {
         expect(res).toEqual('success')

@@ -1,4 +1,5 @@
-// src: https://codefrontend.com/promises/
+// article: https://codefrontend.com/promises/
+// src: https://codesandbox.io/s/futurable-codefrontend-com-glt0qq?file=/src/Futurable.spec.ts:4548-4555&ref=code-frontend
 import { describe, it, expect } from 'vitest'
 
 enum FuturableState {
