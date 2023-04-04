@@ -11,6 +11,13 @@ resources:
   - only implemented: done(), then()
   - did it in a functional way, though a tad indirect so I don't believe I would've arrived at this implementation
 - [ ] https://codefrontend.com/promises
+  - pros
+    - uses typescript
+    - seems really clean, and the build up to final solution was awesome
+    - fully tested!
+  - cons
+    - tests are given to you all up front, would've been better to build it out incrementally
+    - final code (from the sandbox), does NOT match the code in the tutorial (messy copy+paste, and editing/reviewing to not have caught it)
 - [ ] https://javascript.info/promise-api
 - [ ] https://truongtx.me/2022/01/21/implement-javascript-promise-from-scratch
 - [ ] https://exploringjs.com/deep-js/ch_implementing-promises.html
