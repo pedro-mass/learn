@@ -5,19 +5,15 @@ import { type RouterOutputs, api } from "~/utils/api";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import Image from "next/image";
+import { LoadingPage } from "~/components/loading";
 dayjs.extend(relativeTime);
 
 const Home: NextPage = () => {
+  // start fetching ASAP
+  api.posts.getAll.useQuery();
+
   const user = useUser();
-  const postsQuery = api.posts.getAll.useQuery();
-
-  if (postsQuery.isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!postsQuery?.data) {
-    return <div>Something went wrong</div>;
-  }
+  if (!user?.isLoaded) return <div />;
 
   return (
     <>
@@ -33,16 +29,32 @@ const Home: NextPage = () => {
             {user.isSignedIn && <CreatePostWizard />}
           </div>
           {/* <SignInPage /> */}
-          <div className="flex flex-col">
-            {postsQuery?.data?.map((fullPost) => (
-              <PostView {...fullPost} key={fullPost.post.id} />
-            ))}
-          </div>
+          <Feed />
         </div>
       </main>
     </>
   );
 };
+
+function Feed() {
+  const postsQuery = api.posts.getAll.useQuery();
+
+  if (postsQuery.isLoading) {
+    return <LoadingPage />;
+  }
+
+  if (!postsQuery?.data) {
+    return <div>Something went wrong</div>;
+  }
+
+  return (
+    <div className="flex flex-col">
+      {postsQuery?.data?.map((fullPost) => (
+        <PostView {...fullPost} key={fullPost.post.id} />
+      ))}
+    </div>
+  );
+}
 
 function CreatePostWizard() {
   const { user } = useUser();
