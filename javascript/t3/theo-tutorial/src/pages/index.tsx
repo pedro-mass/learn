@@ -59,6 +59,7 @@ function Feed() {
 }
 
 function CreatePostWizard() {
+  // use react-hook-form instead
   const [input, setInput] = useState("");
 
   const ctx = api.useContext();
