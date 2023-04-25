@@ -9,3 +9,4 @@ resources
 - rate limiter: Upstash
   - https://github.com/upstash/ratelimit
   - https://console.upstash.com/redis/80336ca3-8b22-4045-8d09-cf65082195c6
+- toasts: https://react-hot-toast.com/

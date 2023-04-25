@@ -5,8 +5,9 @@ import { type RouterOutputs, api } from "~/utils/api";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import Image from "next/image";
-import { LoadingPage } from "~/components/loading";
+import { LoadingPage, LoadingSpinner } from "~/components/loading";
 import { useState } from "react";
+import { toast } from "react-hot-toast";
 dayjs.extend(relativeTime);
 
 const Home: NextPage = () => {
@@ -68,6 +69,12 @@ function CreatePostWizard() {
         setInput("");
         void ctx.posts.getAll.invalidate();
       },
+      onError(error, _variables, _context) {
+        const errorMessage =
+          error.data?.zodError?.fieldErrors?.content?.[0] ??
+          "Something went wrong";
+        toast.error(errorMessage);
+      },
     });
 
   const { user } = useUser();
@@ -91,8 +98,30 @@ function CreatePostWizard() {
         value={input}
         onChange={(e) => setInput(e.target.value)}
         disabled={isPosting}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            if (input !== "") {
+              createPost({ content: input });
+            }
+          }
+        }}
       />
-      <button onClick={() => createPost({ content: input })}>Post</button>
+
+      {!isPosting && (
+        <button
+          disabled={isPosting}
+          onClick={() => createPost({ content: input })}
+        >
+          Post
+        </button>
+      )}
+
+      {isPosting && (
+        <div className="flex items-center justify-center">
+          <LoadingSpinner size={20} />
+        </div>
+      )}
     </div>
   );
 }
