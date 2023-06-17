@@ -11,6 +11,8 @@ datasource db {
   relationMode = "prisma"
 }
 
+// copied from next-auth: Account, Session, User
+
 model Account {
   id                String  @id @default(cuid())
   userId            String
