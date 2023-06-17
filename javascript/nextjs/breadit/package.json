@@ -69,5 +69,9 @@
   "devDependencies": {
     "@types/editorjs__header": "^2.6.0",
     "@types/lodash.debounce": "^4.0.7"
+  },
+  "volta": {
+    "node": "18.16.0",
+    "yarn": "1.22.19"
   }
 }
