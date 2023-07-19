@@ -16,5 +16,8 @@
     "nodemon": "^2.0.22",
     "vite": "latest",
     "vitest": "latest"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
   }
 }
