@@ -1,4 +1,6 @@
 <script lang="ts">
+	import PlayAgainButton from './PlayAgainButton.svelte'
+	import Start from './Start.svelte'
 	import { emoji } from './emoji'
 
 	type State = 'start' | 'playing' | 'paused' | 'won' | 'lost'
@@ -49,12 +51,12 @@
 
 		setTimeout(() => (selected = []), 300)
 	}
+	$: selected.length === 2 && matchCards()
 
 	function gameWon() {
 		state = 'won'
 		resetGame()
 	}
-	$: selected.length === 2 && matchCards()
 	$: maxMatches === matches.length && gameWon()
 
 	let timerId: number | null = null
@@ -102,12 +104,15 @@
 <svelte:window on:keydown={pauseGame} />
 
 {#if state === 'paused'}
-	<h1>Game Paused</h1>
+	<div class="full-centered">
+		<h1>Game Paused</h1>
+	</div>
 {/if}
 
 {#if state === 'start'}
-	<h1>Matching game</h1>
-	<button on:click={() => (state = 'playing')}>Play</button>
+	<div class="full-centered">
+		<Start onStart={() => (state = 'playing')} />
+	</div>
 {/if}
 
 {#if state === 'playing'}
@@ -141,13 +146,17 @@
 {/if}
 
 {#if state === 'lost'}
-	<h1>You lost! 💩</h1>
-	<button on:click={() => (state = 'playing')}>Play again</button>
+	<div class="full-centered">
+		<h1>You lost! 💩</h1>
+		<PlayAgainButton onPlayAgain={() => (state = 'playing')} />
+	</div>
 {/if}
 
 {#if state === 'won'}
-	<h1>You win! 🎉</h1>
-	<button on:click={() => (state = 'playing')}>Play again</button>
+	<div class="full-centered">
+		<h1>You win! 🎉</h1>
+		<PlayAgainButton onPlayAgain={() => (state = 'playing')} />
+	</div>
 {/if}
 
 <style>
@@ -194,9 +203,12 @@
 		gap: 1rem;
 		margin-block: 2rem;
 		font-size: 3rem;
+		justify-content: center;
+		min-height: 3rem;
 	}
 
 	.timer {
+		text-align: center;
 		transition: color 0.3s ease;
 	}
 
@@ -209,5 +221,14 @@
 		to {
 			scale: 1.4;
 		}
+	}
+
+	.full-centered {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		text-align: center;
 	}
 </style>
