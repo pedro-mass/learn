@@ -1,0 +1,8 @@
+body {
+  padding: 2rem;
+}
+
+h1 {
+  line-height: 1;
+  text-transform: capitalize;
+}
