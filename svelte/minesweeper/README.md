@@ -1,5 +1,7 @@
-# Sveltekit minesweeper app 
+# Sveltekit minesweeper app
 ### using SvelteKit, Capacitor, TailwindCSS, and DaisyUI.
+
+source: https://github.com/ProductionPanic/minesweeper/tree/main
 
 ## Getting Started
 
