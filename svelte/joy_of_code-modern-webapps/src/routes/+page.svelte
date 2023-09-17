@@ -1,8 +1,28 @@
 <script lang="ts">
-	import { onDestroy, onMount } from 'svelte'
+	import { goto } from '$app/navigation'
 
-	onMount(() => console.log('Mounted home page'))
-	onDestroy(() => console.log('Unmounted home page'))
+	export let data
+
+	$: ({ posts } = data)
+
+	function search(event: Event) {
+		const data = new FormData(event.target)
+		const search = data.get('search')
+		goto(`?search=${search}`, { replaceState: true, keepFocus: true })
+	}
 </script>
 
-<h1>Home page</h1>
+<form on:submit|preventDefault={search}>
+	<input type="text" name="search" />
+	<button type="submit">Search</button>
+</form>
+
+<h1>Posts</h1>
+
+<p>Showing {posts.length} posts.</p>
+
+<ul>
+	{#each posts as { slug, title }}
+		<li><a href="/posts/{slug}">{title}</a></li>
+	{/each}
+</ul>

@@ -1,11 +1,16 @@
-<div class="posts">
-	<aside>
-		<h4>Posts</h4>
+<script lang="ts">
+	export let data
+</script>
 
+<div class="layout">
+	<aside>
 		<nav>
+			<h4>Posts</h4>
+
 			<ul>
-				<li><a href="/posts/one">one</a></li>
-				<li><a href="/posts/two">two</a></li>
+				{#each data.posts as { slug, title }}
+					<li><a href="/posts/{slug}">{title}</a></li>
+				{/each}
 			</ul>
 		</nav>
 	</aside>
@@ -16,10 +21,10 @@
 </div>
 
 <style>
-	.posts {
+	.layout {
 		display: grid;
-		gap: 2rem;
-		grid-template-columns: 200px 60ch;
+		grid-template-columns: 200px minmax(auto, 60ch);
+		gap: 4rem;
 		margin-top: 2rem;
 	}
 </style>

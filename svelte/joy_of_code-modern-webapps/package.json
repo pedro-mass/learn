@@ -32,5 +32,11 @@
 		"vite": "^4.4.2",
 		"vitest": "^0.32.2"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@prisma/client": "^5.2.0"
+	},
+	"prisma": {
+		"seed": "bunx vite-node prisma/seed.ts"
+	}
 }
