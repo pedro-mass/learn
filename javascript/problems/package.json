@@ -14,7 +14,10 @@
   "devDependencies": {
     "@vitest/ui": "latest",
     "nodemon": "^2.0.22",
-    "vite": "^4.4.5",
-    "vitest": "^0.33.0"
+    "vite": "latest",
+    "vitest": "latest"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
   }
 }
