@@ -5,5 +5,5 @@ This is the starter template for the Next.js App Router Course. It contains the 
 For more information, see the [course curriculum](https://nextjs.org/learn) on the Next.js Website.
 
 links:
-- left off on: https://nextjs.org/learn/dashboard-app/navigating-between-pages
+- left off on: https://nextjs.org/learn/dashboard-app/fetching-data
 - https://vercel.com/pedro-mass/nextjs-dashboard
