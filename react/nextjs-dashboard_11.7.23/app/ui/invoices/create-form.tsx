@@ -9,11 +9,18 @@ import {
   UserCircleIcon,
 } from "@heroicons/react/24/outline";
 import { Button } from "@/app/ui/button";
-import { createInvoice } from "@/app/lib/actions";
+import { State, createInvoice } from "@/app/lib/actions";
+import { useFormState } from "react-dom";
 
-export default function Form({ customers }: { customers: CustomerField[] }) {
+export default function Form({
+  customers,
+}: Readonly<{ customers: CustomerField[] }>) {
+  const initialState = { message: null, errors: {} };
+  // @ts-ignore
+  const [state, dispatch] = useFormState(createInvoice, initialState);
+
   return (
-    <form action={createInvoice}>
+    <form action={dispatch}>
       <div className="rounded-md bg-gray-50 p-4 md:p-6">
         {/* Customer Name */}
         <div className="mb-4">
@@ -24,8 +31,9 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
             <select
               id="customer"
               name="customerId"
-              className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
               defaultValue=""
+              aria-describedby="customer-error"
+              className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
             >
               <option value="" disabled>
                 Select a customer
@@ -38,6 +46,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
             </select>
             <UserCircleIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" />
           </div>
+          <StateError state={state} field="customerId" />
         </div>
 
         {/* Invoice Amount */}
@@ -53,10 +62,12 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
                 type="number"
                 step="0.01"
                 placeholder="Enter USD amount"
+                aria-describedby="amount-error"
                 className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
               />
               <CurrencyDollarIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
             </div>
+            <StateError state={state} field="amount" />
           </div>
         </div>
 
@@ -99,6 +110,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
               </div>
             </div>
           </div>
+          <StateError state={state} field="status" />
         </fieldset>
       </div>
       <div className="mt-6 flex justify-end gap-4">
@@ -111,5 +123,29 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
         <Button type="submit">Create Invoice</Button>
       </div>
     </form>
+  );
+}
+
+function StateError({
+  state,
+  field,
+  id,
+}: Readonly<{
+  state: State;
+  field: "customerId" | "amount" | "status";
+  id?: string;
+}>) {
+  if (!state.errors?.[field]) {
+    return null;
+  }
+
+  return (
+    <div
+      id={id ?? `customer-${field}`}
+      aria-live="polite"
+      className="mt-2 text-sm text-red-500"
+    >
+      {state.errors[field]?.map((error: string) => <p key={error}>{error}</p>)}
+    </div>
   );
 }
