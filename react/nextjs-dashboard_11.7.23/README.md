@@ -5,7 +5,8 @@ This is the starter template for the Next.js App Router Course. It contains the 
 For more information, see the [course curriculum](https://nextjs.org/learn) on the Next.js Website.
 
 links:
-- left off on: https://nextjs.org/learn/dashboard-app/adding-authentication
+- left off on:
+  - https://nextjs.org/learn/dashboard-app/adding-metadata
 - https://vercel.com/pedro-mass/nextjs-dashboard
 
 future reads:
