@@ -1,2 +1,19 @@
 .buttonRow {
+  overflow:auto;
+  white-space: nowrap;
+
+  /* brings the scrollbar to the edge */
+  margin-left: -24px;
+  margin-right: -24px;
+
+  /* brings white space back */
+  padding: 24px;
+
+  /* same as above, but adds a small white space to the scroll */
+  /* particularly noticeable on the x-scroll for selected box, since you'll see the black background and a sliver of white at the left edge */
+  /* look at skin color for better ref */
+  margin-left: -22px;
+  margin-right: -22px;
+  padding: 22px;
 }
+
