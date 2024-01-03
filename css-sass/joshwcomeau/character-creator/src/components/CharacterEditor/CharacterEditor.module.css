@@ -4,6 +4,17 @@
 }
 
 .maxWidthWrapper {
+  /* fixes rendering after fixed, so now we don't need the z-index for decorativeBox */
+  position: relative;
+}
+
+.perspectiveDecoration {
+  background-color: hsl(195deg, 20%, 86%);
+  position: fixed;
+  bottom: 0px;
+  height: 40%;
+  width: 100%;
+  /* z-index: -1; */ /* removed by setting position:relative on .maxWidthWrapper */
 }
 
 .header {
@@ -34,13 +45,4 @@
 
 .controlColumn {
   width: 50%;
-}
-
-.perspectiveDecoration {
-  background-color: hsl(195deg, 20%, 86%);
-  position: fixed;
-  bottom: 0px;
-  height: 40%;
-  width: 100%;
-  z-index: -1;
 }
