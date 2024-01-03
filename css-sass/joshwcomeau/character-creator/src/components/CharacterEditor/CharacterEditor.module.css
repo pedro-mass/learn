@@ -27,11 +27,20 @@
 .characterWrapper {
   /* height: 500px; */
   min-height: 500px;
-  /* position: fixed;
-  right: 0;
-  top: 0; */
+  position: fixed;
+  /* right: 0; */
+  /* top: 0; */
 }
 
 .controlColumn {
   width: 50%;
+}
+
+.perspectiveDecoration {
+  background-color: hsl(195deg, 20%, 86%);
+  position: fixed;
+  bottom: 0px;
+  height: 40%;
+  width: 100%;
+  z-index: -1;
 }
