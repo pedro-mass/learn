@@ -17,7 +17,7 @@ const ShoeGrid = () => {
 const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 4rem;
+  gap: 2rem;
 
   & .shoe-card {
     flex: 1 1 300px;

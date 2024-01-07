@@ -31,6 +31,18 @@ const ShoeCard = ({
       ? 'new-release'
       : 'default'
 
+  const ShownBadge = () => {
+    if (variant === 'on-sale') {
+      return <Badge backgroundColor="red">Sale</Badge>;
+    }
+
+    if (variant === 'new-release') {
+      return <Badge backgroundColor="blue">Just Released!</Badge>;
+    }
+
+    return null;
+  };
+
   return (
     <Link className="shoe-card" href={`/shoe/${slug}`}>
       <Wrapper>
@@ -45,17 +57,30 @@ const ShoeCard = ({
         <Row>
           <ColorInfo>{pluralize('Color', numOfColors)}</ColorInfo>
         </Row>
+        <ShownBadge />
       </Wrapper>
     </Link>
   );
 };
+
+const Badge = styled.p`
+  position: absolute;
+  top: 8px;
+  right: -4px;
+  color: white;
+  padding: 4px;
+  background-color: ${(props) => props.backgroundColor ?? 'red'};
+  border-radius: 4px;
+`;
 
 const Link = styled.a`
   text-decoration: none;
   color: inherit;
 `;
 
-const Wrapper = styled.article``;
+const Wrapper = styled.article`
+  position: relative;
+`;
 
 const ImageWrapper = styled.div`
   position: relative;

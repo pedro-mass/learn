@@ -58,7 +58,6 @@ const Header = styled.header`
   flex-direction: row;
 
   & > label {
-    border: solid pink;
     display: flex;
     align-items: center;
   }
