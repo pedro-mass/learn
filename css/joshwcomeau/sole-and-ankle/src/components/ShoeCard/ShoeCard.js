@@ -33,11 +33,11 @@ const ShoeCard = ({
 
   const ShownBadge = () => {
     if (variant === 'on-sale') {
-      return <Badge backgroundColor="red">Sale</Badge>;
+      return <Badge backgroundColor={COLORS.primary}>Sale</Badge>;
     }
 
     if (variant === 'new-release') {
-      return <Badge backgroundColor="blue">Just Released!</Badge>;
+      return <Badge backgroundColor={COLORS.secondary}>Just Released!</Badge>;
     }
 
     return null;
@@ -52,10 +52,11 @@ const ShoeCard = ({
         <Spacer size={12} />
         <Row>
           <Name>{name}</Name>
-          <Price>{formatPrice(price)}</Price>
+          <Price nulled={Boolean(salePrice)}>{formatPrice(price)}</Price>
         </Row>
         <Row>
           <ColorInfo>{pluralize('Color', numOfColors)}</ColorInfo>
+          {salePrice && <SalePrice>{formatPrice(salePrice)}</SalePrice>}
         </Row>
         <ShownBadge />
       </Wrapper>
@@ -68,7 +69,7 @@ const Badge = styled.p`
   top: 8px;
   right: -4px;
   color: white;
-  padding: 4px;
+  padding: 8px;
   background-color: ${(props) => props.backgroundColor ?? 'red'};
   border-radius: 4px;
 `;
@@ -90,6 +91,8 @@ const Image = styled.img``;
 
 const Row = styled.div`
   font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const Name = styled.h3`
@@ -97,7 +100,10 @@ const Name = styled.h3`
   color: ${COLORS.gray[900]};
 `;
 
-const Price = styled.span``;
+const Price = styled.span`
+  text-decoration: ${(props) => (props.nulled ? 'line-through' : 'none')};
+  color: ${(props) => (props.nulled ? COLORS.gray[700] : 'inherit')};
+`;
 
 const ColorInfo = styled.p`
   color: ${COLORS.gray[700]};
