@@ -1,10 +1,10 @@
-sources
-- article: https://www.youtube.com/watch?v=b8ZUb_Okxro
-- db: https://cloud.mongodb.com/v2/65c17cfbd037056c0236d764#/metrics/replicaSet/65c17e16e13a9570ab4a7e2f/explorer
+## summary
 
-## Review
+> The Complete Guide To Building A REST API With Node, Express, TypeScript & MongoDB + Authentication
 
-> Recommend?:  No
+## review
+
+> recommend?:  No
 
 **pros**
 - easy to follow
@@ -16,3 +16,7 @@ sources
 - out-date, even though it was released in 2023
 - validation: hand-rolled
 - poor use of status codes and error messaging
+
+## sources
+- article: https://www.youtube.com/watch?v=b8ZUb_Okxro
+- db: https://cloud.mongodb.com/v2/65c17cfbd037056c0236d764#/metrics/replicaSet/65c17e16e13a9570ab4a7e2f/explorer
