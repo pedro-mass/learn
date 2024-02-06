@@ -16,6 +16,7 @@
 - out-date, even though it was released in 2023
 - validation: hand-rolled
 - poor use of status codes and error messaging
+- had use hardcode secret values
 
 ## sources
 - article: https://www.youtube.com/watch?v=b8ZUb_Okxro
