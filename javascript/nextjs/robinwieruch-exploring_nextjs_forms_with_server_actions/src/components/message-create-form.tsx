@@ -1,4 +1,22 @@
+"use client";
+
+import { useFormStatus } from "react-dom";
 import { createMessage } from "@/app/actions";
+
+type SubmitButtonProps = {
+  label: string;
+  loading: React.ReactNode;
+};
+
+const SubmitButton = ({ label, loading }: SubmitButtonProps) => {
+  const { pending } = useFormStatus();
+
+  return (
+    <button disabled={pending} type="submit" className="border-2">
+      {pending ? loading : label}
+    </button>
+  );
+};
 
 const MessageCreateForm = () => {
   return (
@@ -6,9 +24,7 @@ const MessageCreateForm = () => {
       <label htmlFor="text">Text</label>
       <textarea id="text" name="text" className="border-2" />
 
-      <button type="submit" className="border-2">
-        Create
-      </button>
+      <SubmitButton label="Create" loading="Creating ..." />
     </form>
   );
 };

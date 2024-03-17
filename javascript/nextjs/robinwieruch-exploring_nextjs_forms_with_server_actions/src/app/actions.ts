@@ -1,3 +1,5 @@
+"use server";
+
 import { revalidatePath } from "next/cache";
 
 type Message = {
@@ -27,7 +29,6 @@ export const getMessages = async (): Promise<Message[]> => {
 };
 
 export const createMessage = async (formData: FormData) => {
-  "use server";
   await wait(250);
 
   const text = formData.get("text") as string;
