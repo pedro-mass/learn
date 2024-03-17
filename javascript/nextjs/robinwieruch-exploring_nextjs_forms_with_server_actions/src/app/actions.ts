@@ -1,3 +1,5 @@
+import { revalidatePath } from "next/cache";
+
 type Message = {
   id: string;
   text: string;
@@ -34,6 +36,8 @@ export const createMessage = async (formData: FormData) => {
     id: crypto.randomUUID(),
     text,
   });
+
+  revalidatePath("/");
 };
 
 function wait(timeInMs: number) {
