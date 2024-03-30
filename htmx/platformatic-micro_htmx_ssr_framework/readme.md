@@ -1,0 +1,1 @@
+article: https://blog.platformatic.dev/building-a-micro-htmx-ssr-framework
