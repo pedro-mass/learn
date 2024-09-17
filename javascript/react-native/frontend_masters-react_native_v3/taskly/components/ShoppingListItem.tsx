@@ -37,28 +37,28 @@ export default function ShoppingListItem(props: { name: string }) {
 }
 
 const styles = StyleSheet.create({
-  itemContainer: {
-    borderBottomWidth: 1,
-    borderBottomColor: theme.colorCerulean,
-    paddingHorizontal: 8,
-    paddingVertical: 16,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-  itemText: {
-    fontSize: 18,
-    fontWeight: "200",
-  },
   button: {
     backgroundColor: theme.colorBlack,
-    padding: 8,
     borderRadius: 6,
+    padding: 8,
   },
   buttonText: {
     color: theme.colorWhite,
     fontWeight: "bold",
-    textTransform: "uppercase",
     letterSpacing: 1,
+    textTransform: "uppercase",
+  },
+  itemContainer: {
+    alignItems: "center",
+    borderBottomColor: theme.colorCerulean,
+    borderBottomWidth: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingHorizontal: 8,
+    paddingVertical: 16,
+  },
+  itemText: {
+    fontSize: 18,
+    fontWeight: "200",
   },
 });
