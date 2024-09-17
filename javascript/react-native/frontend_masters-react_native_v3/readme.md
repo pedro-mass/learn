@@ -16,6 +16,12 @@
 - `nlx expo lint`
   - `nr lint --fix`
 - https://www.nativewind.dev/
+- `import { Button } from 'react-native'`
+  - never used in production apps b/c it doesn't allow you to customize the button
+  - only really used to quickly throw up a button for testing
+  - instead use `TouchableOpacity` or `Pressable`
+  - `Pressable` is the latest generation, so probably use that
+  - `TouchableOpacity` is handy because it automatically adds a little opacity when you press it
 
 ## resources
 
