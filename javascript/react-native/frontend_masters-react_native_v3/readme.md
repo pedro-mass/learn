@@ -15,8 +15,7 @@
 - https://reactnative.directory/
 - `nlx expo lint`
   - `nr lint --fix`
-
-
+- https://www.nativewind.dev/
 
 ## resources
 
