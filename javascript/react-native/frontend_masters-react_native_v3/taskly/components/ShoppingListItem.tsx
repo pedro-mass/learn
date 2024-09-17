@@ -1,7 +1,10 @@
 import { Alert, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { theme } from "../theme";
 
-export default function ShoppingListItem(props: { name: string }) {
+export default function ShoppingListItem(props: {
+  name: string;
+  isCompleted?: boolean;
+}) {
   const handleDelete = () => {
     Alert.alert(
       props.name,
@@ -22,15 +25,30 @@ export default function ShoppingListItem(props: { name: string }) {
   };
 
   return (
-    <View style={styles.itemContainer}>
-      <Text style={styles.itemText}>{props.name}</Text>
+    <View
+      style={[
+        styles.itemContainer,
+        props.isCompleted ? styles.completedContainer : undefined,
+      ]}
+    >
+      <Text
+        style={[
+          styles.itemText,
+          props.isCompleted ? styles.completedText : undefined,
+        ]}
+      >
+        {props.name}
+      </Text>
       <TouchableOpacity
-        style={styles.button}
+        style={[
+          styles.button,
+          props.isCompleted ? styles.completedButton : undefined,
+        ]}
         onPress={handleDelete}
         hitSlop={20}
         activeOpacity={0.8}
       >
-        <Text style={styles.buttonText}>Delete</Text>
+        <Text style={[styles.buttonText]}>Delete</Text>
       </TouchableOpacity>
     </View>
   );
@@ -47,6 +65,18 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     letterSpacing: 1,
     textTransform: "uppercase",
+  },
+  completedButton: {
+    backgroundColor: theme.colorGrey,
+  },
+  completedContainer: {
+    backgroundColor: theme.colorLightGrey,
+    borderBottomColor: theme.colorLightGrey,
+  },
+  completedText: {
+    color: theme.colorGrey,
+    textDecorationColor: theme.colorGrey,
+    textDecorationLine: "line-through",
   },
   itemContainer: {
     alignItems: "center",
