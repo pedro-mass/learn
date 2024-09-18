@@ -45,7 +45,13 @@
 - linking
   - https://docs.expo.dev/guides/linking/
   - https://docs.expo.dev/guides/deep-linking/
--
+- router
+  - push: push screen on top of stack
+    - e.g. stack: index,counter + router.push(counter) = stack: index,counter,counter
+  - replace: replace current screen with new screen
+    - e.g. stack: index,counter + router.replace(counter) = stack: index,idea
+  - navigate: navigate to screen, but might navigate back
+    - e.g. stack: index,counter + router.navigate(counter) = stack: index
 
 ## resources
 
