@@ -31,6 +31,22 @@
 - https://docs.expo.dev/versions/latest/sdk/image/
   - can also render SVGs
 
+### navigation
+
+- https://docs.expo.dev/router/introduction/
+  - file-based routing
+  - comes with deep-linking built-in
+- types of navigation
+  - stacks
+    - this is the default for expo router
+  - tabs
+  - modals
+- `nlx expo install expo-router react-native-safe-area-context react-native-screens expo-linking expo-constants expo-status-bar`
+- linking
+  - https://docs.expo.dev/guides/linking/
+  - https://docs.expo.dev/guides/deep-linking/
+-
+
 ## resources
 
 - course notes: https://kadikraman.github.io/react-native-v3-course/
