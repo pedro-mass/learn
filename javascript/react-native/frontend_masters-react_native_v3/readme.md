@@ -22,6 +22,14 @@
   - instead use `TouchableOpacity` or `Pressable`
   - `Pressable` is the latest generation, so probably use that
   - `TouchableOpacity` is handy because it automatically adds a little opacity when you press it
+- https://icons.expo.fyi/Index
+  - search svgs
+  - use svg sparingly b/c it uses a lot of resources, especially on android
+- `nlx expo install @expo/vector-icons`
+  - using `expo install` ensures that what's being installed is compatible with the version of expo being used
+- installing this would normally require rebuilding the app. Luckily we're using Expo Go, which already has this internally installed
+- https://docs.expo.dev/versions/latest/sdk/image/
+  - can also render SVGs
 
 ## resources
 

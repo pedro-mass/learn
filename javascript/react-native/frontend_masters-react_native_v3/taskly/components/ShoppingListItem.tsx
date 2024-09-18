@@ -1,4 +1,6 @@
 import { Alert, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import AntDesign from "@expo/vector-icons/AntDesign";
+import Entypo from "@expo/vector-icons/Entypo";
 import { theme } from "../theme";
 
 export default function ShoppingListItem(props: {
@@ -31,44 +33,33 @@ export default function ShoppingListItem(props: {
         props.isCompleted ? styles.completedContainer : undefined,
       ]}
     >
-      <Text
-        style={[
-          styles.itemText,
-          props.isCompleted ? styles.completedText : undefined,
-        ]}
-      >
-        {props.name}
-      </Text>
-      <TouchableOpacity
-        style={[
-          styles.button,
-          props.isCompleted ? styles.completedButton : undefined,
-        ]}
-        onPress={handleDelete}
-        hitSlop={20}
-        activeOpacity={0.8}
-      >
-        <Text style={[styles.buttonText]}>Delete</Text>
+      <View style={styles.row}>
+        <Entypo
+          name={props.isCompleted ? "check" : "circle"}
+          size={24}
+          color={props.isCompleted ? theme.colorGrey : theme.colorCerulean}
+        />
+        <Text
+          style={[
+            styles.itemText,
+            props.isCompleted ? styles.completedText : undefined,
+          ]}
+        >
+          {props.name}
+        </Text>
+      </View>
+      <TouchableOpacity hitSlop={20} onPress={handleDelete}>
+        <AntDesign
+          name="closecircle"
+          size={24}
+          color={props.isCompleted ? theme.colorGrey : theme.colorRed}
+        />
       </TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  button: {
-    backgroundColor: theme.colorBlack,
-    borderRadius: 6,
-    padding: 8,
-  },
-  buttonText: {
-    color: theme.colorWhite,
-    fontWeight: "bold",
-    letterSpacing: 1,
-    textTransform: "uppercase",
-  },
-  completedButton: {
-    backgroundColor: theme.colorGrey,
-  },
   completedContainer: {
     backgroundColor: theme.colorLightGrey,
     borderBottomColor: theme.colorLightGrey,
@@ -84,11 +75,18 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingHorizontal: 8,
+    paddingHorizontal: 18,
     paddingVertical: 16,
   },
   itemText: {
     fontSize: 18,
     fontWeight: "200",
+    marginLeft: 8,
+    flex: 1,
+  },
+  row: {
+    flexDirection: "row",
+    flex: 1,
+    alignItems: "center",
   },
 });
