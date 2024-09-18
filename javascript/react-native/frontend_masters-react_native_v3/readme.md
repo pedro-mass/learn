@@ -41,6 +41,7 @@
     - this is the default for expo router
   - tabs
   - modals
+    - on androids, this will look similar to a normal screen
 - `nlx expo install expo-router react-native-safe-area-context react-native-screens expo-linking expo-constants expo-status-bar`
 - linking
   - https://docs.expo.dev/guides/linking/
