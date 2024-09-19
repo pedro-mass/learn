@@ -1,5 +1,19 @@
 # Frontend Masters - React Native v3
 
+- [dev](#dev)
+- [chapters](#chapters)
+  - [components \& styling](#components--styling)
+  - [navigation](#navigation)
+- [Input, Scrolling, and Lists](#input-scrolling-and-lists)
+- [resources](#resources)
+
+
+## dev
+
+- `nr start --tunnel`
+  - lets you connect to Expo Go on the windows machine
+  - the tunnel is needed b/c of the Window's firewall
+
 ## chapters
 
 ### components & styling
@@ -53,6 +67,12 @@
     - e.g. stack: index,counter + router.replace(counter) = stack: index,idea
   - navigate: navigate to screen, but might navigate back
     - e.g. stack: index,counter + router.navigate(counter) = stack: index
+
+
+## Input, Scrolling, and Lists
+
+-
+
 
 ## resources
 
