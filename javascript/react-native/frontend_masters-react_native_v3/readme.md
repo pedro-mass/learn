@@ -71,7 +71,8 @@
 
 ## Input, Scrolling, and Lists
 
--
+- by default, mobile screens are NOT scrollable
+  - this is diff from the web, so you need to **explicitly** declare it
 
 
 ## resources
