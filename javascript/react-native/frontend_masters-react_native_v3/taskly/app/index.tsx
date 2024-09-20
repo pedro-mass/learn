@@ -1,27 +1,55 @@
 import { useState } from "react";
-import { FlatList, StyleSheet, TextInput, View, Text } from "react-native";
-import { theme } from "../theme";
+import { FlatList, StyleSheet, Text, TextInput, View } from "react-native";
 import ShoppingListItem from "../components/ShoppingListItem";
+import { theme } from "../theme";
 
-type IShoppingListItem = {
+type ShoppingListItemType = {
   id: string;
   name: string;
+  completedAtTimestamp?: number;
+  lastUpdatedTimestamp: number;
 };
 
 export default function App() {
-  const [shoppingList, setShoppingList] = useState<IShoppingListItem[]>([]);
+  const [shoppingList, setShoppingList] = useState<ShoppingListItemType[]>([]);
   const [value, setValue] = useState<string>();
 
   const handleSubmit = () => {
     if (!value) return;
 
     const newShoppingList = [
-      { id: new Date().toISOString(), name: value },
+      {
+        id: new Date().toISOString(),
+        name: value,
+        lastUpdatedTimestamp: Date.now(),
+      },
       ...shoppingList,
     ];
 
     setShoppingList(newShoppingList);
     setValue(undefined);
+  };
+
+  const handleDelete = (id: string) => {
+    const newShoppingList = shoppingList.filter((item) => item.id !== id);
+    setShoppingList(newShoppingList);
+  };
+
+  const handleToggleComplete = (id: string) => {
+    const newShoppingList = shoppingList.map((item) => {
+      if (item.id === id) {
+        return {
+          ...item,
+          completedAtTimestamp: item.completedAtTimestamp
+            ? undefined
+            : Date.now(),
+          lastUpdatedTimestamp: Date.now(),
+        };
+      } else {
+        return item;
+      }
+    });
+    setShoppingList(newShoppingList);
   };
 
   return (
@@ -41,13 +69,38 @@ export default function App() {
           <Text>Your shopping list is empty</Text>
         </View>
       }
-      data={shoppingList}
-      renderItem={({ item }) => <ShoppingListItem name={item.name} />}
+      data={orderShoppingList(shoppingList)}
+      renderItem={({ item }) => (
+        <ShoppingListItem
+          name={item.name}
+          onDelete={() => handleDelete(item.id)}
+          onPress={() => handleToggleComplete(item.id)}
+          isCompleted={Boolean(item.completedAtTimestamp)}
+        />
+      )}
       style={styles.container}
       contentContainerStyle={styles.contentContainer}
       stickyHeaderIndices={[0]}
     />
   );
+}
+
+function orderShoppingList(shoppingList: ShoppingListItemType[]) {
+  return shoppingList.sort((item1, item2) => {
+    if (item1.completedAtTimestamp && item2.completedAtTimestamp) {
+      return item2.completedAtTimestamp - item1.completedAtTimestamp;
+    }
+    if (item1.completedAtTimestamp && !item2.completedAtTimestamp) {
+      return 1;
+    }
+    if (!item1.completedAtTimestamp && item2.completedAtTimestamp) {
+      return -1;
+    }
+    if (!item1.completedAtTimestamp && !item2.completedAtTimestamp) {
+      return item2.lastUpdatedTimestamp - item1.lastUpdatedTimestamp;
+    }
+    return 0;
+  });
 }
 
 const styles = StyleSheet.create({

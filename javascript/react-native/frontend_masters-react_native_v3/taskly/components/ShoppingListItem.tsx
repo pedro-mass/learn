@@ -1,11 +1,20 @@
-import { Alert, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import Entypo from "@expo/vector-icons/Entypo";
+import {
+  Alert,
+  Pressable,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { theme } from "../theme";
 
 export default function ShoppingListItem(props: {
   name: string;
   isCompleted?: boolean;
+  onDelete: () => void;
+  onPress: () => void;
 }) {
   const handleDelete = () => {
     Alert.alert(
@@ -15,7 +24,7 @@ export default function ShoppingListItem(props: {
       [
         {
           text: "Delete",
-          onPress: () => console.log("Ok, deleting."),
+          onPress: () => props.onDelete(),
           style: "destructive",
         },
         {
@@ -27,11 +36,12 @@ export default function ShoppingListItem(props: {
   };
 
   return (
-    <View
+    <Pressable
       style={[
         styles.itemContainer,
         props.isCompleted ? styles.completedContainer : undefined,
       ]}
+      onPress={props.onPress}
     >
       <View style={styles.row}>
         <Entypo
@@ -55,7 +65,7 @@ export default function ShoppingListItem(props: {
           color={props.isCompleted ? theme.colorGrey : theme.colorRed}
         />
       </TouchableOpacity>
-    </View>
+    </Pressable>
   );
 }
 
