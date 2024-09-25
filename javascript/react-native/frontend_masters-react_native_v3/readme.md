@@ -4,9 +4,10 @@
 - [chapters](#chapters)
   - [components \& styling](#components--styling)
   - [navigation](#navigation)
-- [Input, Scrolling, and Lists](#input-scrolling-and-lists)
-- [user Experience Enhancements](#user-experience-enhancements)
-- [device interactions](#device-interactions)
+  - [Input, Scrolling, and Lists](#input-scrolling-and-lists)
+  - [user Experience Enhancements](#user-experience-enhancements)
+  - [device interactions](#device-interactions)
+  - [building a recurring reminder component](#building-a-recurring-reminder-component)
 - [resources](#resources)
 
 
@@ -71,12 +72,12 @@
     - e.g. stack: index,counter + router.navigate(counter) = stack: index
 
 
-## Input, Scrolling, and Lists
+### Input, Scrolling, and Lists
 
 - by default, mobile screens are NOT scrollable
   - this is diff from the web, so you need to **explicitly** declare it
 
-## user Experience Enhancements
+### user Experience Enhancements
 - layout animation
   - official docs: https://reactnative.dev/docs/layoutanimation
   - better versions
@@ -84,7 +85,7 @@
     - https://docs.swmansion.com/react-native-gesture-handler/docs/
   - configureNext() docs: https://reactnative.dev/docs/layoutanimation#configurenext
 
-## device interactions
+### device interactions
 - haptics
   - `npx expo install expo-haptics`
 - push notifications
@@ -96,6 +97,9 @@
     - requires channel to specified beforehand: https://developer.android.com/training/notify-user/channels
   - schedule notifications
     - https://docs.expo.dev/versions/latest/sdk/notifications/#schedule-notifications
+    - environment variables and secrets docs: https://docs.expo.dev/build-reference/variables/#how-to-upload-a-secret-file-and-use-it-in-my-app-config
+
+### building a recurring reminder component
 
 ## resources
 
