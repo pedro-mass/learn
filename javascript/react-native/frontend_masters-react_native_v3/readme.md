@@ -87,6 +87,15 @@
 ## device interactions
 - haptics
   - `npx expo install expo-haptics`
+- push notifications
+  - https://docs.expo.dev/push-notifications/sending-notifications/
+  - remote notifications
+    - not covered by course
+    - require server to send
+  - Android
+    - requires channel to specified beforehand: https://developer.android.com/training/notify-user/channels
+  - schedule notifications
+    - https://docs.expo.dev/versions/latest/sdk/notifications/#schedule-notifications
 
 ## resources
 
