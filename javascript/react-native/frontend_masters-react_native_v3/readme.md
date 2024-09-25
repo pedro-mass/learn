@@ -5,6 +5,8 @@
   - [components \& styling](#components--styling)
   - [navigation](#navigation)
 - [Input, Scrolling, and Lists](#input-scrolling-and-lists)
+- [user Experience Enhancements](#user-experience-enhancements)
+- [device interactions](#device-interactions)
 - [resources](#resources)
 
 
@@ -74,6 +76,17 @@
 - by default, mobile screens are NOT scrollable
   - this is diff from the web, so you need to **explicitly** declare it
 
+## user Experience Enhancements
+- layout animation
+  - official docs: https://reactnative.dev/docs/layoutanimation
+  - better versions
+    - https://docs.swmansion.com/react-native-reanimated/
+    - https://docs.swmansion.com/react-native-gesture-handler/docs/
+  - configureNext() docs: https://reactnative.dev/docs/layoutanimation#configurenext
+
+## device interactions
+- haptics
+  - `npx expo install expo-haptics`
 
 ## resources
 
