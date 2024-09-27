@@ -101,6 +101,10 @@
 
 ### building a recurring reminder component
 
+- creating a timer
+  - date-fns: https://date-fns.org/
+  - `npx expo install date-fns`
+
 ## resources
 
 - course notes: https://kadikraman.github.io/react-native-v3-course/
