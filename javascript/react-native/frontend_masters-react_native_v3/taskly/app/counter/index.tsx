@@ -5,9 +5,17 @@ import { Alert, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { TimeSegment } from "../../components/TimeSegment";
 import { theme } from "../../theme";
 import { registerForPushNotificationsAsync } from "../../utils/registerForPushNotificationsAsync";
+import { getFromStorage, saveToStorage } from "../../utils/storage";
 
 // 10 seconds from now
-const timestamp = Date.now() + 10 * 1000;
+const frequency = 10 * 1000;
+
+const countdownStorageKey = "taskly-countdown";
+
+type PersistedCountdownState = {
+  currentNotificationId: string | undefined;
+  complatedAtTimestamps: number[];
+};
 
 type CountdownStatus = {
   isOverdue: boolean;
@@ -15,13 +23,28 @@ type CountdownStatus = {
 };
 
 export default function CounterScreen() {
+  const [countdownState, setCountdownState] =
+    useState<PersistedCountdownState>();
   const [status, setStatus] = useState<CountdownStatus>({
     isOverdue: false,
     distance: {},
   });
 
   useEffect(() => {
+    const init = async () => {
+      const value = await getFromStorage(countdownStorageKey);
+      setCountdownState(value);
+    };
+    init();
+  }, []);
+
+  const lastCompletedAt = countdownState?.complatedAtTimestamps[0];
+
+  useEffect(() => {
     const interval = setInterval(() => {
+      const timestamp = lastCompletedAt
+        ? lastCompletedAt + frequency
+        : Date.now();
       const isOverdue = isBefore(timestamp, Date.now());
 
       const distance = intervalToDuration(
@@ -34,7 +57,7 @@ export default function CounterScreen() {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [lastCompletedAt]);
 
   return (
     <View
@@ -81,6 +104,7 @@ export default function CounterScreen() {
   }
 
   async function scheduleNotification() {
+    let pushNotificationId;
     const result = await registerForPushNotificationsAsync();
 
     if (result !== "granted") {
@@ -92,7 +116,7 @@ export default function CounterScreen() {
       return;
     }
 
-    await Notifications.scheduleNotificationAsync({
+    pushNotificationId = await Notifications.scheduleNotificationAsync({
       content: {
         title: "I'm a notification from your app! 📨",
       },
@@ -100,6 +124,22 @@ export default function CounterScreen() {
         seconds: 5,
       },
     });
+
+    if (countdownState?.currentNotificationId) {
+      await Notifications.cancelScheduledNotificationAsync(
+        countdownState.currentNotificationId,
+      );
+    }
+
+    const newCountdownState: PersistedCountdownState = {
+      currentNotificationId: pushNotificationId,
+      complatedAtTimestamps: countdownState?.complatedAtTimestamps
+        ? [Date.now(), ...(countdownState?.complatedAtTimestamps ?? [])]
+        : [Date.now()],
+    };
+    setCountdownState(newCountdownState);
+
+    await saveToStorage(countdownStorageKey, newCountdownState);
   }
 }
 
