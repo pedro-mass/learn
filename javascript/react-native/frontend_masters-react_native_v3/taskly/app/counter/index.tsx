@@ -5,17 +5,15 @@ import { Alert, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { TimeSegment } from "../../components/TimeSegment";
 import { theme } from "../../theme";
 import { registerForPushNotificationsAsync } from "../../utils/registerForPushNotificationsAsync";
-import { getFromStorage, saveToStorage } from "../../utils/storage";
+import { saveToStorage } from "../../utils/storage";
+import {
+  useCountdownState,
+  PersistedCountdownState,
+  countdownStorageKey,
+} from "./useCountdownState";
 
 // 10 seconds from now
 const frequency = 10 * 1000;
-
-const countdownStorageKey = "taskly-countdown";
-
-type PersistedCountdownState = {
-  currentNotificationId: string | undefined;
-  complatedAtTimestamps: number[];
-};
 
 type CountdownStatus = {
   isOverdue: boolean;
@@ -23,20 +21,11 @@ type CountdownStatus = {
 };
 
 export default function CounterScreen() {
-  const [countdownState, setCountdownState] =
-    useState<PersistedCountdownState>();
+  const [countdownState, setCountdownState] = useCountdownState();
   const [status, setStatus] = useState<CountdownStatus>({
     isOverdue: false,
     distance: {},
   });
-
-  useEffect(() => {
-    const init = async () => {
-      const value = await getFromStorage(countdownStorageKey);
-      setCountdownState(value);
-    };
-    init();
-  }, []);
 
   const lastCompletedAt = countdownState?.complatedAtTimestamps[0];
 
@@ -50,7 +39,7 @@ export default function CounterScreen() {
       const distance = intervalToDuration(
         isOverdue
           ? { end: Date.now(), start: timestamp }
-          : { start: Date.now(), end: timestamp },
+          : { start: Date.now(), end: timestamp }
       );
 
       setStatus({ isOverdue, distance });
@@ -110,7 +99,7 @@ export default function CounterScreen() {
     if (result !== "granted") {
       Alert.alert(
         "Unable to schedule notification",
-        "Enable the notification permission for Expo Go in settings",
+        "Enable the notification permission for Expo Go in settings"
       );
 
       return;
@@ -127,7 +116,7 @@ export default function CounterScreen() {
 
     if (countdownState?.currentNotificationId) {
       await Notifications.cancelScheduledNotificationAsync(
-        countdownState.currentNotificationId,
+        countdownState.currentNotificationId
       );
     }
 
