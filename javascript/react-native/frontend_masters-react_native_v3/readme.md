@@ -10,7 +10,6 @@
   - [building a recurring reminder component](#building-a-recurring-reminder-component)
 - [resources](#resources)
 
-
 ## dev
 
 - `nr start --tunnel`
@@ -71,13 +70,13 @@
   - navigate: navigate to screen, but might navigate back
     - e.g. stack: index,counter + router.navigate(counter) = stack: index
 
-
 ### Input, Scrolling, and Lists
 
 - by default, mobile screens are NOT scrollable
   - this is diff from the web, so you need to **explicitly** declare it
 
 ### user Experience Enhancements
+
 - layout animation
   - official docs: https://reactnative.dev/docs/layoutanimation
   - better versions
@@ -86,6 +85,7 @@
   - configureNext() docs: https://reactnative.dev/docs/layoutanimation#configurenext
 
 ### device interactions
+
 - haptics
   - `npx expo install expo-haptics`
 - push notifications
@@ -104,6 +104,15 @@
 - creating a timer
   - date-fns: https://date-fns.org/
   - `npx expo install date-fns`
+- confetti & haptics
+  - `npx expo install react-native-confetti-cannon`
+  - troubleshooting:
+    - restart server
+    - reset cache: `nr start --reset-cache`
+  - react-native dimensions - allows you to find the "center" of the screen
+    - Dimensions
+    - useWindowDimensions
+      - dynamic, and updates when the screen rotates
 
 ## resources
 
