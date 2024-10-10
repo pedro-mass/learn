@@ -12,3 +12,12 @@
       - https://stackoverflow.com/questions/62145379/how-to-connect-android-studio-running-inside-wsl2-with-connected-devices-or-andr
       -
   - instructor built: [react-conf-app](https://github.com/expo/react-conf-app)
+
+### navigation
+
+- installing and configuring
+  - https://docs.expo.dev/router/introduction/
+  - `npx expo install expo-router react-native-safe-area-context react-native-screens expo-linking expo-constants expo-status-bar`
+  - https://necolas.github.io/react-native-web/
+  - `npx expo start --reset-cache`
+  -
