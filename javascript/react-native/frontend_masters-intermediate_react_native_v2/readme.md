@@ -20,4 +20,8 @@
   - `npx expo install expo-router react-native-safe-area-context react-native-screens expo-linking expo-constants expo-status-bar`
   - https://necolas.github.io/react-native-web/
   - `npx expo start --reset-cache`
-  -
+    - useful, but also add `--tunnel` if not connected to same wifi (or Window's firewall is blocking)\*\*\*\*
+- Bottom Tab navigation
+  - expo icons finder: https://icons.expo.fyi/Index
+- path aliases & layout groups
+  - default template already sets this up, this project manually does it b/c we started from scratch
