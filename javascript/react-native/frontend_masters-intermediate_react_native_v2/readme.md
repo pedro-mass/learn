@@ -27,3 +27,6 @@
   - default template already sets this up, this project manually does it b/c we started from scratch
 - persisting onboarding state
   - `npx expo install @react-native-async-storage/async-storage`
+- linear gradients
+  - `npx expo install expo-linear-gradient`
+  - Now that you've learned about linear gradient: you can actually use [linear gradient](https://docs.expo.dev/versions/latest/sdk/linear-gradient/), [reanimated](https://docs.swmansion.com/react-native-reanimated/) and [masked view](https://docs.expo.dev/versions/latest/sdk/masked-view/) to create highly customizable skeleton loaders in React Native.
