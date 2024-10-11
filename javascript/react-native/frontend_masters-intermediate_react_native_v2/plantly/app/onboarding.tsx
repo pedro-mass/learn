@@ -1,5 +1,5 @@
-import { PlantlyButton } from "@/components/plantly-button";
-import { PlantlyImage } from "@/components/plantly-image";
+import { PlantlyButton } from "@/components/PlantlyButton";
+import { PlantlyImage } from "@/components/PlantlyImage";
 import { useUserStore } from "@/store/userStore";
 import { theme } from "@/theme";
 import { LinearGradient } from "expo-linear-gradient";

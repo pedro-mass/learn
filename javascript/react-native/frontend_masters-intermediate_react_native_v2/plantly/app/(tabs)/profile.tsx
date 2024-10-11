@@ -1,4 +1,4 @@
-import { PlantlyButton } from "@/components/plantly-button";
+import { PlantlyButton } from "@/components/PlantlyButton";
 import { useUserStore } from "@/store/userStore";
 import { theme } from "@/theme";
 import { StyleSheet, View } from "react-native";
