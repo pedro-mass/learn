@@ -17,8 +17,8 @@
 
 - installing and configuring
   - https://docs.expo.dev/router/introduction/
-  - `npx expo install expo-router react-native-safe-area-context react-native-screens expo-linking expo-constants expo-status-bar`
-  - https://necolas.github.io/react-native-web/
+  - `npx expo install expo-router react-native-safe-area-context react-native-screens expo-linking expo-constants expo-**status**-bar`
+  - https://necolas.github.io/react-native-web/****
   - `npx expo start --reset-cache`
     - useful, but also add `--tunnel` if not connected to same wifi (or Window's firewall is blocking)\*\*\*\*
 - Bottom Tab navigation
@@ -30,3 +30,8 @@
 - linear gradients
   - `npx expo install expo-linear-gradient`
   - Now that you've learned about linear gradient: you can actually use [linear gradient](https://docs.expo.dev/versions/latest/sdk/linear-gradient/), [reanimated](https://docs.swmansion.com/react-native-reanimated/) and [masked view](https://docs.expo.dev/versions/latest/sdk/masked-view/) to create highly customizable skeleton loaders in React Native.
+- local image
+  - going to use built-in, but recommended
+    - Expo Image: https://docs.expo.dev/versions/latest/sdk/image/
+    - Fast Image: https://github.com/DylanVann/react-native-fast-image
+  -
