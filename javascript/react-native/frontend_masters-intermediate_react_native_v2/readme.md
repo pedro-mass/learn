@@ -25,3 +25,5 @@
   - expo icons finder: https://icons.expo.fyi/Index
 - path aliases & layout groups
   - default template already sets this up, this project manually does it b/c we started from scratch
+- persisting onboarding state
+  - `npx expo install @react-native-async-storage/async-storage`
