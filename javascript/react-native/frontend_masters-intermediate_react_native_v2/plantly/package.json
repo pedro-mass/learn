@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "main": "expo-router/entry",
   "scripts": {
-    "dev": "APP_VARIANT=development expo start",
-    "start": "expo start",
-    "android": "expo run:android",
-    "ios": "expo run:ios",
-    "web": "expo start --web",
+    "dev": "APP_VARIANT=development npx expo start",
+    "start": "npx expo start",
+    "android": "npx expo run:android",
+    "ios": "npx expo run:ios",
+    "web": "npx expo start --web",
     "lint": "eslint ."
   },
   "dependencies": {
