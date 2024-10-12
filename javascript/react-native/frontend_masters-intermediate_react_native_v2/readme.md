@@ -35,3 +35,7 @@
     - Expo Image: https://docs.expo.dev/versions/latest/sdk/image/
     - Fast Image: https://github.com/DylanVann/react-native-fast-image
 - https://ethercreative.github.io/react-native-shadow-generator/
+- https://docs.expo.dev/versions/latest/sdk/imagepicker/
+  - `npx expo install expo-image-picker`
+- https://docs.expo.dev/versions/latest/sdk/filesystem/
+  - `npx expo install expo-file-system`
