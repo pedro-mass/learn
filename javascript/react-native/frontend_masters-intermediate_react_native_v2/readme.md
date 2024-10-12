@@ -43,3 +43,11 @@
   - convert screen into a stack
   - convert index screen into a stack
 - `npx expo install date-fns`
+- `npx expo install expo-dev-client`
+- builds
+  > npx expo prebuild --platform ios
+  > npx expo prebuild --platform android
+  - this triggers setting up an app ID
+    - Note that once you upload your app to the stores, you won't be able to change the app ID ever.
+- [Continuous Native Generation](https://docs.expo.dev/workflow/continuous-native-generation/)
+  - meaning the ios/ and android/ directories are ephemeral
