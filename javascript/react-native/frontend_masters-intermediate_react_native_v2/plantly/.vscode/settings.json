@@ -25,5 +25,7 @@
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  }
+  },
+  "autoHide.autoHidePanel": true,
+  "autoHide.autoHideSideBar": true
 }

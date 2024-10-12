@@ -34,4 +34,4 @@
   - going to use built-in, but recommended
     - Expo Image: https://docs.expo.dev/versions/latest/sdk/image/
     - Fast Image: https://github.com/DylanVann/react-native-fast-image
-  -
+- https://ethercreative.github.io/react-native-shadow-generator/
