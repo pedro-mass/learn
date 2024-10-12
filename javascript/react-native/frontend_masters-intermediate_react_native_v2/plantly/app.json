@@ -28,6 +28,12 @@
     },
     "plugins": [
       "expo-router"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "850aca81-95bb-42d1-b4b0-b45e420a0cee"
+      }
+    },
+    "owner": "pedromass"
   }
 }
