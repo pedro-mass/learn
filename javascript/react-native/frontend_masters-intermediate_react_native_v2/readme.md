@@ -39,3 +39,7 @@
   - `npx expo install expo-image-picker`
 - https://docs.expo.dev/versions/latest/sdk/filesystem/
   - `npx expo install expo-file-system`
+- [readme](https://kadikraman.github.io/intermediate-react-native-v2-course/docs/dynamic-routes) on how to
+  - convert screen into a stack
+  - convert index screen into a stack
+- `npx expo install date-fns`
