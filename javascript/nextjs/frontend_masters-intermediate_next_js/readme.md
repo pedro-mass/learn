@@ -45,6 +45,28 @@
     - just return the string: 'rsvps'
   - [x] visit dashboard (after being signed in)
 - [ ] default.tsx => used when the router can't find a page to render => useful for slots that don't need to render on nested-routes
-  - [ ] dashboard/
-  - [ ] @events
-  - [ ] @rsvp
+  - [x] dashboard/
+  - [x] @events
+  - [x] @rsvp
+- server-side data fetching
+  - notes:
+    - 4. server side data fetching: https://clumsy-humor-894.notion.site/4-Server-side-data-fetching-3ed60cfb519d437ba293d4d0a6766777
+    - 4a. implementation: https://clumsy-humor-894.notion.site/4a-Implementation-17a5b4927699420098c36bdce0ee0234
+  - steps:
+    - [x] server: getCurrentUser()
+      - primarily going to be used for mutations
+      - we'll lock down the routes a different way through the layout
+- displaying attendee count
+  - steps:
+  - [x] server: getAttendeesCountForDashboard()
+  - [x] call it in dashboard/page.tsx
+    - [x] if 0, seed DB with: `nr db:seed`
+    - [x] refresh page to see new count
+- fetching events & rsvps
+  - steps:
+    - [x] server: getEvents()
+    - [x] page: @events
+    - [x] verify
+    - [x] server: getRsvps()
+    - [x] page: @rsvps
+    - [x] verify
