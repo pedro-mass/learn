@@ -70,3 +70,35 @@
     - [x] server: getRsvps()
     - [x] page: @rsvps
     - [x] verify
+- per-request caching
+  - notes: https://clumsy-humor-894.notion.site/4a-Implementation-17a5b4927699420098c36bdce0ee0234
+  - can use `import { cache } from 'react'`
+  - but this does not have fine-grained control
+    - validates per request
+    - cant' control invalidation
+- cache persistence & revalidation tags
+  - notes: https://clumsy-humor-894.notion.site/4a-Implementation-17a5b4927699420098c36bdce0ee0234
+  - `import { unstable_cache } from 'next/cache`
+    - doesn't work like the docs says it should work
+    - probably not ready
+  - `import { memoize } from 'nextjs-better-unstable-cache'`
+    - works better
+    - combines react's cache, plus the unstable_cache from next, and makes it more predictable
+    - allows you to cache across requests
+    - allows you to manually invalidate -> granting you full control
+- suspense and errors
+  - notes: https://clumsy-humor-894.notion.site/5-Suspense-and-Errors-803721679f594cefb241894f85aa0b9a
+  - implementation: https://clumsy-humor-894.notion.site/5a-Implementation-11089b630dd14abfade46d3fa1d887b6?pvs=25
+  - `loading.tsx`
+    - wraps the render in the `Suspense` component, and uses this file as the fallback
+  - `error.tsx`
+    - acts as the react-error-boundary
+    - must have: `use client`
+      - since this file is a catch for runtime errors
+
+### active & protected routes
+
+- active routes
+  - notes:
+    - https://clumsy-humor-894.notion.site/6-Active-route-c093edcf677d448586be1710edeb5a5f
+    - https://clumsy-humor-894.notion.site/6a-Implementation-e68772e85a7f400e9bbec00885c4a4a1?pvs=25
