@@ -102,3 +102,57 @@
   - notes:
     - https://clumsy-humor-894.notion.site/6-Active-route-c093edcf677d448586be1710edeb5a5f
     - https://clumsy-humor-894.notion.site/6a-Implementation-e68772e85a7f400e9bbec00885c4a4a1?pvs=25
+  - `usePathname()`
+    - can only be used in client components
+    - we'll use it to highlight the active route in the sidebar
+- route protection
+  - notes:
+    - https://clumsy-humor-894.notion.site/7-Protect-Routes-with-Middleware-2824779bed824fea8fb96a665fca2253
+- protecting routes with middleware
+  - notes
+    - [MDN docs for Request](https://developer.mozilla.org/en-US/docs/Web/API/Request)
+    - code: https://clumsy-humor-894.notion.site/7a-Implementation-fa49f6ecd0574c6197796dfec3cbeb45
+    - matching paths list: https://nextjs.org/docs/pages/building-your-application/routing/middleware#matching-paths
+
+### advanced server actions
+
+- non-form server actions
+  - notes:
+    - https://clumsy-humor-894.notion.site/8-Non-form-Server-Actions-be544d2769424bed85fc0f190f16cf38
+      - not limited to form submissions
+      - basically can be used anywhere you have an async call to the backend
+  - `useTransition`
+    - allows to mark state updates as non-blocking to the UI
+    - e.g. selecting tabs
+    - key points
+      - non-blocking updates
+      - handling multiple transitions
+      - limitations
+        - not suitable for controlling text inputs
+        - must be synchronous
+- useTransition & non-blocking updates
+  - notes:
+    - https://clumsy-humor-894.notion.site/8a-Implementation-a415196d4d51459bb0185b769012b585
+- cache & revalidation strategies
+  - notes:
+    - https://clumsy-humor-894.notion.site/9-Cache-Revalidation-e138317ab91440a1be6acd2ce52a6c50
+      - time based
+        - fetch provides: `{ next: { revalidate: 3600 } }`
+          - revalidate every hour
+          - hard to put on all fetches, b/c sometimes you won't have access to it (e.g. 3rd party APIs wrapped in an SDK)
+        - in `layout.js` or `page.js` -> `export const revalidate = 3600; // Revalidate at most every hour`
+          - can be used to set a default revalidate time
+      - on-demand
+        - path based
+          - `revalidatePath`
+        - tag based
+          - `revalidateTag`
+- events page
+  - notes:
+    - implementation: https://clumsy-humor-894.notion.site/10-Finish-the-app-a8ee0401c6cc440f83ac4a5c29e9e863
+  - build out the events + events/[id] pages
+
+### wrapping up
+
+- notes:
+  - nextjs: patterns and best practices: https://nextjs.org/docs/app/building-your-application/data-fetching/fetching

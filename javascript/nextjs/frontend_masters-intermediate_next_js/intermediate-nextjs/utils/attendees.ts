@@ -5,6 +5,12 @@ import { attendees, events, rsvps } from '@/db/schema'
 import { eq, sql } from 'drizzle-orm'
 import { memoize } from 'nextjs-better-unstable-cache'
 
+const TAGS = {
+  list: 'guests',
+  single: 'guest',
+  dashboard: 'dashboard:attendees',
+}
+
 export const getAttendeesCountForDashboard = memoize(
   async (userId: string) => {
     await delay() // simulate network delay
@@ -25,9 +31,32 @@ export const getAttendeesCountForDashboard = memoize(
   },
   {
     persist: true,
-    revalidateTags: () => ['dashboard:attendees'],
+    revalidateTags: () => [TAGS.dashboard, TAGS.list],
     suppressWarnings: true, // warnings would be about using this function in a client component BUT this warnings is already covered by `import 'server-only`
     log: ['datacache', 'verbose', 'dedupe'],
     logid: 'dashboard:attendees',
+  }
+)
+
+export const getGuestList = memoize(
+  async (userId: string) => {
+    await delay()
+    return db
+      .selectDistinct({
+        id: attendees.id,
+        name: attendees.name,
+        email: attendees.email,
+      })
+      .from(events)
+      .leftJoin(rsvps, eq(rsvps.eventId, events.id))
+      .leftJoin(attendees, eq(attendees.id, rsvps.attendeeId))
+      .where(eq(events.createdById, userId))
+      .execute()
+  },
+  {
+    persist: true,
+    revalidateTags: () => [TAGS.list],
+    log: ['datacache', 'verbose', 'dedupe'],
+    logid: TAGS.list,
   }
 )
