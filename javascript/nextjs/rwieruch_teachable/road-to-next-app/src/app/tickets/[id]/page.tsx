@@ -1,6 +1,10 @@
 import Link from "next/link";
 import { use } from "react";
+import { Placeholder } from "@/components/placeholder";
+import { Button } from "@/components/ui/button";
 import { initialTickets } from "@/data";
+import { TicketItem } from "@/features/ticket/components/ticket-item";
+import { ticketsPath } from "@/paths";
 
 export default function Page(props: { params: Promise<{ id: string }> }) {
   // const { id } = await props.params;
@@ -11,17 +15,21 @@ export default function Page(props: { params: Promise<{ id: string }> }) {
   const ticket = initialTickets.find((ticket) => ticket.id === id);
 
   if (!ticket) {
-    return <div>Ticket not found for id: ${id}</div>;
+    return (
+      <Placeholder
+        label={`Ticket not found for id: ${id}`}
+        button={
+          <Button asChild variant="outline">
+            <Link href={ticketsPath()}>Go to Tickets</Link>
+          </Button>
+        }
+      />
+    );
   }
 
   return (
-    <div>
-      <h2 className="text-lg">{ticket.title}</h2>
-      <p className="text-sm">{ticket.content}</p>
-
-      <Link href="/tickets" className="text-sm underline">
-        Go back to Tickets
-      </Link>
+    <div className="flex justify-center animate-fade-from-top">
+      <TicketItem ticket={ticket} isDetail />
     </div>
   );
 }
