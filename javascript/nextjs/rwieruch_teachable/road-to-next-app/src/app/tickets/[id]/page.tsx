@@ -1,18 +1,13 @@
 import Link from "next/link";
-import { use } from "react";
 import { Placeholder } from "@/components/placeholder";
 import { Button } from "@/components/ui/button";
-import { initialTickets } from "@/data";
 import { TicketItem } from "@/features/ticket/components/ticket-item";
+import { getTicket } from "@/features/ticket/queries/get-ticket";
 import { ticketsPath } from "@/paths";
 
-export default function Page(props: { params: Promise<{ id: string }> }) {
-  // const { id } = await props.params;
-  const { id } = use(props.params);
-
-  console.log({ id });
-
-  const ticket = initialTickets.find((ticket) => ticket.id === id);
+export default async function Page(props: { params: Promise<{ id: string }> }) {
+  const { id } = await props.params;
+  const ticket = await getTicket(id);
 
   if (!ticket) {
     return (
