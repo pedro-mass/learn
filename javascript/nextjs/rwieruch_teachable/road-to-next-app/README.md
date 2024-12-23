@@ -1,6 +1,8 @@
 ## links
 
 - completed project: https://github.com/rwieruch/the-road-to-next-app
+- database: https://supabase.com/dashboard/project/ykhcdkbzegnooeqvtcru
+
 - new things
   - https://www.robinwieruch.de/mac-setup-web-development/
   - https://react.dev/reference/react/use
