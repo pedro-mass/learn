@@ -10,8 +10,10 @@
     "lint-fix": "next lint --fix",
     "type": "tsc --noEmit",
     "postinstall": "prisma generate",
+    "db-init": "npx prisma db push",
     "db-seed": "tsx prisma/seed.ts",
-    "db-view": "prisma studio"
+    "db-view": "prisma studio",
+    "upgrade": "npx npm-check --update"
   },
   "dependencies": {
     "@prisma/client": "6.1.0",
