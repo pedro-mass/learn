@@ -11,3 +11,7 @@
   - https://tailwindcss.com/docs/animation
   - https://react.dev/reference/react/cloneElement
     - allows you to take in an element, and tweak some of it's props (like className) as you render it
+  - request memoization
+    - `import { cache } from 'react'
+    - caches the function, was used for API request optimization
+  -
