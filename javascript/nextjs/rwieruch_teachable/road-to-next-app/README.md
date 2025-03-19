@@ -1,5 +1,6 @@
 ## links
 
+- course: https://rwieruch.teachable.com/courses/enrolled/2456859
 - completed project: https://github.com/rwieruch/the-road-to-next-app
 - database: https://supabase.com/dashboard/project/ykhcdkbzegnooeqvtcru
 
