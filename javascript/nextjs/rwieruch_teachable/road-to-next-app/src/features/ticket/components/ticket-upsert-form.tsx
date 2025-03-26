@@ -21,14 +21,19 @@ export const TicketUpsertForm = (props: { ticket?: Ticket }) => {
         id="title"
         name="title"
         type="text"
-        defaultValue={props.ticket?.title}
+        defaultValue={
+          (actionState.payload?.get("title") as string) ?? props.ticket?.title
+        }
       />
 
       <Label htmlFor="content">Content</Label>
       <Textarea
         id="content"
         name="content"
-        defaultValue={props.ticket?.content}
+        defaultValue={
+          (actionState.payload?.get("content") as string) ??
+          props.ticket?.content
+        }
       />
 
       <SubmitButton label={props.ticket ? "Edit" : "Create"} />
