@@ -13,7 +13,8 @@
     "db-init": "npx prisma db push",
     "db-seed": "tsx prisma/seed.ts",
     "db-view": "prisma studio",
-    "upgrade": "npx npm-check --update"
+    "upgrade": "npx npm-check --update",
+    "git-store": "sh -c 'git add . && git commit -m \"road-to-next: $1\"' --"
   },
   "dependencies": {
     "@prisma/client": "6.1.0",
