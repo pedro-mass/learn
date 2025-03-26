@@ -14,7 +14,7 @@
     "db-seed": "tsx prisma/seed.ts",
     "db-view": "prisma studio",
     "upgrade": "npx npm-check --update",
-    "commit": "sh -c 'git add . && git commit -m \"road-to-next: $1\"' --"
+    "commit": "sh -c 'git add . && git commit -m \"road-to-next: $*\"' --"
   },
   "dependencies": {
     "@prisma/client": "6.1.0",
