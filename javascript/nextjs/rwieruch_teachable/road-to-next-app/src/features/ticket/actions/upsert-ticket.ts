@@ -11,8 +11,8 @@ import {
 } from "@/components/form/utils/to-action-state";
 
 const upsertTicketSchema = z.object({
-  title: z.string().min(1).max(191),
-  content: z.string().min(1).max(1024),
+  title: z.string().trim().min(1).max(191),
+  content: z.string().trim().min(1).max(1024),
 });
 
 export const upsertTicket = async (
