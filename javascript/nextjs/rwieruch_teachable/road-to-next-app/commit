@@ -1,0 +1,4 @@
+
+> road-to-next-app@0.1.0 commit /home/pedro/dev/learn/javascript/nextjs/rwieruch_teachable/road-to-next-app
+> sh -c 'git add . && git commit -m "road-to-next: $1"' -- git-store -
+
