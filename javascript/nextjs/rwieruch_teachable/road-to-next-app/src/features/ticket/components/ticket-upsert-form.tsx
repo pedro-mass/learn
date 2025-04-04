@@ -3,6 +3,7 @@
 import { Ticket } from "@prisma/client";
 import { useActionState } from "react";
 import { SubmitButton } from "@/components/form/submit-button";
+import { EMPTY_ACTION_STATE } from "@/components/form/utils/to-action-state";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -10,8 +11,9 @@ import { upsertTicket } from "../actions/upsert-ticket";
 
 export const TicketUpsertForm = (props: { ticket?: Ticket }) => {
   const [actionState, action] = useActionState(
-    upsertTicket.bind(null, props.ticket?.id),
-    { message: "" }
+    // @ts-expect-error - bind is broken
+    upsertTicket.bind(null, ticket?.id),
+    EMPTY_ACTION_STATE
   );
 
   return (
@@ -22,6 +24,7 @@ export const TicketUpsertForm = (props: { ticket?: Ticket }) => {
         name="title"
         type="text"
         defaultValue={
+          // @ts-expect-error - typing for payload
           (actionState.payload?.get("title") as string) ?? props.ticket?.title
         }
       />
@@ -31,6 +34,7 @@ export const TicketUpsertForm = (props: { ticket?: Ticket }) => {
         id="content"
         name="content"
         defaultValue={
+          // @ts-expect-error - typing for payload
           (actionState.payload?.get("content") as string) ??
           props.ticket?.content
         }
