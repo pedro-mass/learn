@@ -1,9 +1,9 @@
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
 import { User } from '../users/users.service';
+import { Request } from 'express';
 
-export interface AuthenticatedRequest extends Express.Request {
+export interface AuthenticatedRequest extends Request {
   user: Omit<User, 'password'>;
-  logout: (callback: (err?: Error) => void) => void;
 }
 
 export const AuthRequest = createParamDecorator(

@@ -6,22 +6,18 @@ import {
   AuthenticatedRequest,
   AuthRequest,
 } from './decorators/auth-request.decorator';
+import { AuthService } from './auth/auth.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
-
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
-  }
+  constructor(private authService: AuthService) {}
 
   // using the built in works, but it introduces the magic string 'local' which is harder to track down
   // @UseGuards(AuthGuard('local')) // when we extended LocalStrategy, it was given a default name of 'local'
   @UseGuards(LocalAuthGuard)
   @Post('auth/login')
   login(@AuthRequest() req: AuthenticatedRequest) {
-    return req.user;
+    return this.authService.login(req.user);
   }
 
   @UseGuards(LocalAuthGuard)
