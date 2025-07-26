@@ -1,12 +1,11 @@
-import { Controller, Get, Post, Request, UseGuards } from '@nestjs/common';
-import { AppService } from './app.service';
+import { Controller, Get, Post, UseGuards } from '@nestjs/common';
+import { AuthService } from './auth/auth.service';
 import { LocalAuthGuard } from './auth/local-auth.guard';
-import { User } from './users/users.service';
 import {
   AuthenticatedRequest,
   AuthRequest,
 } from './decorators/auth-request.decorator';
-import { AuthService } from './auth/auth.service';
+import { JwtAuthGuard } from './auth/jwt-auth.guard';
 
 @Controller()
 export class AppController {
@@ -28,5 +27,11 @@ export class AppController {
         err ? reject(err) : resolve({ message: 'Logged out successfully' }),
       );
     });
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('profile')
+  getProfile(@AuthRequest() req: AuthenticatedRequest) {
+    return req.user;
   }
 }
