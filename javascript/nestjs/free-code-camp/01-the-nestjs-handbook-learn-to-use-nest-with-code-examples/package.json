@@ -6,7 +6,7 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "commit": "bash -c 'git commit -m \"nestjs: freecodecamp: handbook: $1\"'",
+    "commit": "bash -c 'git commit -m \"nestjs: freecodecamp: handbook: $1\"' _",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
