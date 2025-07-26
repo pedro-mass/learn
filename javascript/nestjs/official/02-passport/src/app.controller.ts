@@ -2,6 +2,10 @@ import { Controller, Get, Post, Request, UseGuards } from '@nestjs/common';
 import { AppService } from './app.service';
 import { LocalAuthGuard } from './auth/local-auth.guard';
 import { User } from './users/users.service';
+import {
+  AuthenticatedRequest,
+  AuthRequest,
+} from './decorators/auth-request.decorator';
 
 @Controller()
 export class AppController {
@@ -16,7 +20,17 @@ export class AppController {
   // @UseGuards(AuthGuard('local')) // when we extended LocalStrategy, it was given a default name of 'local'
   @UseGuards(LocalAuthGuard)
   @Post('auth/login')
-  async login(@Request() req: Request & { user: Omit<User, 'password'> }) {
-    return Promise.resolve(req.user);
+  login(@AuthRequest() req: AuthenticatedRequest) {
+    return req.user;
+  }
+
+  @UseGuards(LocalAuthGuard)
+  @Post('auth/logout')
+  async logout(@AuthRequest() req: AuthenticatedRequest) {
+    return new Promise<{ message: string }>((resolve, reject) => {
+      req.logout((err) =>
+        err ? reject(err) : resolve({ message: 'Logged out successfully' }),
+      );
+    });
   }
 }
