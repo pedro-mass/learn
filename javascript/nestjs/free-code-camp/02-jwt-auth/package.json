@@ -18,7 +18,16 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "db:start": "sudo systemctl start mongod && echo '✅ MongoDB started'",
+    "db:stop": "sudo systemctl stop mongod && echo '🛑 MongoDB stopped'",
+    "db:restart": "sudo systemctl restart mongod && echo '🔄 MongoDB restarted'",
+    "db:status": "sudo systemctl status mongod --no-pager",
+    "db:connect": "mongosh",
+    "db:ping": "mongosh --eval \"db.adminCommand('ping')\" --quiet",
+    "db:manual": "mongod --dbpath ./data/db --port 27017",
+    "db:manual-verbose": "mongod --dbpath ./data/db --port 27017 --verbose",
+    "db:setup-local": "mkdir -p ./data/db && echo '📁 Local MongoDB data directory created'"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
