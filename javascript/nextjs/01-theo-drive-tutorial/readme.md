@@ -20,6 +20,10 @@ tutorial: https://youtu.be/c-hKSbzooAg?si=KZ_c8IDxUy4691CK
 - [ ] Homework - 3:23:53
 - [ ] Outro - 3:26:51
 
+## environment links
+
+- 
+
 ## refs
 
 - following: https://www.youtube.com/watch?v=c-hKSbzooAg&t=2736s
