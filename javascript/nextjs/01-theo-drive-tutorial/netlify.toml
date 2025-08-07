@@ -1,6 +1,0 @@
-[build]
-  command = "grun build" # or yarn, or pnpm
-  publish = ".next"
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
