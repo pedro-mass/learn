@@ -5,7 +5,6 @@ import {
   IsMilitaryTime,
   IsNotEmpty,
   IsString,
-  Length,
 } from 'class-validator';
 
 export class CreateSongDto {

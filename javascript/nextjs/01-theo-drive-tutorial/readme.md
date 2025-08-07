@@ -1,0 +1,29 @@
+tutorial: https://youtu.be/c-hKSbzooAg?si=KZ_c8IDxUy4691CK
+
+## chapters
+
+- [ ] Intro - 00:00
+- [ ] Init - 02:03
+- [ ] UI scaffolding - 07:26
+- [ ] CI/CD and deployment - 12:23
+- [ ] Database setup (with SingleStore) - 22:58
+- [ ] Database schema and table creation - 53:04
+- [ ] Connecting the UI to the database - 1:08:18
+- [ ] Fixing breadcrumbs - 1:31:22
+- [ ] Tidying up data layer - 1:39:48
+- [ ] Authentication (with Clerk) - 1:49:30
+- [ ] File uploads (with UploadThing) - 2:02:55
+- [ ] Modeling files in DB - 2:23:39
+- [ ] Analytics (with Posthog) - 2:40:46
+- [ ] General tidying up - 2:58:40
+- [ ] Home page and onboarding flows - 3:10:49
+- [ ] Homework - 3:23:53
+- [ ] Outro - 3:26:51
+
+## refs
+
+- following: https://www.youtube.com/watch?v=c-hKSbzooAg&t=2736s
+- repo: https://github.com/t3dotgg/drive-tutorial
+- UI starter - https://v0.dev/chat/google-drive-clone-ui-6jEAM0wxOgc?b=b_fFQhsfElqQi&f=0
+- SingleStore tutorial - https://www.singlestore.com/blog/singlestore-drizzle-integration/
+- CI FILE - https://github.com/t3dotgg/drive-tutorial/blob/main/.github/workflows/ci.yaml
