@@ -1,6 +1,5 @@
 [build]
-  base = "apps/web"         # Path to your app folder
-  command = "npm run build" # or yarn, or pnpm
+  command = "pnpm run build" # or yarn, or pnpm
   publish = ".next"
 
 [[plugins]]
