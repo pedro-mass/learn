@@ -1,6 +1,14 @@
-name: CI
+# todo: fix this so it works within this monorepo
+# currently it's not working because .github needs to be at repo root, and this is within a subfolder
+# would need to update the `on` to include the subfolder path
 
-on: [push]
+name: CI - Theo Drive Tutorial
+
+on:
+  push:
+    paths:
+      - ".github/workflows/**"
+      - "/home/pedro/dev/learn/javascript/nextjs/01-theo-drive-tutorial"
 
 jobs:
   build:
