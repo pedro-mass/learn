@@ -17,6 +17,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      # navigate to subfolder
+      - name: Navigate to subfolder
+        run: cd javascript/nextjs/01-theo-drive-tutorial && pwd
+
       # wouldn't be needed if we found an image with pnpm installed
       - name: Install Dependencies
         run: npm install -g pnpm && pnpm install
