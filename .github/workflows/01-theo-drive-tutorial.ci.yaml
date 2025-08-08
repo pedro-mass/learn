@@ -1,7 +1,3 @@
-# todo: fix this so it works within this monorepo
-# currently it's not working because .github needs to be at repo root, and this is within a subfolder
-# would need to update the `on` to include the subfolder path
-
 name: CI - Theo Drive Tutorial
 
 on:
@@ -13,13 +9,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: javascript/nextjs/01-theo-drive-tutorial
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      # navigate to subfolder
-      - name: Navigate to subfolder
-        run: cd javascript/nextjs/01-theo-drive-tutorial && pwd
 
       # wouldn't be needed if we found an image with pnpm installed
       - name: Install Dependencies
