@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - ".github/workflows/**"
-      - "/home/pedro/dev/learn/javascript/nextjs/01-theo-drive-tutorial"
+      - "/home/pedro/dev/learn/javascript/nextjs/01-theo-drive-tutorial/**"
 
 jobs:
   build:
