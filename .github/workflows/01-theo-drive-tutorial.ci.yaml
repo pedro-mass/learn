@@ -3,8 +3,8 @@ name: CI - Theo Drive Tutorial
 on:
   push:
     paths:
-      - ".github/workflows/**"
-      - "/home/pedro/dev/learn/javascript/nextjs/01-theo-drive-tutorial/**"
+      - ".github/workflows/01-theo-drive-tutorial.ci.yaml"
+      - "javascript/nextjs/01-theo-drive-tutorial/**"
 
 jobs:
   build:
