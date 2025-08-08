@@ -2,10 +2,10 @@ tutorial: https://youtu.be/c-hKSbzooAg?si=KZ_c8IDxUy4691CK
 
 ## chapters
 
-- [ ] Intro - 00:00
-- [ ] Init - 02:03
-- [ ] UI scaffolding - 07:26
-- [ ] CI/CD and deployment - 12:23
+- [x] Intro - 00:00
+- [x] Init - 02:03
+- [x] UI scaffolding - 07:26
+- [x] CI/CD and deployment - 12:23
 - [ ] Database setup (with SingleStore) - 22:58
 - [ ] Database schema and table creation - 53:04
 - [ ] Connecting the UI to the database - 1:08:18
