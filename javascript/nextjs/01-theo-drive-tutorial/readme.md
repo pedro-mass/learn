@@ -20,9 +20,16 @@ tutorial: https://youtu.be/c-hKSbzooAg?si=KZ_c8IDxUy4691CK
 - [ ] Homework - 3:23:53
 - [ ] Outro - 3:26:51
 
+## todo
+
+- [ ] set up database and data model
+- [ ] move folder open state to URL
+- [ ] add auth
+- [ ] add file uploading
+
 ## environment links
 
-- 
+- netlify: https://app.netlify.com/projects/peppy-smakager-9f2cd1/overview
 
 ## refs
 
