@@ -30,6 +30,7 @@ tutorial: https://youtu.be/c-hKSbzooAg?si=KZ_c8IDxUy4691CK
 ## environment links
 
 - netlify: https://app.netlify.com/projects/peppy-smakager-9f2cd1/overview
+- singlestore: https://portal.singlestore.com/organizations/44b9292e-f27a-46f6-8625-c0ec10605feb/virtual-workspaces/fb3d5a43-bcfa-4bc4-8f4e-a67cdd939b69
 
 ## refs
 
