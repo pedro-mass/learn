@@ -11,7 +11,7 @@ tutorial: https://youtu.be/c-hKSbzooAg?si=KZ_c8IDxUy4691CK
 - [x] Connecting the UI to the database - 1:08:18
 - [x] Fixing breadcrumbs - 1:31:22
 - [x] Tidying up data layer - 1:39:48
-- [ ] Authentication (with Clerk) - 1:49:30
+- [x] Authentication (with Clerk) - 1:49:30
 - [ ] File uploads (with UploadThing) - 2:02:55
 - [ ] Modeling files in DB - 2:23:39
 - [ ] Analytics (with Posthog) - 2:40:46
@@ -24,7 +24,7 @@ tutorial: https://youtu.be/c-hKSbzooAg?si=KZ_c8IDxUy4691CK
 
 - [x] set up database and data model
 - [x] move folder open state to URL
-- [ ] add auth
+- [x] add auth
 - [ ] add file uploading
 - [ ] add analytics
 
