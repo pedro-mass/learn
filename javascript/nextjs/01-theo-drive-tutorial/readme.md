@@ -12,13 +12,15 @@ tutorial: https://youtu.be/c-hKSbzooAg?si=KZ_c8IDxUy4691CK
 - [x] Fixing breadcrumbs - 1:31:22
 - [x] Tidying up data layer - 1:39:48
 - [x] Authentication (with Clerk) - 1:49:30
-- [ ] File uploads (with UploadThing) - 2:02:55
-- [ ] Modeling files in DB - 2:23:39
-- [ ] Analytics (with Posthog) - 2:40:46
-- [ ] General tidying up - 2:58:40
+- [x] File uploads (with UploadThing) - 2:02:55
+- [x] Modeling files in DB - 2:23:39
+- [x] Analytics (with Posthog) - 2:40:46
+- [x] General tidying up - 2:58:40
 - [ ] Home page and onboarding flows - 3:10:49
 - [ ] Homework - 3:23:53
 - [ ] Outro - 3:26:51
+
+https://youtu.be/c-hKSbzooAg?si=-O1WZfPRPXhmPyNh&t=11462
 
 ## tasks
 
