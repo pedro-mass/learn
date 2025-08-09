@@ -1,3 +1,5 @@
+import "server-only"; // informs us devs that this file is only meant to be used on the server
+
 // Example model schema from the Drizzle docs
 // https://orm.drizzle.team/docs/sql-schema-declaration
 
