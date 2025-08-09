@@ -6,8 +6,8 @@ tutorial: https://youtu.be/c-hKSbzooAg?si=KZ_c8IDxUy4691CK
 - [x] Init - 02:03
 - [x] UI scaffolding - 07:26
 - [x] CI/CD and deployment - 12:23
-- [ ] Database setup (with SingleStore) - 22:58
-- [ ] Database schema and table creation - 53:04
+- [x] Database setup (with SingleStore) - 22:58
+- [x] Database schema and table creation - 53:04
 - [ ] Connecting the UI to the database - 1:08:18
 - [ ] Fixing breadcrumbs - 1:31:22
 - [ ] Tidying up data layer - 1:39:48
