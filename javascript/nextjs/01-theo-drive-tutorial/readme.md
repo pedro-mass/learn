@@ -28,12 +28,15 @@ tutorial: https://youtu.be/c-hKSbzooAg?si=KZ_c8IDxUy4691CK
 - [x] add file uploading
 - [ ] add analytics
 
-## 8/8/25
+## 8/9/25
 
-- [ ] real home page
-- [ ] upload files to the right folder
+https://youtu.be/c-hKSbzooAg?si=qAVwc_Crzf4a8xJy&t=8950
+
+- [x] add "ownership" to files and folders
+- [x] upload files to the right folder
 - [ ] delete files button
 - [ ] allow files that aren't images to be uploaded
+- [ ] real home page
 
 ## environment links
 

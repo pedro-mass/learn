@@ -37,3 +37,12 @@ export function getFolders(folderId: number) {
 export function getFiles(folderId: number) {
   return db.select().from(filesSchema).where(eq(filesSchema.parent, folderId));
 }
+
+export async function getFolderById(folderId: number) {
+  const folders = await db
+    .select()
+    .from(foldersSchema)
+    .where(eq(foldersSchema.id, folderId));
+
+  return folders[0];
+}

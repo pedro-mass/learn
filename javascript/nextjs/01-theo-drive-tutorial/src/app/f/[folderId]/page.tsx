@@ -25,5 +25,12 @@ export default async function GoogleDriveClone(props: {
     QUERIES.getAllParentsForFolder(safeParams.folderId),
   ]);
 
-  return <DriveContents files={files} folders={folders} parents={parents} />;
+  return (
+    <DriveContents
+      files={files}
+      folders={folders}
+      parents={parents}
+      currentFolderId={safeParams.folderId}
+    />
+  );
 }
