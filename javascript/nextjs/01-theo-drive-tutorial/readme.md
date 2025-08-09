@@ -23,9 +23,16 @@ tutorial: https://youtu.be/c-hKSbzooAg?si=KZ_c8IDxUy4691CK
 ## tasks
 
 - [x] set up database and data model
-- [ ] move folder open state to URL
+- [x] move folder open state to URL
 - [ ] add auth
 - [ ] add file uploading
+- [ ] add analytics
+
+## 8/8/25
+
+- [ ] change folders to link components, remove all client state
+- [ ] clean up the database and data fetching patterns
+- [ ] real home page
 
 ## environment links
 
