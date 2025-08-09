@@ -32,7 +32,7 @@ tutorial: https://youtu.be/c-hKSbzooAg?si=KZ_c8IDxUy4691CK
 
 https://youtu.be/c-hKSbzooAg?si=4a1o0ZUr5mjbKbtd&t=5271
 
-- [ ] change folders to link components, remove all client state
+- [x] change folders to link components, remove all client state
 - [ ] clean up the database and data fetching patterns
 - [ ] real home page
 
