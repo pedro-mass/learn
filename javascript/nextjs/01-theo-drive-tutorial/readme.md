@@ -26,7 +26,8 @@ tutorial: https://youtu.be/c-hKSbzooAg?si=KZ_c8IDxUy4691CK
 - [x] move folder open state to URL
 - [x] add auth
 - [x] add file uploading
-- [ ] add analytics
+- [x] add analytics
+- [x] make sure sort order is consistent
 - [ ] add delete
 - [ ] real hompage + onboarding
 
