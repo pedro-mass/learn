@@ -27,16 +27,8 @@ tutorial: https://youtu.be/c-hKSbzooAg?si=KZ_c8IDxUy4691CK
 - [x] add auth
 - [x] add file uploading
 - [ ] add analytics
-
-## 8/9/25
-
-https://youtu.be/c-hKSbzooAg?si=qAVwc_Crzf4a8xJy&t=8950
-
-- [x] add "ownership" to files and folders
-- [x] upload files to the right folder
-- [ ] delete files button
-- [x] allow files that aren't images to be uploaded
-- [ ] real home page
+- [ ] add delete
+- [ ] real hompage + onboarding
 
 ## environment links
 
