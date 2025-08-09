@@ -20,21 +20,12 @@ tutorial: https://youtu.be/c-hKSbzooAg?si=KZ_c8IDxUy4691CK
 - [ ] Homework - 3:23:53
 - [ ] Outro - 3:26:51
 
-## todo
+## tasks
 
-- [ ] set up database and data model
+- [x] set up database and data model
 - [ ] move folder open state to URL
 - [ ] add auth
 - [ ] add file uploading
-
-## note from 8/7/2025
-
-Just finished up connecting database, next steps:
-
-- [ ] update schema to show files and folders
-- [ ] manually insert examples
-- [ ] render them in UI
-- [ ] push and make sure it all works
 
 ## environment links
 
