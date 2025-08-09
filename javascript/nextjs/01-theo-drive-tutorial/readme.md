@@ -8,9 +8,9 @@ tutorial: https://youtu.be/c-hKSbzooAg?si=KZ_c8IDxUy4691CK
 - [x] CI/CD and deployment - 12:23
 - [x] Database setup (with SingleStore) - 22:58
 - [x] Database schema and table creation - 53:04
-- [ ] Connecting the UI to the database - 1:08:18
-- [ ] Fixing breadcrumbs - 1:31:22
-- [ ] Tidying up data layer - 1:39:48
+- [x] Connecting the UI to the database - 1:08:18
+- [x] Fixing breadcrumbs - 1:31:22
+- [x] Tidying up data layer - 1:39:48
 - [ ] Authentication (with Clerk) - 1:49:30
 - [ ] File uploads (with UploadThing) - 2:02:55
 - [ ] Modeling files in DB - 2:23:39
@@ -33,7 +33,7 @@ tutorial: https://youtu.be/c-hKSbzooAg?si=KZ_c8IDxUy4691CK
 https://youtu.be/c-hKSbzooAg?si=4a1o0ZUr5mjbKbtd&t=5271
 
 - [x] change folders to link components, remove all client state
-- [ ] clean up the database and data fetching patterns
+- [x] clean up the database and data fetching patterns
 - [ ] real home page
 
 ## environment links
