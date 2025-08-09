@@ -25,21 +25,22 @@ tutorial: https://youtu.be/c-hKSbzooAg?si=KZ_c8IDxUy4691CK
 - [x] set up database and data model
 - [x] move folder open state to URL
 - [x] add auth
-- [ ] add file uploading
+- [x] add file uploading
 - [ ] add analytics
 
 ## 8/8/25
 
-https://youtu.be/c-hKSbzooAg?si=4a1o0ZUr5mjbKbtd&t=5271
-
-- [x] change folders to link components, remove all client state
-- [x] clean up the database and data fetching patterns
 - [ ] real home page
+- [ ] upload files to the right folder
+- [ ] delete files button
+- [ ] allow files that aren't images to be uploaded
 
 ## environment links
 
 - netlify: https://app.netlify.com/projects/peppy-smakager-9f2cd1/overview
 - singlestore: https://portal.singlestore.com/organizations/44b9292e-f27a-46f6-8625-c0ec10605feb/virtual-workspaces/fb3d5a43-bcfa-4bc4-8f4e-a67cdd939b69
+- clerk: https://dashboard.clerk.com/apps/app_313aXa40Ns41qRFJ5uu1eJblslF/instances/ins_313aXVyQhf2w3i7oHD8wd3fpi57
+- uploadThing: https://uploadthing.com/dashboard/pedro-mass-personal-team/82u57ffrls/api-keys
 
 ## refs
 
