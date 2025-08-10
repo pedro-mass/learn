@@ -16,13 +16,13 @@ tutorial: https://youtu.be/c-hKSbzooAg?si=KZ_c8IDxUy4691CK
 - [x] Modeling files in DB - 2:23:39
 - [x] Analytics (with Posthog) - 2:40:46
 - [x] General tidying up - 2:58:40
-- [ ] Home page and onboarding flows - 3:10:49
-- [ ] Homework - 3:23:53
-- [ ] Outro - 3:26:51
+- [x] Home page and onboarding flows - 3:10:49
+- [x] Homework - 3:23:53
+- [x] Outro - 3:26:51
 
 https://youtu.be/c-hKSbzooAg?si=-O1WZfPRPXhmPyNh&t=11462
 
-## tasks
+### tasks
 
 - [x] set up database and data model
 - [x] move folder open state to URL
@@ -31,7 +31,7 @@ https://youtu.be/c-hKSbzooAg?si=-O1WZfPRPXhmPyNh&t=11462
 - [x] add analytics
 - [x] make sure sort order is consistent
 - [x] add delete
-- [ ] real hompage + onboarding
+- [x] real homepage + onboarding
 
 ## Fun follow ups
 
