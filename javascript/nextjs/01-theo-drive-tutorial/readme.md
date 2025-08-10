@@ -61,6 +61,7 @@ You get the idea. Maybe check out my last tutorial?
 - singlestore: https://portal.singlestore.com/organizations/44b9292e-f27a-46f6-8625-c0ec10605feb/virtual-workspaces/fb3d5a43-bcfa-4bc4-8f4e-a67cdd939b69
 - clerk: https://dashboard.clerk.com/apps/app_313aXa40Ns41qRFJ5uu1eJblslF/instances/ins_313aXVyQhf2w3i7oHD8wd3fpi57
 - uploadThing: https://uploadthing.com/dashboard/pedro-mass-personal-team/82u57ffrls/api-keys
+- posthog: https://us.posthog.com/project/205503
 
 ## refs
 
