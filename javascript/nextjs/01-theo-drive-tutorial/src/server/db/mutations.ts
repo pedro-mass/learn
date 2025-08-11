@@ -3,6 +3,7 @@ import {
   files_table,
   folders_table,
   type DB_FileType,
+  type DB_FolderType,
 } from "~/server/db/schema";
 
 export async function createFile(input: {
@@ -16,6 +17,19 @@ export async function createFile(input: {
   return await db
     .insert(files_table)
     .values({ ...input.file, ownerId: input.userId });
+}
+
+export async function createFolder(input: {
+  folder: Pick<DB_FolderType, "name" | "parent">;
+  userId: string;
+}) {
+  if (!input.userId) {
+    throw new Error("User ID is required");
+  }
+
+  return await db
+    .insert(folders_table)
+    .values({ ...input.folder, ownerId: input.userId });
 }
 
 export async function onboardUser(userId: string) {
