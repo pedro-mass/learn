@@ -91,6 +91,7 @@ function RowActionsHolder(props: {
         action={props.createFolderAction}
         parentId={props.parentId}
         onOptimisticFolder={props.onOptimisticFolder}
+        onCancel={() => setIsOpen(false)}
       />
     );
   }
@@ -98,11 +99,11 @@ function RowActionsHolder(props: {
   return <RowActions onClick={() => setIsOpen(true)} />;
 }
 
-function SubmitButton() {
+function SubmitButton(props: React.ComponentProps<typeof Button>) {
   const { pending } = useFormStatus();
 
   return (
-    <Button type="submit" disabled={pending}>
+    <Button {...props} variant="secondary" type="submit" disabled={pending}>
       {pending ? "Creating..." : "Create"}
     </Button>
   );
@@ -112,6 +113,7 @@ function FolderForm(props: {
   action?: (formData: FormData) => Promise<void>;
   parentId: number;
   onOptimisticFolder: (action: { name: string; parent: number }) => void;
+  onCancel?: () => void;
 }) {
   // Important: do NOT preventDefault, to the server action runs.
   const handleClientSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -127,9 +129,13 @@ function FolderForm(props: {
   return (
     <li className="hover:bg-gray-750 px-6 py-4">
       <form action={props.action} onSubmit={handleClientSubmit}>
-        <Input placeholder="Folder name" name="name" />
+        <Input autoFocus placeholder="Folder name" name="name" />
         <input type="hidden" name="parent" value={props.parentId} />
-        <SubmitButton />
+        <SubmitButton className="mt-2" />
+        {/* cancel button */}
+        <Button variant="ghost" className="mt-2" onClick={props.onCancel}>
+          Cancel
+        </Button>
       </form>
     </li>
   );
