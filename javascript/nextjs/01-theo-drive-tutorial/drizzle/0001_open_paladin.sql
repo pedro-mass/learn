@@ -1,0 +1,1 @@
+ALTER TABLE `drive_tutorial_files_table` ADD `uploadthing_key` text;

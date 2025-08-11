@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "singlestore",
+  "entries": [
+    {
+      "idx": 1,
+      "version": "1",
+      "when": 1754880271239,
+      "tag": "0001_open_paladin",
+      "breakpoints": true
+    }
+  ]
+}
