@@ -5,6 +5,8 @@ import { db } from "~/server/db";
 import {
   files_table as filesSchema,
   folders_table as foldersSchema,
+  type DB_FileType,
+  type DB_FolderType,
 } from "~/server/db/schema";
 
 export async function getAllParentsForFolder(folderId: number) {
@@ -61,4 +63,27 @@ export async function getRootFolderForUser(userId: string) {
     );
 
   return folders[0];
+}
+
+export async function getFilesAndFolders(folderId: number) {
+  const ids = {
+    files: [] as DB_FileType[],
+    folders: [] as DB_FolderType[],
+  };
+  const [files, folders] = await Promise.all([
+    db.select().from(filesSchema).where(eq(filesSchema.parent, folderId)),
+    db.select().from(foldersSchema).where(eq(foldersSchema.parent, folderId)),
+  ]);
+
+  ids.files.push(...files);
+  ids.folders.push(...folders);
+
+  // get all the files and folders from within those folders recursively
+  const nested = await Promise.all(
+    folders.map(async (folder) => getFilesAndFolders(folder.id)),
+  );
+  ids.files.push(...nested.flatMap((thing) => thing.files));
+  ids.folders.push(...nested.flatMap((thing) => thing.folders));
+
+  return ids;
 }

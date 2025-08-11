@@ -35,17 +35,17 @@ https://youtu.be/c-hKSbzooAg?si=-O1WZfPRPXhmPyNh&t=11462
 
 ## Fun follow ups
 
-### Folder creations
+### Folder creations ✅
 
 Make a server action that takes a name and parentId, and creates a folder with that name and parentId (don't forget to set the ownerId).
+
+### Folder deletions ✅
+
+Make sure you fetch all of the folders that have it as a parent, and their children too
 
 ### Access control
 
 Check if user is owner before showing the folder page.
-
-### Folder deletions
-
-Make sure you fetch all of the folders that have it as a parent, and their children too
 
 ### Make a "file view" page
 

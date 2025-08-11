@@ -23,12 +23,13 @@ export const files_table = createTable(
       .primaryKey()
       .autoincrement(),
     ownerId: text("owner_id").notNull(),
+    createdAt: timestamp("created_at").notNull().defaultNow(),
 
     name: text("name").notNull(),
     size: int("size").notNull(),
     url: text("url").notNull(),
     parent: bigint("parent", { mode: "number", unsigned: true }).notNull(),
-    createdAt: timestamp("created_at").notNull().defaultNow(),
+    uploadthingKey: text("uploadthing_key"),
   },
   (t) => {
     return [
@@ -46,10 +47,10 @@ export const folders_table = createTable(
       .primaryKey()
       .autoincrement(),
     ownerId: text("owner_id").notNull(),
+    createdAt: timestamp("created_at").notNull().defaultNow(),
 
     name: text("name").notNull(),
     parent: bigint("parent", { mode: "number", unsigned: true }),
-    createdAt: timestamp("created_at").notNull().defaultNow(),
   },
   (t) => {
     return [

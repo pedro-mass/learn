@@ -7,7 +7,10 @@ import {
 } from "~/server/db/schema";
 
 export async function createFile(input: {
-  file: Pick<DB_FileType, "name" | "size" | "url" | "parent">;
+  file: Pick<
+    DB_FileType,
+    "name" | "size" | "url" | "parent" | "uploadthingKey"
+  >;
   userId: string;
 }) {
   if (!input.userId) {

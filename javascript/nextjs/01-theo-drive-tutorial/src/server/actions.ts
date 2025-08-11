@@ -1,11 +1,12 @@
 "use server";
 
-import { and, eq } from "drizzle-orm";
-import { db } from "./db";
-import { files_table } from "./db/schema";
 import { auth } from "@clerk/nextjs/server";
-import { UTApi } from "uploadthing/server";
+import { and, eq, inArray } from "drizzle-orm";
 import { cookies } from "next/headers";
+import { UTApi } from "uploadthing/server";
+import { db } from "./db";
+import * as QUERIES from "./db/queries";
+import { files_table, folders_table } from "./db/schema";
 
 const utApi = new UTApi();
 
@@ -46,6 +47,41 @@ export async function deleteFile(fileId: number) {
     fn: "deleteFile:db:deleteFile",
     dbDeleteResult,
   });
+
+  // hack to force a refresh
+  const c = await cookies();
+  c.set("force-refresh", JSON.stringify(Math.random()));
+
+  return { success: true };
+}
+
+export async function deleteFolder(folderId: number) {
+  const session = await auth();
+  if (!session.userId) {
+    return { error: "Unauthorized" };
+  }
+
+  // get files and folder within this folder
+  const { files, folders } = await QUERIES.getFilesAndFolders(folderId);
+
+  await Promise.all([
+    db
+      .delete(folders_table)
+      .where(
+        inArray(folders_table.id, [...folders.map((f) => f.id), folderId]),
+      ),
+    db.delete(files_table).where(
+      inArray(
+        files_table.id,
+        files.map((f) => f.id),
+      ),
+    ),
+    utApi.deleteFiles(
+      files
+        .map((f) => f.uploadthingKey)
+        .filter((k): k is string => typeof k === "string"),
+    ),
+  ]);
 
   // hack to force a refresh
   const c = await cookies();
