@@ -39,6 +39,7 @@ export function CreateFolderRow({
               placeholder="New folder name"
               className="max-w-xs"
               required
+              autoComplete="off"
             />
             <input type="hidden" name="parent" value={parentId} />
           </div>
