@@ -87,3 +87,8 @@ export async function getFilesAndFolders(folderId: number) {
 
   return ids;
 }
+
+export async function isFolderOwner(folderId: number, userId: string) {
+  const folder = await getFolderById(folderId);
+  return folder?.ownerId === userId;
+}

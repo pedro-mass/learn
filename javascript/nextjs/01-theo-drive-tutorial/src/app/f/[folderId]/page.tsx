@@ -4,6 +4,10 @@ import * as MUTATIONS from "~/server/db/mutations";
 import DriveContents from "./drive-contents";
 import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
+import { CenteredLayout } from "~/components/centered-layout";
+import { Button } from "~/components/ui/button";
+import Link from "next/link";
+import { AuthActions } from "~/components/auth-actions";
 
 export default async function GoogleDriveClone(props: {
   params: Promise<{ folderId: string }>;
@@ -22,6 +26,16 @@ export default async function GoogleDriveClone(props: {
 
   const safeParams = parsedParams.data;
 
+  const { userId } = await auth();
+  if (!userId) {
+    return <UnauthorizedFolderView />;
+  }
+
+  const isOwner = await QUERIES.isFolderOwner(safeParams.folderId, userId);
+  if (!isOwner) {
+    return <UnauthorizedFolderView />;
+  }
+
   const [files, folders, parents] = await Promise.all([
     QUERIES.getFiles(safeParams.folderId),
     QUERIES.getFolders(safeParams.folderId),
@@ -31,25 +45,20 @@ export default async function GoogleDriveClone(props: {
   async function createFolderAction(formData: FormData) {
     "use server";
 
-    console.log({ fn: "createFolderAction:start" });
     const rawName = formData.get("name");
     if (typeof rawName !== "string") throw new Error("Invalid name");
     const name = rawName.trim();
-    console.log({ fn: "createFolderAction:got name" });
 
     const parent = Number(formData.get("parent"));
     if (isNaN(parent)) throw new Error("Invalid parent");
-    console.log({ fn: "createFolderAction:got parent" });
 
     const { userId } = await auth();
     if (!userId) throw new Error("Unauthorized");
-    console.log({ fn: "createFolderAction:got user" });
 
     await MUTATIONS.createFolder({
       folder: { name, parent },
       userId,
     });
-    console.log({ fn: "createFolderAction:created folder" });
     revalidatePath(`/f/${parent}`);
   }
 
@@ -61,5 +70,21 @@ export default async function GoogleDriveClone(props: {
       currentFolderId={safeParams.folderId}
       createFolderAction={createFolderAction}
     />
+  );
+}
+
+function UnauthorizedFolderView() {
+  return (
+    <CenteredLayout>
+      <div className="flex flex-col gap-4">
+        <h2 className="text-2xl font-bold">Unauthorized</h2>
+        <div className="flex items-center justify-center gap-2">
+          <AuthActions />
+          <Button variant="secondary" asChild>
+            <Link href="/drive">Go to your Drive</Link>
+          </Button>
+        </div>
+      </div>
+    </CenteredLayout>
   );
 }

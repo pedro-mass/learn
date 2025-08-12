@@ -43,17 +43,17 @@ Make a server action that takes a name and parentId, and creates a folder with t
 
 Make sure you fetch all of the folders that have it as a parent, and their children too
 
-### Access control
+### Access control ✅
 
 Check if user is owner before showing the folder page.
+
+### Gray out a row while it's being deleted
 
 ### Make a "file view" page
 
 You get the idea. Maybe check out my last tutorial?
 
 ### Toasts!
-
-### Gray out a row while it's being deleted
 
 ## environment links
 

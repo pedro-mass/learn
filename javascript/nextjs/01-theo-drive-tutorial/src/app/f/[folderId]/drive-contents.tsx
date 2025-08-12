@@ -11,6 +11,7 @@ import { type DB_FileType, type DB_FolderType } from "~/server/db/schema";
 import { UploadButton } from "~/utils/uploadthing";
 import { FileRow, FolderRow } from "./file-row";
 import { useFormStatus } from "react-dom";
+import { AuthActions } from "~/components/auth-actions";
 
 export default function DriveContents(props: {
   files: DB_FileType[];
@@ -163,19 +164,6 @@ function TableHeader() {
         <div className="col-span-3">Size</div>
         <div className="col-span-1"></div>
       </div>
-    </div>
-  );
-}
-
-function AuthActions() {
-  return (
-    <div>
-      <SignedOut>
-        <SignInButton />
-      </SignedOut>
-      <SignedIn>
-        <UserButton />
-      </SignedIn>
     </div>
   );
 }
