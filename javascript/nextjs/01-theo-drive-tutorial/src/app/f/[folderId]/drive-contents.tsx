@@ -3,7 +3,8 @@ import Link from "next/link";
 import { AuthActions } from "~/components/auth-actions";
 import { type DB_FileType, type DB_FolderType } from "~/server/db/schema";
 import { CreateFolderRow } from "./create-folder-row"; // client island
-import { FileRow, FolderRow } from "./file-row";
+import { FileRow } from "./file-row";
+import { FolderRow } from "./folder-row";
 import { UploadActions } from "./upload-actions"; // client island
 
 export default function DriveContents(props: {
