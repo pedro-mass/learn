@@ -1,14 +1,27 @@
-import { FileIcon, Folder as FolderIcon, Trash2Icon } from "lucide-react";
+import {
+  FileIcon,
+  Folder as FolderIcon,
+  Loader2Icon,
+  Trash2Icon,
+} from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 import { Button } from "~/components/ui/button";
+import { cn } from "~/lib/utils";
 import { deleteFile, deleteFolder } from "~/server/actions";
 import type { files_table, folders_table } from "~/server/db/schema";
 
 export function FileRow({ file }: { file: typeof files_table.$inferSelect }) {
+  const [status, setStatus] = useState<"ready" | "deleting">("ready");
+
+  const isDisabled = status === "deleting";
+
   return (
     <li
       key={file.id}
-      className="hover:bg-gray-750 border-b border-gray-700 px-6 py-4"
+      className={cn("hover:bg-gray-750 border-b border-gray-700 px-6 py-4", {
+        "opacity-50": isDisabled,
+      })}
     >
       <div className="grid grid-cols-12 items-center gap-4">
         <div className="col-span-6 flex items-center">
@@ -27,10 +40,21 @@ export function FileRow({ file }: { file: typeof files_table.$inferSelect }) {
         <div className="col-span-1 text-gray-400">
           <Button
             variant="ghost"
-            onClick={() => deleteFile(file.id)}
+            onClick={() => {
+              setStatus("deleting");
+              deleteFile(file.id)
+                .then((success) => console.log({ success }))
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+                .catch((error) => console.log({ error }));
+            }}
             aria-label="Delete file"
+            disabled={isDisabled}
           >
-            <Trash2Icon size={20} />
+            {isDisabled ? (
+              <Loader2Icon size={20} className="animate-spin" />
+            ) : (
+              <Trash2Icon size={20} />
+            )}
           </Button>
         </div>
       </div>
