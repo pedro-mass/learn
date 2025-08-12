@@ -47,7 +47,7 @@ Make sure you fetch all of the folders that have it as a parent, and their child
 
 Check if user is owner before showing the folder page.
 
-### Gray out a row while it's being deleted
+### Gray out a row while it's being deleted ✅
 
 ### Make a "file view" page
 
