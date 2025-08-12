@@ -43,7 +43,7 @@ export async function onboardUser(userId: string) {
   const rootFolder = await db
     .insert(folders_table)
     .values({
-      name: "Root",
+      name: "My Drive",
       parent: null,
       ownerId: userId,
     })

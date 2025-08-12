@@ -51,7 +51,7 @@ export default async function Page() {
           const rootFolder = await db
             .insert(folders_table)
             .values({
-              name: "root",
+              name: "My Drive",
               ownerId: user.userId,
               parent: null,
             })

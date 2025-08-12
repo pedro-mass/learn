@@ -1,17 +1,10 @@
-"use client";
-
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
-import { ChevronRight, PlusIcon } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import React, { startTransition, useOptimistic } from "react";
-import { Button } from "~/components/ui/button";
-import { Input } from "~/components/ui/input";
-import { type DB_FileType, type DB_FolderType } from "~/server/db/schema";
-import { UploadButton } from "~/utils/uploadthing";
-import { FileRow, FolderRow } from "./file-row";
-import { useFormStatus } from "react-dom";
 import { AuthActions } from "~/components/auth-actions";
+import { type DB_FileType, type DB_FolderType } from "~/server/db/schema";
+import { CreateFolderRow } from "./create-folder-row"; // client island
+import { FileRow, FolderRow } from "./file-row";
+import { UploadActions } from "./upload-actions"; // client island
 
 export default function DriveContents(props: {
   files: DB_FileType[];
@@ -20,22 +13,6 @@ export default function DriveContents(props: {
   currentFolderId: number;
   createFolderAction?: (formData: FormData) => Promise<void>;
 }) {
-  const router = useRouter();
-
-  const [optimisticFolders, addOptimisticFolder] = useOptimistic<
-    DB_FolderType[],
-    { name: string; parent: number }
-  >(props.folders, (state, update) => {
-    const temp: DB_FolderType = {
-      id: -Date.now(),
-      ownerId: "optimistic",
-      name: update.name,
-      parent: update.parent,
-      createdAt: new Date(),
-    };
-    return [...state, temp];
-  });
-
   return (
     <div className="min-h-screen bg-gray-900 p-8 text-gray-100">
       <div className="mx-auto max-w-6xl">
@@ -46,112 +23,30 @@ export default function DriveContents(props: {
           <Breadcrumbs {...props} />
           <AuthActions />
         </div>
+
         <div data-testid="table" className="rounded-lg bg-gray-800 shadow-xl">
           <TableHeader />
           <ul>
-            {optimisticFolders.map((folder) => (
+            {props.folders.map((folder) => (
               <FolderRow key={folder.id} folder={folder} />
             ))}
             {props.files.map((file) => (
               <FileRow key={file.id} file={file} />
             ))}
-
-            <RowActionsHolder
-              createFolderAction={props.createFolderAction}
-              parentId={props.currentFolderId}
-              onOptimisticFolder={addOptimisticFolder}
-            />
+            {props.createFolderAction && (
+              <CreateFolderRow
+                createFolderAction={props.createFolderAction}
+                parentId={props.currentFolderId}
+              />
+            )}
           </ul>
         </div>
+
         <div data-testid="page-actions" className="mt-4">
-          <UploadButton
-            endpoint="driveUploader"
-            onClientUploadComplete={() => {
-              router.refresh();
-            }}
-            input={{
-              folderId: props.currentFolderId,
-            }}
-          />
+          <UploadActions currentFolderId={props.currentFolderId} />
         </div>
       </div>
     </div>
-  );
-}
-
-function RowActionsHolder(props: {
-  createFolderAction?: (formData: FormData) => Promise<void>;
-  parentId: number;
-  onOptimisticFolder: (action: { name: string; parent: number }) => void;
-}) {
-  const [isOpen, setIsOpen] = React.useState<boolean>(false);
-
-  if (isOpen) {
-    return (
-      <FolderForm
-        action={props.createFolderAction}
-        parentId={props.parentId}
-        onOptimisticFolder={props.onOptimisticFolder}
-        onCancel={() => setIsOpen(false)}
-      />
-    );
-  }
-
-  return <RowActions onClick={() => setIsOpen(true)} />;
-}
-
-function SubmitButton(props: React.ComponentProps<typeof Button>) {
-  const { pending } = useFormStatus();
-
-  return (
-    <Button {...props} variant="secondary" type="submit" disabled={pending}>
-      {pending ? "Creating..." : "Create"}
-    </Button>
-  );
-}
-
-function FolderForm(props: {
-  action?: (formData: FormData) => Promise<void>;
-  parentId: number;
-  onOptimisticFolder: (action: { name: string; parent: number }) => void;
-  onCancel?: () => void;
-}) {
-  // Important: do NOT preventDefault, to the server action runs.
-  const handleClientSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    const fd = new FormData(e.currentTarget);
-    const rawName = fd.get("name");
-    const name = typeof rawName === "string" ? rawName.trim() : undefined;
-    if (name)
-      startTransition(() =>
-        props.onOptimisticFolder({ name, parent: props.parentId }),
-      );
-  };
-
-  return (
-    <li className="hover:bg-gray-750 px-6 py-4">
-      <form action={props.action} onSubmit={handleClientSubmit}>
-        <Input autoFocus placeholder="Folder name" name="name" />
-        <input type="hidden" name="parent" value={props.parentId} />
-        <SubmitButton className="mt-2" />
-        {/* cancel button */}
-        <Button variant="ghost" className="mt-2" onClick={props.onCancel}>
-          Cancel
-        </Button>
-      </form>
-    </li>
-  );
-}
-
-function RowActions(props: { onClick: () => void }) {
-  return (
-    <li className="hover:bg-gray-750 px-6 py-4">
-      <Button variant="ghost" asChild onClick={props.onClick}>
-        <div>
-          <PlusIcon />
-          <span>Create Folder</span>
-        </div>
-      </Button>
-    </li>
   );
 }
 
@@ -169,32 +64,31 @@ function TableHeader() {
 }
 
 function Breadcrumbs(props: {
-  files: DB_FileType[];
-  folders: DB_FolderType[];
   parents: DB_FolderType[];
   currentFolderId: number;
 }) {
+  // const all = [
+  //   ...props.parents,
+  //   {
+  //     id: props.currentFolderId,
+  //     name: "Current",
+  //     parent: 0,
+  //     ownerId: "",
+  //     createdAt: new Date(),
+  //   } as DB_FolderType,
+  // ];
   return (
-    <div className="flex items-center">
-      <Button
-        variant="ghost"
-        className="mr-2 text-gray-300 hover:text-white"
-        asChild
-      >
-        <Link href="/f/1">My Drive</Link>
-      </Button>
-      {props.parents.map((folder) => (
-        <div key={folder.id} className="flex items-center">
-          <ChevronRight className="mx-2 text-gray-500" size={16} />
-          <Button
-            variant="ghost"
-            className="text-gray-300 hover:text-white"
-            asChild
-          >
-            <Link href={`/f/${folder.id}`}>{folder.name}</Link>
-          </Button>
-        </div>
+    <nav className="flex items-center gap-2 text-sm text-gray-300">
+      {props.parents.map((f, i) => (
+        <span key={f.id} className="flex items-center gap-2">
+          <Link href={`/f/${f.id}`} className="hover:text-blue-400">
+            {f.name}
+          </Link>
+          {i < props.parents.length - 1 && (
+            <ChevronRight size={16} className="text-gray-500" />
+          )}
+        </span>
       ))}
-    </div>
+    </nav>
   );
 }
