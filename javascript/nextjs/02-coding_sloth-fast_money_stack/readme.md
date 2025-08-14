@@ -25,3 +25,9 @@ Clerk billing docs: https://clerk.com/docs/billing/overview
 - https://clerk.com/docs/integrations/databases/convex
   - https://clerk.com/docs/references/nextjs/custom-sign-in-or-up-page?_gl=1*18vsloh*_gcl_au*MjY0MzM2NjYyLjE3NTUxMzE2MzU.*_ga*OTI2NDM2NzY3LjE3NTUxMzMxNTE.*_ga_1WMF5X234K*czE3NTUxMzMxNTAkbzEkZzEkdDE3NTUxMzM2OTMkajYwJGwwJGgw
 - https://docs.convex.dev/auth/clerk
+
+4. configure clerk billing
+
+- https://dashboard.clerk.com/apps/app_31Fwbema3c4wJ8aMaIvAzSszeZN/instances/ins_31FwbZDfyAFPWCC9gAq4qJm3YjH/billing/subscriptions
+- https://clerk.com/docs/billing/overview?_gl=1*1ecw2wl*_gcl_au*MjY0MzM2NjYyLjE3NTUxMzE2MzU.*_ga*OTI2NDM2NzY3LjE3NTUxMzMxNTE.*_ga_1WMF5X234K*czE3NTUxMzMxNTAkbzEkZzEkdDE3NTUxMzQ4MTMkajI5JGwwJGgw
+  - https://clerk.com/docs/nextjs/billing/b2c-saas
