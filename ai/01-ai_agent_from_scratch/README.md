@@ -1,7 +1,11 @@
 # Build an AI Agent from Scratch Workshop
 
-- Watch the workshop on [Frontend Masters](https://frontendmasters.com/workshops/build-ai-agent/). 
+- Watch the workshop on [Frontend Masters](https://frontendmasters.com/workshops/build-ai-agent/).
 - View the [course notes](https://clumsy-humor-894.notion.site/Agent-from-scratch-13554fed51a380749554c44aa8989406?pvs=4)
+
+## my notes
+
+- track tokens with: https://www.npmjs.com/package/gpt-tokenizer
 
 ## Setup Instructions
 
