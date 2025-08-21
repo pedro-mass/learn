@@ -30,7 +30,7 @@ export const runAgent = async ({
     loader.update(`executed: ${toolCall.function.name}`)
   }
 
-  // logMessage(response)
+  logMessage(response)
   loader.stop()
   return getMessages()
 }
