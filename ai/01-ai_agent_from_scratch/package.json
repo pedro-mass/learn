@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "commit": "sh -c 'git commit -m \"ai: 01-ai_agent_from_scratch: $*\"' _",
-    "start": "npx tsx index.ts"
+    "start": "npx tsx index.ts",
+    "db:reset": "echo '{ \"messages\": [] }' > db.json"
   },
   "overrides": {
     "whatwg-url": "13.0.0"
