@@ -2,7 +2,7 @@ import type OpenAI from 'openai'
 
 const getWeather = () => `hot, 90deg`
 
-export const runTool = (
+export const runTool = async (
   toolCall: OpenAI.Chat.ChatCompletionMessageToolCall,
   userMessage: string
   //, userId: string // can be used to limit what the user has access to
