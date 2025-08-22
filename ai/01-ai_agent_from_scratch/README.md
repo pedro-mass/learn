@@ -6,6 +6,7 @@
 ## my notes
 
 - track tokens with: https://www.npmjs.com/package/gpt-tokenizer
+- github of AI models: https://huggingface.co/
 
 ## Setup Instructions
 
