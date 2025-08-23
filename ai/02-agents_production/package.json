@@ -6,7 +6,8 @@
     "commit": "sh -c 'git commit -m \"ai: 02-agents_production: $*\"' _",
     "start": "npx tsx index.ts",
     "eval": "npx tsx evals/run.ts $1",
-    "ingest": "npx tsx src/rag/ingest.ts"
+    "ingest": "npx tsx src/rag/ingest.ts",
+    "db:reset": "echo '{ \"messages\": [] }' > db.json"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
