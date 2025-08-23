@@ -91,9 +91,9 @@ export const saveSet = async (
 export const runEval = async <T = any>(
   experiment: string,
   {
-    task,
-    data,
-    scorers,
+    task, // the thing to run against the LLM or async function that returns a result
+    data, // inputs, outputs
+    scorers, // array of metrics you want to score against the result
   }: {
     task: (input: any) => Promise<T>
     data: { input: any; expected?: T; reference?: string | string[] }[]
