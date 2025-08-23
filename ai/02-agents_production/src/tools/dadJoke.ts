@@ -5,7 +5,7 @@ import fetch from 'node-fetch'
 export const dadJokeToolDefinition = {
   name: 'dad_joke',
   parameters: z.object({}),
-  description: 'get a dad joke',
+  description: 'returns a random dad joke',
 }
 
 type Args = z.infer<typeof dadJokeToolDefinition.parameters>
