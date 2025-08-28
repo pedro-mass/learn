@@ -1,7 +1,8 @@
 import type { AIMessage } from '../types'
 import { openai } from './ai'
-import { zodFunction } from 'openai/helpers/zod'
+import { zodFunction, zodResponseFormat } from 'openai/helpers/zod'
 import { systemPrompt as defaultSystemPrompt } from './systemPrompt'
+import z from 'zod'
 
 export const runLLM = async ({
   messages,
@@ -34,4 +35,33 @@ export const runLLM = async ({
   })
 
   return response.choices[0].message
+}
+
+export const runApprovalCheck = async (userMessage: string) => {
+  // the beta is important as it allows us to use the zodResponseFormat
+  const result = await openai.beta.chat.completions.parse({
+    model: 'gpt-4o-mini',
+    temperature: 0.1,
+    response_format: zodResponseFormat(
+      z.object({
+        approved: z
+          .boolean()
+          .describe(`did the user approve the action or not`),
+      }),
+      'approval'
+    ),
+    messages: [
+      {
+        role: 'system',
+        // hard-coded to the only tool we have that needs an approval
+        content: `Determine if the user approved the image generation. If you are not sure, then it is not approved.`,
+      },
+      {
+        role: 'user',
+        content: userMessage,
+      },
+    ],
+  })
+
+  return result.choices[0].message.parsed?.approved ?? false
 }
