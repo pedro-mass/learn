@@ -1,16 +1,16 @@
-var port = 1337;
+var port = process.env.PORT || 1337;
 
 module.exports = {
 	port: port,
-	db: 'mongodb://localhost/todos',
+	db: process.env.MONGODB_URI || 'mongodb://localhost/todos',
 	facebook: {
-		clientID: '513828288756645',
-		clientSecret: '2d7cc991efddb864e9af61f307980b9a',
-		callbackURL: 'http://localhost:'+ port +'/oauth/facebook/callback'
+		clientID: process.env.FACEBOOK_CLIENT_ID || '',
+		clientSecret: process.env.FACEBOOK_CLIENT_SECRET || '',
+		callbackURL: 'http://localhost:' + port + '/oauth/facebook/callback'
 	},
 	twitter: {
-		clientID: 'yFntGKkvMZkDKL47XGtzLNdRA',
-		clientSecret: 'EAiPTjPYLX5nrkpRtxYQflbWpRTqqLwwBHRLh7WpdQ1P69Tre6',
-		callbackURL: 'http://localhost:'+ port +'/oauth/twitter/callback'
+		clientID: process.env.TWITTER_CLIENT_ID || '',
+		clientSecret: process.env.TWITTER_CLIENT_SECRET || '',
+		callbackURL: 'http://localhost:' + port + '/oauth/twitter/callback'
 	}
 };

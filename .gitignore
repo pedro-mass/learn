@@ -1,3 +1,9 @@
 node_modules
 .DS_Store
 bower_components
+
+.env
+.env.*
+!.env.example
+**/development.local.js
+**/config/env/local.js
